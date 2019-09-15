@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900");
+@import url("https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope");
+
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
+
+/**umb_name:Header*/
+h1 {
+	font-family: 'Annie Use Your Telescope';
+	font-size: 1.6rem;
+}
+
+/**umb_name:Header 2*/
+h2 {
+	font-family: 'Annie Use Your Telescope';
+	font-size: 1.4rem;
+}
+
+/**umb_name:Header 3*/
+h3 {
+	font-family: 'Annie Use Your Telescope';
+	font-size: 1.2rem;
+}
+
+/**umb_name:Header 4*/
+h4 {
+	font-family: 'Lato';
+	font-size: 1.4rem;
+}
+
+/**umb_name:Header 5*/
+h5 {
+	font-family: 'Lato';
+	font-size: 1.2rem;
+}
+
+/**umb_name:Header 6*/
+h6 {
+	font-family: 'Lato';
+	font-size: 1.1rem;
+}
+
+/**umb_name:Paragraph*/
+p {
+	font-size: 1rem;
+}
+
+/**umb_name:Blockquote*/
+blockquote {
+	font-style: italic;
+}
