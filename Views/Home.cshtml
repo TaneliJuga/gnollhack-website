@@ -1,0 +1,12 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Home>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+}
+
+@Html.GetGridHtml(Model, "content")
+
+<div class="container text-center">
+    <div id="newsheader" style="position:relative;top:-61px;"></div>
+    <h2>Uutiset</h2>
+</div>

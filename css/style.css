@@ -1,0 +1,7 @@
+/* Go crazy with your own styles here */
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
+
+/* Fixes the issue of Google Fonts not displaying on Windows 7 using IE 10 or IE 11. */
+body {
+	-ms-font-feature-settings: normal;
+}
