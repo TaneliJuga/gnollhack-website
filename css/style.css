@@ -5,3 +5,48 @@
 body {
 	-ms-font-feature-settings: normal;
 }
+.download{
+    /*border: 10px solid transparent;*/
+}
+.download:hover{
+    /*
+    box-shadow: 0px 0px 40px rgba(0,0,0, .2);*/
+    filter: drop-shadow(0px 0px 70px rgba(255, 234, 43, .9));
+    /*border-color: #f1f1f1;*/
+}
+.download-container {
+    /*padding: 30px 10px;*/
+    background-color: #ffe;
+    border-bottom: 2px solid #222;
+}
+
+@media screen and (min-width: 768px) {
+    .download-container {
+        padding: 30px 10px;
+        background-color: #fffff4;
+        border-bottom: none;
+    }
+
+    .download-box {
+        border: 2px solid #222;
+		border-radius: 15px;
+    }
+}
+
+.download-box {
+    background-color: #ffe;
+    padding: 20px;
+    max-width: 720px;
+    margin: 0 auto;    
+}
+
+/*.download-box p, .download-box h3, .download-box h4, .download-box a image{
+    text-align: center;
+}*/
+
+.download-box{
+    text-align: center;
+}
+h3{
+    font-family: 'Rye', cursive;
+}
