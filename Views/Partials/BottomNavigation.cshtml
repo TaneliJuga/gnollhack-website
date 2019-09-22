@@ -1,6 +1,6 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
 @{
-    var home = Model;
+    var home = Model.Root();
     var children = home.Children.Where(c => c.IsVisible());
     var count = children.Count();
     var sCols = (count > 0) ? (int)(12 / count) : 0;

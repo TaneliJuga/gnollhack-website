@@ -1,12 +1,13 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
 @{ 
-    var home = @Model;
+    var home = Model.Root();
+    Boolean asd = false;
 }
 @if (home.Children.Any())
 {
     IEnumerable<dynamic> allChildren = home.Children;
-    IEnumerable<dynamic> children = allChildren.Where(c => !(c.hideFromNavigation is bool) || c.hideFromNavigation == false);
-
+    IEnumerable<dynamic> children2 = allChildren.Where(c => !(c.hideFromNavigation is bool) || c.hideFromNavigation == false);
+    IEnumerable<dynamic> children = allChildren.Where(c => Model.Value<bool>("hideFromNavigation") == false);
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -23,11 +24,11 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse navbar-centered">
                 <ul class="nav navbar-nav">
-                    @foreach (var childPage in children)
+                    @foreach (IPublishedContent childPage in children)
                     {
                         if (childPage.Children.Any())
                         {
-                            if (childPage.DocumentTypeAlias == "LandingPage")
+                            if (childPage.IsDocumentType("LandingPage"))
                             {
                                 
                                 <li class="dropdown@(childPage.IsAncestorOrSelf(Model) ? " selected" : "")">
