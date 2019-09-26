@@ -53,3 +53,45 @@ h3{
 table{
     margin: auto;
 }
+
+#borderimg1 {
+	margin: auto;
+	width: 70%;
+  border: 100px solid transparent;
+  border-image: url(/media/clhdyisu/scroll_paper.png) 20% round;
+}
+
+#content { 
+	width: 100%;
+	height: 600px;
+	background-color: #efe4b3;
+	margin: 0;
+}
+
+caption{
+    text-align: center;
+    font-size: 62px;
+    font-family: 'Rye', cursive;
+    color: black; 
+}
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #d9cfa1;
+}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    border-top-color: black;
+}
+
+.table>thead>tr>th {
+    border-bottom-color: black;
+}
+
+td{
+ text-align: center;   
+}
+tr{
+    text-align: center;
+}
+tr:first-child{
+    text-align: left;
+}
