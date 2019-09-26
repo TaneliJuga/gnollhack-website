@@ -1,5 +1,24 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.SpellSchool>
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
-	Layout = null;
+	Layout = "master.cshtml";
+	var spells = Model.Children().Where(x => x.IsVisible()).OrderBy(x => x.Name);
 }
+
+<table class="table table-bordered">
+  <caption>List of users</caption>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Level</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach(IPublishedContent spell in spells){
+    <tr>
+      <th scope="row">@spell.Name</th>
+      <td>@spell.Level</td>
+    </tr>
+    }
+  </tbody>
+</table>
