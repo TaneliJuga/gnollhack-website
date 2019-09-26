@@ -50,3 +50,6 @@ body {
 h3{
     font-family: 'Rye', cursive;
 }
+table{
+    margin: auto;
+}

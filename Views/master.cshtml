@@ -3,7 +3,6 @@
 @using System.Globalization
 @{
     Layout = null;
-    //var home = @Model.Site();
     var lang = "en-US";
 }
 
@@ -76,12 +75,12 @@
 </head>
 
 <body>
+    @*@Html.Partial("MainNavigation")*@
     @Html.Partial("MainNavigation")
 
     <div style="padding-top:61px;">
         @RenderBody()
     </div>
-
     @Html.Partial("BottomNavigation")
 
     <!-- Javascripts -->

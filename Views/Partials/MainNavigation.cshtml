@@ -1,9 +1,11 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
 @{ 
+    var ancestors = Model.Ancestors();
+    //var home = ancestors.GetEnumerator.Current();
     var home = Model.Root();
-    Boolean asd = false;
 }
-@if (home.Children.Any())
+
+@if (home.Descendants().Any())
 {
     IEnumerable<dynamic> allChildren = home.Children;
     IEnumerable<dynamic> children2 = allChildren.Where(c => !(c.hideFromNavigation is bool) || c.hideFromNavigation == false);
@@ -34,7 +36,6 @@
                                 <li class="dropdown@(childPage.IsAncestorOrSelf(Model) ? " selected" : "")">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@childPage.Name <span class="caret"></span></a>
                                     @childPages(childPage.Children, childPage == children.Last())
-
                                 </li>
 
                             }
@@ -58,8 +59,9 @@
     </nav>
 }
 
-@helper childPages(dynamic pages, bool isLast)
+@helper childPages(IEnumerable<dynamic> pages, bool isLast)
 {
+
     @* Ensure that we have a collection of pages *@
     if (pages.Any())
     {
