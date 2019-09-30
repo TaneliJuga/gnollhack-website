@@ -1,0 +1,51 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.SpellSchool>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "master.cshtml";
+    IEnumerable<dynamic> spells = Model.Children().Where(x => x.IsVisible()).OrderBy(x => x.Value<int>("spellLevel"));
+    Random rnd = new Random();
+}
+
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#content">Simple collapsible</button>
+<div class="container" id="scroll_container">
+    <div id="borderimg">
+        <div id="content" class="collapse">
+            <table class="table table-hover">
+                <caption>@Model.Value("spellSchoolName") spells</caption>
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Level</th>
+                        <th scope="col">Mana cost</th>
+                        <th scope="col" id="status">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (IPublishedContent spell in spells)
+                    {
+                    <tr>
+                        <th scope="row"><a href=@spell.Url>@spell.Name</a></th>
+                        <td>@spell.Value("spellLevel")</td>
+                        <td>@(spell.Value<int>("manaCost") == 0 ? rnd.Next(1, 50) : spell.Value("manaCost"))</td>
+                        @if (spell.Value<bool>("newOrChanged") == true)
+                        {
+                            <th scope="row"><span class="label label-success">New!</span></th>
+                        }
+                        else
+                        {
+                            <th scope="row"><span class="label label-default">Changed!</span></th>
+                        }
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Open the scroll
+        $('#content').collapse();
+    })
+</script>
