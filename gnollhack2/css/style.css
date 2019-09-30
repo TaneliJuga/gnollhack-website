@@ -1,0 +1,124 @@
+/* Go crazy with your own styles here */
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
+
+/* Fixes the issue of Google Fonts not displaying on Windows 7 using IE 10 or IE 11. */
+body {
+	-ms-font-feature-settings: normal;
+}
+.download{
+    /*border: 10px solid transparent;*/
+}
+.download:hover{
+    /*
+    box-shadow: 0px 0px 40px rgba(0,0,0, .2);*/
+    filter: drop-shadow(0px 0px 70px rgba(255, 234, 43, .9));
+    /*border-color: #f1f1f1;*/
+}
+.download-container {
+    /*padding: 30px 10px;*/
+    background-color: #ffe;
+    border-bottom: 2px solid #222;
+}
+
+@media screen and (min-width: 768px) {
+    .download-container {
+        padding: 30px 10px;
+        background-color: #fffff4;
+        border-bottom: none;
+    }
+
+    .download-box {
+        border: 2px solid #222;
+		border-radius: 15px;
+    }
+}
+
+.download-box {
+    background-color: #ffe;
+    padding: 20px;
+    max-width: 720px;
+    margin: 0 auto;    
+}
+
+/*.download-box p, .download-box h3, .download-box h4, .download-box a image{
+    text-align: center;
+}*/
+
+.download-box{
+    text-align: center;
+}
+h3{
+    font-family: 'Rye', cursive;
+}
+
+#borderimg {
+    border: 100px solid transparent;
+    border-image: url(/media/clhdyisu/scroll_paper.png) 236 326 236 301 round;
+    margin: auto;
+}
+    
+#content {
+    width: 100%;
+    background-color: #efe4b3;
+    text-align: center;
+}
+
+#content caption, h1 {
+    text-align: center;
+    font-size: 62px;
+    font-family: 'Rye', cursive;
+    color: black;
+    margin: 0;
+}
+
+#content p {
+    font-size: 18px;
+    font-family: 'Courgette', cursive;
+    margin: 10px;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #d9cfa1;
+}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    border-top-color: black;
+}
+
+.table>thead>tr>th {
+    border-bottom-color: black;
+}
+
+td{
+    text-align: center;
+}
+
+thead tr th:not(:first-child){
+    text-align: center;
+}
+
+.table{
+    margin: 0;
+}
+
+table {
+    font-family: 'Berkshire Swash', cursive;
+    /*font-family: 'Rye', cursive;*/
+    font-size: 18px;
+}
+
+thead #status {
+    text-align: left;
+}
+
+table a {
+    color: #3e3f3a;
+}
+
+#level{
+    text-align: center;
+}
+
+/*table p{
+    display: table-footer-group;
+}*/
