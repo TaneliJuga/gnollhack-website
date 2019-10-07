@@ -7,8 +7,8 @@
 }
 
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#content">Simple collapsible</button>
-<div class="container" id="scroll_container">
-    <div id="borderimg">
+@*<div class="container" id="scroll_container">*@
+    <div id="borderimg" class="container">
         <div id="content" class="collapse">
             <table class="table table-hover">
                 <caption>@Model.Value("spellSchoolName") spells</caption>
@@ -41,7 +41,7 @@
             </table>
         </div>
     </div>
-</div>
+@*</div>*@
 
 <script>
     $(document).ready(function () {

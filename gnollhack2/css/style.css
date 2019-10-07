@@ -52,15 +52,17 @@ h3{
 }
 
 #borderimg {
-    border: 100px solid transparent;
+    border: 50px solid transparent;
     border-image: url(/media/clhdyisu/scroll_paper.png) 236 326 236 301 round;
     margin: auto;
+    padding: 0;
 }
     
 #content {
     width: 100%;
     background-color: #efe4b3;
     text-align: center;
+    overflow-x: auto;
 }
 
 #content caption, h1 {
