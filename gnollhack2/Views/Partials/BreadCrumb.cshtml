@@ -1,0 +1,13 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@{
+    var ancestors = Model.Ancestors().Reverse();
+}
+
+<ul class="breadcrumb">
+    @foreach (IPublishedContent ancestor in ancestors)
+    {
+        <li><a href="@ancestor.Url">@ancestor.Name</a></li>
+    }
+    <li><a href="@Model.Url">@Model.Name</a></li>
+</ul>

@@ -81,8 +81,15 @@
 </head>
 
 <body>
-    @*@Html.Partial("MainNavigation")*@
     @Html.Partial("MainNavigation")
+
+    
+    @Html.Partial("BreadCrumb")
+
+    @if (Model.Ancestors().ToArray().Length > 1)
+    {
+        @Html.Partial("BreadCrumb")
+    }
 
     <div style="padding-top:61px;">
         @RenderBody()

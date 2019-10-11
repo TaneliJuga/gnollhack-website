@@ -4,20 +4,22 @@
     Layout = "master.cshtml";
     IEnumerable<dynamic> spells = Model.Children().Where(x => x.IsVisible()).OrderBy(x => x.Value<int>("spellLevel"));
     Random rnd = new Random();
+    int i = 0;
 }
 
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#content">Simple collapsible</button>
 @*<div class="container" id="scroll_container">*@
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for spells.." title="Type in the name of a spell">
     <div id="borderimg" class="container">
         <div id="content" class="collapse">
-            <table class="table table-hover">
+            <table class="table table-hover" id="SpellSchoolTable">
                 <caption>@Model.Value("spellSchoolName") spells</caption>
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Level</th>
-                        <th scope="col">Mana cost</th>
-                        <th scope="col" id="status">Status</th>
+                        <th scope="col" onclick="sortTable(0)">Name</th>
+                        <th scope="col" onclick="sortTable(1)">Level</th>
+                        <th scope="col" onclick="sortTable(2)">Mana cost</th>
+                        <th scope="col" onclick="sortTable(3)" id="status">Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,13 +31,14 @@
                         <td>@(spell.Value<int>("manaCost") == 0 ? rnd.Next(1, 50) : spell.Value("manaCost"))</td>
                         @if (spell.Value<bool>("newOrChanged") == true)
                         {
-                            <th scope="row"><span class="label label-success">New!</span></th>
+                            <td><span class="label label-success">New!</span></td>
                         }
                         else
                         {
-                            <th scope="row"><span class="label label-default">Changed!</span></th>
+                            <td><span class="label label-default">Changed!</span></td>
                         }
                     </tr>
+                        i++;
                     }
                 </tbody>
             </table>
@@ -48,4 +51,86 @@
         // Open the scroll
         $('#content').collapse();
     })
+</script>
+
+<script>
+    function sortTable(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("SpellSchoolTable");
+        switching = true;
+        // Set the sorting direction to ascending:
+        dir = "asc";
+        /* Make a loop that will continue until
+        no switching has been done: */
+        while (switching) {
+            // Start by saying: no switching is done:
+            switching = false;
+            rows = table.rows;
+            /* Loop through all table rows (except the
+            first, which contains table headers): */
+            for (i = 1; i < (rows.length - 1); i++) {
+                // Start by saying there should be no switching:
+                shouldSwitch = false;
+                /* Get the two elements you want to compare,
+                one from current row and one from the next: */
+                //console.log("rows[i].children[n].innerHTML " + rows[i].children[n].innerHTML);
+                x = rows[i].children[n];
+                y = rows[i+1].children[n];
+
+                /* Check if the two rows should switch place,
+                based on the direction, asc or desc: */
+                if (dir == "asc") {
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        // If so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        console.log("break");
+                        break;
+                    }
+                } else if (dir == "desc") {
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        // If so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        console.log("break");
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch) {
+                /* If a switch has been marked, make the switch
+                and mark that a switch has been done: */
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                // Each time a switch is done, increase this count by 1:
+                switchcount++;
+            } else {
+                /* If no switching has been done AND the direction is "asc",
+                set the direction to "desc" and run the while loop again. */
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+            }
+        }
+    }
+</script>
+
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("SpellSchoolTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 1; i < tr.length; i++) {
+            td = tr[i].children[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
 </script>
