@@ -1,5 +1,23 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Monster>
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
-	Layout = null;
+    Layout = "master.cshtml";
+    String caption = Model.Name;
+    IHtmlString description = Model.LongDescription;
+    IEnumerable<String> headers = new List<String>(new String[] { "Appearance", "Difficulty", "Base level", "Attacks" });
+    IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>(
+        new List<String>[] {new List<String>(new String[] {
+        "<span class = \"letter\" style = \"color:#" + Model.Color + "\">" + Model.Letter + "</span>",
+        Model.Difficulty.ToString(),
+        Model.BaseLevel.ToString(),
+        String.Join(", ", Model.Attacks.ToArray())
+    })});
+    this.ViewData.Add("caption", caption);
+    this.ViewData.Add("headers", headers);
+    this.ViewData.Add("description", description);
+    this.ViewData.Add("content", content);
+
+    var children = this.Model.Children();
 }
+
+@Html.Partial("Table")

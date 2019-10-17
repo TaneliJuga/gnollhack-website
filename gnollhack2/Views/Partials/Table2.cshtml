@@ -1,0 +1,43 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<IPublishedContent>
+@{
+    IEnumerable<IPublishedContent> spells = Model.Children().Where(x => x.IsVisible()).OrderBy(x => x.Name);
+    IEnumerable<IPublishedProperty> properties = spells.First().Properties.Where(x => (x.Alias.IndexOf("description", StringComparison.OrdinalIgnoreCase) == -1));
+    Random rnd = new Random();
+    int i = 0;
+}
+
+@properties.First().PropertyType.ClrType
+
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#content">Simple collapsible</button>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for properties.." title="Type in the name of a properties">
+<div class="asd">
+    <div id="borderimg">
+        <div id="content" class="collapse">
+            <table class="table table-hover" id="propertieschoolTable">
+                <caption>@Model.Value("propertieschoolName") properties</caption>
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" onclick="sortTable(0)">Name</th>
+                        @foreach (IPublishedProperty property in properties)
+                        {
+                            <th scope="col" onclick="sortTable(i)">@property.Alias</th>
+                            i++;
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (IPublishedContent spell in spells)
+                    {
+                        <tr>
+                            <th scope="row"><a href=@spell.Url>@spell.Name</a></th>
+                            @foreach (IPublishedProperty property in spell.Properties.Where(x => (x.Alias.IndexOf("description", StringComparison.OrdinalIgnoreCase) == -1)))
+                            {
+                                <td>@property.Value()</td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

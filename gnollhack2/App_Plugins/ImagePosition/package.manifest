@@ -1,0 +1,15 @@
+﻿{
+    "propertyEditors": [
+        {
+            "alias": "Our.Umbraco.ImagePosition",
+            "name": "Image Position",
+            "isParameterEditor": true,
+            "editor": {
+                "view": "~/App_Plugins/Our.Umbraco.ImagePosition/ImagePosition.html",
+                "valueType": "STRING"
+            }
+    }],
+    "javascript": [
+        "~/App_Plugins/Our.Umbraco.ImagePosition/ImagePosition.controller.js"
+    ]
+}

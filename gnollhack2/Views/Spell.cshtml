@@ -2,51 +2,34 @@
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
     Layout = "master.cshtml";
-    var spell = Model;
-    var rnd = new Random();
+    String caption = Model.Name;
+    IHtmlString description = new HtmlString(Model.LongDescription);
+    IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>(
+        new List<String>[] {new List<String>(new String[] {
+        Model.SpellLevel.ToString(),
+        Model.ManaCost.ToString(),
+        "<span class=\"label label-" + (Model.NewOrChanged == true ? "success\"> New!" : "default\"> Changed!") + "</span>"
+    })});
+    IEnumerable<String> headers = new List<String>(new String[] {"Level", "Mana cost", "Status" });
+    this.ViewData.Add("caption", caption);
+    this.ViewData.Add("headers", headers);
+    this.ViewData.Add("description", description);
+    var children = this.Model.Children();
 }
 
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#content">Simple collapsible</button>
-<div class="container" id="scroll_container">
-    <div id="borderimg">
-        <div id="content" class="collapse">
-            <h1>@Model.Name()</h1>
-            <p>@spell.Value("longDescription")</p>
-            <table class="table table-hover">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col" id="level">Level</th>
-                        <th scope="col">Mana cost</th>
-                        <th scope="col" id="status">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>@spell.Value("spellLevel")</td>
-                        <td>@(spell.Value<int>("manaCost") == 0 ? rnd.Next(1, 50) : spell.Value("manaCost"))</td>
-                        @if (spell.Value<bool>("newOrChanged") == true)
-                        {
-                            <th scope="row"><span class="label label-success">New!</span></th>
-                        }
-                        else
-                        {
-                            <th scope="row"><span class="label label-default">Changed!</span></th>
-                        }
-                    </tr>
-                </tbody>
-                @*<tfoot>
-                    <tr>
-                        <td colspan="3">@spell.Value("longDescription")</td>
-                    </tr>
-                </tfoot>*@
-            </table>
-        </div>
-    </div>
-</div>
+@foreach (IPublishedContent spell in children)
+{
+    content = content.Append(
+        new List<String>(new String[] {
+        "<a href=\"" + spell.Url + "\">" + spell.Name + "</a>",
+        spell.Value<String>("spellLevel"),
+        spell.Value<String>("manaCost"),
+        "<td><span class=\"label label-" + (spell.Value<bool>("newOrChanged") == true ? "success\"> New!" : "default\"> Changed!") + "</span></td>"
+                    }));
+}
 
-<script>
-    $(document).ready(function () {
-        // Open the scroll
-        $('#content').collapse();
-    })
-</script>
+@{
+    ViewData.Add("content", content);
+}
+
+@Html.Partial("Table")

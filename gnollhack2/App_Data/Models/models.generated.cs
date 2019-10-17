@@ -19,7 +19,7 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "e85a57b1250f709c")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "dd1902d8283982f1")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedModels
@@ -245,6 +245,13 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
+		/// Content Picker
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("contentPicker")]
+		public IPublishedContent ContentPicker => this.Value<IPublishedContent>("contentPicker");
+
+		///<summary>
 		/// Long Description: Long description of the spell
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
@@ -264,11 +271,25 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("spellSchoolName")]
 		public string SpellSchoolName => this.Value<string>("spellSchoolName");
+
+		///<summary>
+		/// Tags
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("tags")]
+		public IEnumerable<string> Tags => this.Value<IEnumerable<string>>("tags");
+
+		///<summary>
+		/// Tree Picker
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("treePicker")]
+		public IEnumerable<IPublishedContent> TreePicker => this.Value<IEnumerable<IPublishedContent>>("treePicker");
 	}
 
 	/// <summary>Monster</summary>
 	[PublishedModel("monster")]
-	public partial class Monster : PublishedContentModel
+	public partial class Monster : PublishedContentModel, ICategory
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -325,6 +346,20 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("letter")]
 		public string Letter => this.Value<string>("letter");
+
+		///<summary>
+		/// Long Description: A long description of the category
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("longDescription")]
+		public IHtmlString LongDescription => Category.GetLongDescription(this);
+
+		///<summary>
+		/// Short Description: A short description of the category
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("shortDescription")]
+		public IHtmlString ShortDescription => Category.GetShortDescription(this);
 	}
 
 	/// <summary>Monster Class</summary>
@@ -376,7 +411,7 @@ namespace Umbraco.Web.PublishedModels
 
 	/// <summary>Item</summary>
 	[PublishedModel("item")]
-	public partial class Item : PublishedContentModel
+	public partial class Item : PublishedContentModel, ICategory
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -398,6 +433,20 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Long Description: A long description of the category
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("longDescription")]
+		public IHtmlString LongDescription => Category.GetLongDescription(this);
+
+		///<summary>
+		/// Short Description: A short description of the category
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("shortDescription")]
+		public IHtmlString ShortDescription => Category.GetShortDescription(this);
 	}
 
 	// Mixin Content Type with alias "category"

@@ -56,6 +56,7 @@ h3{
     border-image: url(/media/clhdyisu/scroll_paper.png) 236 326 236 301 round;
     margin: auto;
     padding: 0;
+
 }
     
 #content {
@@ -65,7 +66,7 @@ h3{
     overflow-x: auto;
 }
 
-#content caption, h1 {
+#content h1 {
     text-align: center;
     font-size: 62px;
     font-family: 'Rye', cursive;
@@ -73,10 +74,11 @@ h3{
     margin: 0;
 }
 
-#content p {
+caption {
     font-size: 18px;
     font-family: 'Courgette', cursive;
-    margin: 10px;
+    text-align: center;
+    color: black;
 }
 
 th {
@@ -159,4 +161,27 @@ ul.breadcrumb li a {
 ul.breadcrumb li a:hover {
   color: #01447e;
   text-decoration: underline;
+}
+
+.asd {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+body{
+    overflow-x: hidden;
+    min-width: 373px;
+}
+
+/*#borderimg{
+    min-width: 270px;
+}*/
+
+.letter {
+    font-family: "Courier New","Menlo","DejaVu Sans Mono","Courier",monospace;
+    font-weight: bold;
+    font-size: large;
+    background-color: black;
+    padding: 1px;
 }

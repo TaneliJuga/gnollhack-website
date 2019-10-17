@@ -1,0 +1,13 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{
+
+}
+@foreach (var sibling in Model.Content.Siblings())
+{
+    sibling.ToString();
+}
+
+@foreach (var child in Model.Content.Children())
+{
+    child.ToString();
+}
