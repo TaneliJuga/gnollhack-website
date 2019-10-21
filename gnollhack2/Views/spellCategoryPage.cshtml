@@ -1,0 +1,40 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+    Layout = "mainCategoryPage.cshtml";
+    String caption = "All spells";
+    IHtmlString description = null;
+    IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>();
+    IEnumerable<String> headers = new List<String>(new String[] { "Name", "Spell school", "Level", "Mana cost", "Status" });
+    this.ViewData.Add("caption", caption);
+    this.ViewData.Add("headers", headers);
+    this.ViewData.Add("description", description);
+    var children = this.Model.Children();
+
+}
+
+@foreach (IPublishedContent spellSchool in children)
+{
+    foreach (IPublishedContent spell in spellSchool.Children)
+    {
+        String symbol = spell.Value<String>("symbol", fallback: Fallback.To(Fallback.Ancestors));
+        String symbolColor = spell.Value<String>("symbolColor", fallback: Fallback.To(Fallback.Ancestors));
+
+        content = content.Append(
+            new List<String>(new String[] {
+                "<a href=\"" + spell.Url + "\">" + spell.Name + "</a>",
+                "<a href=\"" + spellSchool.Url + "\">" + spellSchool.Name + "</a>",
+                spell.Value<String>("spellLevel"),
+                spell.Value<String>("manaCost"),
+                "<span class=\"label label-" + (spell.Value<bool>("newOrChanged") == true ? "success\"> New!" : "default\"> Changed!") + "</span>"
+            }));
+    }
+}
+
+@{
+    ViewData.Add("content", content);
+}
+
+@Html.Partial("Table")
+
+
+

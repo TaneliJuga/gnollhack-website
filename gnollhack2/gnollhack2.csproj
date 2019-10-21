@@ -7240,6 +7240,9 @@
     <Content Include="Views\Comestible.cshtml" />
     <Content Include="Views\mainCategoryPage.cshtml" />
     <Content Include="Views\Item.cshtml" />
+    <Content Include="Views\ItemCategory.cshtml" />
+    <Content Include="Views\monsterCategoryPage.cshtml" />
+    <Content Include="Views\spellCategoryPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -5,9 +5,12 @@
     String caption = Model.Name;
     IHtmlString description = Model.LongDescription;
     IEnumerable<String> headers = new List<String>(new String[] { "Symbol", "Difficulty", "Base level", "Attacks" });
+    String symbol = Model.Value<String>("symbol", fallback: Fallback.To(Fallback.Ancestors));
+    String symbolColor = Model.Value<String>("symbolColor", fallback: Fallback.To(Fallback.Ancestors));
+
     IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>(
         new List<String>[] {new List<String>(new String[] {
-        "<span class = \"letter\" style = \"color:#" + Model.SymbolColor + "\">" + Model.Letter + "</span>",
+        "<span class = \"letter\" style = \"color:#" + symbolColor + "\">" + symbol + "</span>",
         Model.Difficulty.ToString(),
         Model.BaseLevel.ToString(),
         String.Join(", ", Model.Attacks.ToArray())
