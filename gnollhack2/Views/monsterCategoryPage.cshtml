@@ -1,0 +1,39 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "mainCategoryPage.cshtml";
+    String caption = "All monsters";
+    IHtmlString description = null;
+    IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>();
+    IEnumerable<String> headers = new List<String>(new String[] { "Name", "Monster class", "Symbol", "Difficulty", "Base level"});
+    this.ViewData.Add("caption", caption);
+    this.ViewData.Add("headers", headers);
+    this.ViewData.Add("description", description);
+    var children = this.Model.Children();
+}
+
+@foreach (IPublishedContent monsterClass in children)
+{
+    foreach (IPublishedContent monster in monsterClass.Children)
+    {
+        String symbol = monster.Value<String>("symbol", fallback: Fallback.To(Fallback.Ancestors));
+        String symbolColor = monster.Value<String>("symbolColor", fallback: Fallback.To(Fallback.Ancestors));
+        
+        content = content.Append(
+            new List<String>(new String[] {
+                "<a href=\"" + monster.Url + "\">" + monster.Name + "</a>",
+                "<a href=\"" + monsterClass.Url + "\">" + monsterClass.Name + "</a>",
+                "<span class = \"letter\" style = \"color:#" + symbolColor + "\">" + symbol + "</span>",
+                monster.Value<String>("difficulty"),
+                monster.Value<String>("baseLevel")
+        }));
+    }
+}           
+
+@{
+    ViewData.Add("content", content);
+}
+
+@Html.Partial("Table")
+
+

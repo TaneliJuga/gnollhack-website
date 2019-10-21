@@ -5,7 +5,7 @@
     String caption = Model.Name;
     IHtmlString description = Model.LongDescription;
     IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>();
-    IEnumerable<String> headers = new List<String>(new String[] {"Name", "Appearance", "Difficulty", "Base level", "Attacks" });
+    IEnumerable<String> headers = new List<String>(new String[] {"Name", "Symbol", "Difficulty", "Base level"});
     this.ViewData.Add("caption", caption);
     this.ViewData.Add("headers", headers);
     this.ViewData.Add("description", description);
@@ -16,13 +16,15 @@
 
 @foreach (IPublishedContent monster in children)
 {
+    String symbol = monster.Value<String>("symbol", fallback: Fallback.To(Fallback.Ancestors));
+    String symbolColor = monster.Value<String>("symbolColor", fallback: Fallback.To(Fallback.Ancestors));
+
     content = content.Append(
         new List<String>(new String[] {
         "<a href=\"" + monster.Url + "\">" + monster.Name + "</a>",
-        "<span class = \"letter\" style = \"color:#" + monster.Value("symbolColor") + "\">" + monster.Value("letter") + "</span>",
+        "<span class = \"letter\" style = \"color:#" + symbolColor + "\">" + symbol + "</span>",
         monster.Value<String>("difficulty"),
         monster.Value<String>("baseLevel"),
-        String.Join(", ", monster.Value<IEnumerable<String>>("attacks").ToArray())
         }));
 }
 
