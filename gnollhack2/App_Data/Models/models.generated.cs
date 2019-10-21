@@ -19,7 +19,7 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "dd1902d8283982f1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "9380d5d0015d771f")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedModels
@@ -327,13 +327,6 @@ namespace Umbraco.Web.PublishedModels
 		public int BaseLevel => this.Value<int>("baseLevel");
 
 		///<summary>
-		/// Color: The color of the monster
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
-		[ImplementPropertyType("color")]
-		public string Color => this.Value<string>("color");
-
-		///<summary>
 		/// Difficulty: The difficulty of the monster
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
@@ -348,18 +341,32 @@ namespace Umbraco.Web.PublishedModels
 		public string Letter => this.Value<string>("letter");
 
 		///<summary>
-		/// Long Description: A long description of the category
+		/// Long Description: A long description of the object
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("longDescription")]
 		public IHtmlString LongDescription => Category.GetLongDescription(this);
 
 		///<summary>
-		/// Short Description: A short description of the category
+		/// Short Description: A short description of the object
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("shortDescription")]
 		public IHtmlString ShortDescription => Category.GetShortDescription(this);
+
+		///<summary>
+		/// Symbol: The ASCII symbol that the object appears as in game.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("symbol")]
+		public string Symbol => Category.GetSymbol(this);
+
+		///<summary>
+		/// Color: The color of the ASCII symbol
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("symbolColor")]
+		public string SymbolColor => Category.GetSymbolColor(this);
 	}
 
 	/// <summary>Monster Class</summary>
@@ -395,18 +402,123 @@ namespace Umbraco.Web.PublishedModels
 		public string Letter => this.Value<string>("letter");
 
 		///<summary>
-		/// Long Description: A long description of the category
+		/// Long Description: A long description of the object
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("longDescription")]
 		public IHtmlString LongDescription => Category.GetLongDescription(this);
 
 		///<summary>
-		/// Short Description: A short description of the category
+		/// Short Description: A short description of the object
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("shortDescription")]
 		public IHtmlString ShortDescription => Category.GetShortDescription(this);
+
+		///<summary>
+		/// Symbol: The ASCII symbol that the object appears as in game.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("symbol")]
+		public string Symbol => Category.GetSymbol(this);
+
+		///<summary>
+		/// Color: The color of the ASCII symbol
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("symbolColor")]
+		public string SymbolColor => Category.GetSymbolColor(this);
+	}
+
+	// Mixin Content Type with alias "category"
+	/// <summary>Describable</summary>
+	public partial interface ICategory : IPublishedContent
+	{
+		/// <summary>Long Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		IHtmlString LongDescription { get; }
+
+		/// <summary>Short Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		IHtmlString ShortDescription { get; }
+
+		/// <summary>Symbol</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		string Symbol { get; }
+
+		/// <summary>Color</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		string SymbolColor { get; }
+	}
+
+	/// <summary>Describable</summary>
+	[PublishedModel("category")]
+	public partial class Category : PublishedContentModel, ICategory
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const string ModelTypeAlias = "category";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Category, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public Category(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+
+		///<summary>
+		/// Long Description: A long description of the object
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("longDescription")]
+		public IHtmlString LongDescription => GetLongDescription(this);
+
+		/// <summary>Static getter for Long Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static IHtmlString GetLongDescription(ICategory that) => that.Value<IHtmlString>("longDescription");
+
+		///<summary>
+		/// Short Description: A short description of the object
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("shortDescription")]
+		public IHtmlString ShortDescription => GetShortDescription(this);
+
+		/// <summary>Static getter for Short Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static IHtmlString GetShortDescription(ICategory that) => that.Value<IHtmlString>("shortDescription");
+
+		///<summary>
+		/// Symbol: The ASCII symbol that the object appears as in game.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("symbol")]
+		public string Symbol => GetSymbol(this);
+
+		/// <summary>Static getter for Symbol</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static string GetSymbol(ICategory that) => that.Value<string>("symbol");
+
+		///<summary>
+		/// Color: The color of the ASCII symbol
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("symbolColor")]
+		public string SymbolColor => GetSymbolColor(this);
+
+		/// <summary>Static getter for Color</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static string GetSymbolColor(ICategory that) => that.Value<string>("symbolColor");
 	}
 
 	/// <summary>Item</summary>
@@ -435,79 +547,392 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Long Description: A long description of the category
+		/// Appearance: How the appearance of the item is described in game, before it is identified (leaving this field empty means the item has a random appearance).
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("appearance")]
+		public string Appearance => this.Value<string>("appearance");
+
+		///<summary>
+		/// BasePrice: The price of the item, in gold pieces (zorkmids), before modifiers
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("basePrice")]
+		public decimal BasePrice => this.Value<decimal>("basePrice");
+
+		///<summary>
+		/// Weight: Weight of the item (1 unit equals 100 gold).
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("weight")]
+		public decimal Weight => this.Value<decimal>("weight");
+
+		///<summary>
+		/// Long Description: A long description of the object
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("longDescription")]
 		public IHtmlString LongDescription => Category.GetLongDescription(this);
 
 		///<summary>
-		/// Short Description: A short description of the category
+		/// Short Description: A short description of the object
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("shortDescription")]
 		public IHtmlString ShortDescription => Category.GetShortDescription(this);
+
+		///<summary>
+		/// Symbol: The ASCII symbol that the object appears as in game.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("symbol")]
+		public string Symbol => Category.GetSymbol(this);
+
+		///<summary>
+		/// Color: The color of the ASCII symbol
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("symbolColor")]
+		public string SymbolColor => Category.GetSymbolColor(this);
 	}
 
-	// Mixin Content Type with alias "category"
-	/// <summary>Category</summary>
-	public partial interface ICategory : IPublishedContent
-	{
-		/// <summary>Long Description</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
-		IHtmlString LongDescription { get; }
-
-		/// <summary>Short Description</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
-		IHtmlString ShortDescription { get; }
-	}
-
-	/// <summary>Category</summary>
-	[PublishedModel("category")]
-	public partial class Category : PublishedContentModel, ICategory
+	/// <summary>Item Category</summary>
+	[PublishedModel("itemCategory")]
+	public partial class ItemCategory : PublishedContentModel, ICategory
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
-		public new const string ModelTypeAlias = "category";
+		public new const string ModelTypeAlias = "itemCategory";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Category, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<ItemCategory, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public Category(IPublishedContent content)
+		public ItemCategory(IPublishedContent content)
 			: base(content)
 		{ }
 
 		// properties
 
 		///<summary>
-		/// Long Description: A long description of the category
+		/// Long Description: A long description of the object
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("longDescription")]
-		public IHtmlString LongDescription => GetLongDescription(this);
-
-		/// <summary>Static getter for Long Description</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
-		public static IHtmlString GetLongDescription(ICategory that) => that.Value<IHtmlString>("longDescription");
+		public IHtmlString LongDescription => Category.GetLongDescription(this);
 
 		///<summary>
-		/// Short Description: A short description of the category
+		/// Short Description: A short description of the object
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("shortDescription")]
-		public IHtmlString ShortDescription => GetShortDescription(this);
+		public IHtmlString ShortDescription => Category.GetShortDescription(this);
 
-		/// <summary>Static getter for Short Description</summary>
+		///<summary>
+		/// Symbol: The ASCII symbol that the object appears as in game.
+		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
-		public static IHtmlString GetShortDescription(ICategory that) => that.Value<IHtmlString>("shortDescription");
+		[ImplementPropertyType("symbol")]
+		public string Symbol => Category.GetSymbol(this);
+
+		///<summary>
+		/// Color: The color of the ASCII symbol
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("symbolColor")]
+		public string SymbolColor => Category.GetSymbolColor(this);
+	}
+
+	/// <summary>Amulet</summary>
+	[PublishedModel("amulet")]
+	public partial class Amulet : Item
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const string ModelTypeAlias = "amulet";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Amulet, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public Amulet(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+	}
+
+	/// <summary>Armor</summary>
+	[PublishedModel("armor")]
+	public partial class Armor : Item
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const string ModelTypeAlias = "armor";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Armor, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public Armor(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+	}
+
+	/// <summary>Comestible</summary>
+	[PublishedModel("comestible")]
+	public partial class Comestible : Item
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const string ModelTypeAlias = "comestible";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Comestible, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public Comestible(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+	}
+
+	/// <summary>GameObject</summary>
+	[PublishedModel("category1")]
+	public partial class Category1 : PublishedContentModel
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const string ModelTypeAlias = "category1";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Category1, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public Category1(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+
+		///<summary>
+		/// Long Description: A long description of the object
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("longDescription")]
+		public IHtmlString LongDescription => this.Value<IHtmlString>("longDescription");
+
+		///<summary>
+		/// Short Description: A short description of the object
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("shortDescription")]
+		public IHtmlString ShortDescription => this.Value<IHtmlString>("shortDescription");
+
+		///<summary>
+		/// Symbol: The ASCII symbol that the object appears as in game.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("symbol")]
+		public string Symbol => this.Value<string>("symbol");
+
+		///<summary>
+		/// Color: The color of the ASCII symbol
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("symbolColor")]
+		public string SymbolColor => this.Value<string>("symbolColor");
+	}
+
+	/// <summary>Monster Class 2</summary>
+	[PublishedModel("monsterClass2")]
+	public partial class MonsterClass2 : Category1
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const string ModelTypeAlias = "monsterClass2";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<MonsterClass2, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public MonsterClass2(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+	}
+
+	/// <summary>Monster 2</summary>
+	[PublishedModel("monster2")]
+	public partial class Monster2 : MonsterClass2
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const string ModelTypeAlias = "monster2";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Monster2, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public Monster2(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+
+		///<summary>
+		/// Attacks: The attacks that the monster has.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("attacks")]
+		public IEnumerable<MonsterAttack> Attacks => this.Value<IEnumerable<MonsterAttack>>("attacks");
+
+		///<summary>
+		/// Base Level: The monster's level before modifiers.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("baseLevel")]
+		public int BaseLevel => this.Value<int>("baseLevel");
+
+		///<summary>
+		/// Difficulty: A monster's difficulty is a number from 1 to 57 which represents the game's idea of how tough a monster is.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("difficulty")]
+		public int Difficulty => this.Value<int>("difficulty");
+	}
+
+	/// <summary>Monster Attack</summary>
+	[PublishedModel("monsterAttack")]
+	public partial class MonsterAttack : PublishedElementModel
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const string ModelTypeAlias = "monsterAttack";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<MonsterAttack, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public MonsterAttack(IPublishedElement content)
+			: base(content)
+		{ }
+
+		// properties
+
+		///<summary>
+		/// AdditionalEffects: Any additional effects that the attack might have ex. poison.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("additionalEffects")]
+		public string AdditionalEffects => this.Value<string>("additionalEffects");
+
+		///<summary>
+		/// AttackName
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("attackName")]
+		public string AttackName => this.Value<string>("attackName");
+
+		///<summary>
+		/// Damage: The amount of damage that the attack does, given in "d notation" ex. 1d12
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("damage")]
+		public string Damage => this.Value<string>("damage");
+
+		///<summary>
+		/// Descirption: A description of what thee attack does
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("descirption")]
+		public string Descirption => this.Value<string>("descirption");
+	}
+
+	/// <summary>Coin</summary>
+	[PublishedModel("coin")]
+	public partial class Coin : Item
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const string ModelTypeAlias = "coin";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Coin, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public Coin(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
 	}
 
 	/// <summary>Folder</summary>

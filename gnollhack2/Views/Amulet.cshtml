@@ -1,0 +1,25 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Amulet>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "archivePage.cshtml";
+    String caption = Model.Name;
+    IHtmlString description = Model.LongDescription;
+    IEnumerable<String> headers = new List<String>(new String[] { "Symbol", "Weight", "Base price", "Appearance" });
+    String symbol = Model.Value("symbol", fallback: Fallback.To(Fallback.Ancestors)).ToString();
+    String symbolColor = Model.Value("symbolColor", fallback: Fallback.To(Fallback.Ancestors)).ToString();
+    HtmlString appearance = Model.Value("appearance", fallback: Fallback.To(Fallback.Ancestors, Fallback.DefaultValue), defaultValue: new HtmlString("Random"));
+    IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>(
+        new List<String>[] {new List<String>(new String[] {
+        "<span class = \"letter\" style = \"color:#" + symbolColor + "\">" + symbol + "</span>",
+        Model.Weight.ToString(),
+        Model.BasePrice.ToString(),
+        appearance.ToString()
+    })});
+    this.ViewData.Add("caption", caption);
+    this.ViewData.Add("headers", headers);
+    this.ViewData.Add("description", description);
+    this.ViewData.Add("content", content);
+    var children = this.Model.Children();
+}
+
+@Html.Partial("Table")

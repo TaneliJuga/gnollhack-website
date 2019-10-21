@@ -11,13 +11,17 @@
 }
 
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#content">Simple collapsible</button>
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for properties.." title="Type in the name of a properties">
-<div class="asd">
+
+<div class="scrollContainer">
     <div id="borderimg">
         <div id="content" class="collapse">
+            @if (content.Count() > 1)
+            {
+                <input type="text" id="myInput" content="\e003" onkeyup="myFunction()" placeholder="Search by @headers.First().ToLower()" title="Type in a @headers.First().ToLower() to search">
+            }
             <h1>@caption</h1>
             <table class="table table-hover" id="myTable">
-                <caption id="caption">@description.ToString()</caption>
+                <caption id="caption">@description</caption>
                 <thead>
                     <tr>
                         @foreach (var header in headers)
@@ -45,11 +49,38 @@
     </div>
 </div>
 
+
 <script>
     $(document).ready(function () {
         // Open the scroll
-        $('#content').collapse();
+        var content = document.getElementById("content");
+        var borderImg = document.getElementById("borderimg");
+        content.style.height = "0px";
+
+        //borderImg.style.width = (content.clientWidth + 101) + "px";
+
+        //$('#content').on('show.bs.collapse', function () {
+        //    borderImg.style.width = "initial";
+        //});
+
+        //$("#content").on('hide.bs.collapse', function(){
+        //    borderImg.style.width = (content.clientWidth + 101) + "px";
+        //});
+
+        //$('#content').collapse();
+
+        window.setTimeout(function () {$('#content').collapse()}, 200);
+
+        var table = document.getElementById("myTable");
+        var i, headers = table.rows[0].children;
+
+        for (i = 0; i < headers.length; i++) {
+            headers[i].setAttribute("title", "sort ascending");
+            console.log("headers " + headers[i]);
+        }
+
     })
+
 </script>
 
 <script>
@@ -82,14 +113,12 @@
                     if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
                         // If so, mark as a switch and break the loop:
                         shouldSwitch = true;
-                        console.log("break");
                         break;
                     }
                 } else if (dir == "desc") {
                     if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
                         // If so, mark as a switch and break the loop:
                         shouldSwitch = true;
-                        console.log("break");
                         break;
                     }
                 }
@@ -110,6 +139,11 @@
                 }
             }
         }
+        var headers = rows[0].children;
+        for (i = 0; i < headers.length; i++) {
+            headers[i].setAttribute("title", "sort ascending");
+        }
+        headers[n].setAttribute("title", "sort " + (dir === "asc" ? "descending" : "ascending"));
     }
 </script>
 

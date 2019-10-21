@@ -1,13 +1,13 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Monster>
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
-    Layout = "master.cshtml";
+    Layout = "archivePage.cshtml";
     String caption = Model.Name;
     IHtmlString description = Model.LongDescription;
-    IEnumerable<String> headers = new List<String>(new String[] { "Appearance", "Difficulty", "Base level", "Attacks" });
+    IEnumerable<String> headers = new List<String>(new String[] { "Symbol", "Difficulty", "Base level", "Attacks" });
     IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>(
         new List<String>[] {new List<String>(new String[] {
-        "<span class = \"letter\" style = \"color:#" + Model.Color + "\">" + Model.Letter + "</span>",
+        "<span class = \"letter\" style = \"color:#" + Model.SymbolColor + "\">" + Model.Letter + "</span>",
         Model.Difficulty.ToString(),
         Model.BaseLevel.ToString(),
         String.Join(", ", Model.Attacks.ToArray())

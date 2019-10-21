@@ -1,7 +1,7 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.MonsterClass>
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
-    Layout = "master.cshtml";
+    Layout = "archivePage.cshtml";
     String caption = Model.Name;
     IHtmlString description = Model.LongDescription;
     IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>();
@@ -19,7 +19,7 @@
     content = content.Append(
         new List<String>(new String[] {
         "<a href=\"" + monster.Url + "\">" + monster.Name + "</a>",
-        "<span class = \"letter\" style = \"color:#" + monster.Value("color") + "\">" + monster.Value("letter") + "</span>",
+        "<span class = \"letter\" style = \"color:#" + monster.Value("symbolColor") + "\">" + monster.Value("letter") + "</span>",
         monster.Value<String>("difficulty"),
         monster.Value<String>("baseLevel"),
         String.Join(", ", monster.Value<IEnumerable<String>>("attacks").ToArray())

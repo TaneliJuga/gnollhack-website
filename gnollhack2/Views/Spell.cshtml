@@ -1,7 +1,7 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Spell>
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
-    Layout = "master.cshtml";
+    Layout = "archivePage.cshtml";
     String caption = Model.Name;
     IHtmlString description = new HtmlString(Model.LongDescription);
     IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>(
@@ -10,26 +10,12 @@
         Model.ManaCost.ToString(),
         "<span class=\"label label-" + (Model.NewOrChanged == true ? "success\"> New!" : "default\"> Changed!") + "</span>"
     })});
-    IEnumerable<String> headers = new List<String>(new String[] {"Level", "Mana cost", "Status" });
+    IEnumerable<String> headers = new List<String>(new String[] { "Level", "Mana cost", "Status" });
     this.ViewData.Add("caption", caption);
     this.ViewData.Add("headers", headers);
     this.ViewData.Add("description", description);
-    var children = this.Model.Children();
+    this.ViewData.Add("content", content);
 }
 
-@foreach (IPublishedContent spell in children)
-{
-    content = content.Append(
-        new List<String>(new String[] {
-        "<a href=\"" + spell.Url + "\">" + spell.Name + "</a>",
-        spell.Value<String>("spellLevel"),
-        spell.Value<String>("manaCost"),
-        "<td><span class=\"label label-" + (spell.Value<bool>("newOrChanged") == true ? "success\"> New!" : "default\"> Changed!") + "</span></td>"
-                    }));
-}
-
-@{
-    ViewData.Add("content", content);
-}
 
 @Html.Partial("Table")

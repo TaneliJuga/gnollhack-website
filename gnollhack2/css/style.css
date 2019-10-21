@@ -56,14 +56,15 @@ h3{
     border-image: url(/media/clhdyisu/scroll_paper.png) 236 326 236 301 round;
     margin: auto;
     padding: 0;
-
+    overflow-x: auto;
 }
-    
+
 #content {
     width: 100%;
     background-color: #efe4b3;
-    text-align: center;
     overflow-x: auto;
+    padding: 10px;
+    display: block !important;
 }
 
 #content h1 {
@@ -81,7 +82,7 @@ caption {
     color: black;
 }
 
-th {
+thead th{
     cursor: pointer;
 }
 
@@ -101,10 +102,6 @@ td{
     text-align: center;
 }
 
-td:last-child{
-    text-align: left;
-}
-
 thead tr th:not(:first-child) {
     text-align: center;
 }
@@ -119,16 +116,8 @@ table {
     font-size: 18px;
 }
 
-thead #status {
-    text-align: left;
-}
-
 table a {
     color: #3e3f3a;
-}
-
-#level{
-    text-align: center;
 }
 
 /* Style the list */
@@ -136,6 +125,7 @@ ul.breadcrumb {
   padding: 10px 16px;
   list-style: none;
   background-color: #eee;
+  text-align: center;
 }
 
 /* Display list items side by side */
@@ -163,15 +153,14 @@ ul.breadcrumb li a:hover {
   text-decoration: underline;
 }
 
-.asd {
+.scrollContainer {
     display: flex;
-    justify-content: center;
-    overflow: hidden;
+    margin-left: -50px;
+    width: calc(100% + 100px);
 }
 
 body{
     overflow-x: hidden;
-    min-width: 373px;
 }
 
 /*#borderimg{
@@ -185,3 +174,30 @@ body{
     background-color: black;
     padding: 1px;
 }
+
+#myInput {
+    width: 0px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url(/media/zabiw3kh/searchicon.png);
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 12px 5px 35px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+#myInput:focus {
+    width: 100%;
+}
+
+/*.collapse {
+    display: block !important;
+    width: 100% !important;
+    background-color: #efe4b3 !important;
+    overflow-x: auto !important;
+    padding: 10px !important;
+}*/

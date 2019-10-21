@@ -30,7 +30,9 @@
 
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css">
+    @*<link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css">*@
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">*@
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap-3.4.1.min.css">
     <link href="~/sass/site.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="~/css/style.css">
 
@@ -59,7 +61,7 @@
     <!-- Scripts -->
     @*<script src="~/js/jquery-2.1.4.min.js"></script>*@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    @*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>*@
 
     @* Google Analytics *@
     @if (!string.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["GoogleAnalyticsID"]))
@@ -85,20 +87,14 @@
 
     <div style="padding-top:61px;"></div>
 
-    @if (Model.Ancestors().ToArray().Length > 1)
-    {
-        @Html.Partial("BreadCrumb")
-    }
-
-    <div>
-        @RenderBody()
-    </div>
+    @RenderBody()
 
     @Html.Partial("BottomNavigation")
 
     <!-- Javascripts -->
-    <script src="~/js/bootstrap.min.js"></script>
-    <script src="~/js/bugfixes.js"></script>
+    @*<script src="/js/bootstrap.min.js"></script>*@
+    <script src="/js/bugfixes.js"></script>
+    <script src="~/js/bootstrap-3.4.1.min.js"></script>
 </body>
 </html>
 

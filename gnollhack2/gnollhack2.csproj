@@ -678,13 +678,16 @@
     <Content Include="config\Lang\sv-SE.user.xml" />
     <Content Include="config\Lang\zh-CN.user.xml" />
     <Content Include="config\logviewer.searches.config.js" />
+    <Content Include="css\bootstrap-3.4.1.min.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\fanoe.css" />
+    <Content Include="css\izeldrughuldfhgbvuile.css" />
     <Content Include="css\rte.css" />
     <Content Include="css\settings.css" />
     <Content Include="css\style.css" />
     <Content Include="Global.asax" />
     <Content Include="img\FindUs-FB-RGB-BRC-Site-500.png" />
+    <Content Include="js\bootstrap-3.4.1.min.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\bugfixes.js" />
     <Content Include="js\extensions\revolution.extension.actions.min.js" />
@@ -698,6 +701,7 @@
     <Content Include="js\extensions\revolution.extension.video.min-5.2.6-backup.js" />
     <Content Include="js\extensions\revolution.extension.video.min-with-webm-support-backup.js" />
     <Content Include="js\extensions\revolution.extension.video.min.js" />
+    <Content Include="js\JavaScript.js" />
     <Content Include="js\jquery-2.1.4.min.js" />
     <Content Include="js\jquery.themepunch.enablelog.js" />
     <Content Include="js\jquery.themepunch.revolution.min.js" />
@@ -7231,6 +7235,11 @@
     <Content Include="Views\Partials\Table2.cshtml" />
     <Content Include="Views\MacroPartials\Test.cshtml" />
     <Content Include="Views\MacroPartials\Test2.cshtml" />
+    <Content Include="Views\Amulet.cshtml" />
+    <Content Include="Views\Armor.cshtml" />
+    <Content Include="Views\Comestible.cshtml" />
+    <Content Include="Views\mainCategoryPage.cshtml" />
+    <Content Include="Views\Item.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
