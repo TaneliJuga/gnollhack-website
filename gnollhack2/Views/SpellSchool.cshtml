@@ -2,13 +2,10 @@
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
     Layout = "archivePage.cshtml";
-    String caption = Model.Name + " spells";
+    String caption = Model.Name.ToString() + " spells";
     IHtmlString description = new HtmlString(Model.LongDescription);
     IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>();
     IEnumerable<String> headers = new List<String>(new String[] { "Name", "Level", "Mana cost", "Status"});
-    this.ViewData.Add("caption", caption);
-    this.ViewData.Add("headers", headers);
-    this.ViewData.Add("description", description);
     var children = this.Model.Children();
 }
 
@@ -27,4 +24,4 @@
     ViewData.Add("content", content);
 }
 
-@Html.Partial("Table")
+@Html.Partial("Table", new TableSettings(caption, description, content, headers, true))

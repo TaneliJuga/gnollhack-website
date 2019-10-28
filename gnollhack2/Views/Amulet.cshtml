@@ -15,11 +15,7 @@
         Model.BasePrice.ToString(),
         appearance.ToString()
     })});
-    this.ViewData.Add("caption", caption);
-    this.ViewData.Add("headers", headers);
-    this.ViewData.Add("description", description);
-    this.ViewData.Add("content", content);
     var children = this.Model.Children();
 }
 
-@Html.Partial("Table")
+@Html.Partial("Table", new TableSettings(caption, description, content, headers, false))

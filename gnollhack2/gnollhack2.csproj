@@ -5913,6 +5913,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_code\TableSettings.cs" />
     <Compile Include="Composers\MyCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -7239,10 +7240,11 @@
     <Content Include="Views\Armor.cshtml" />
     <Content Include="Views\Comestible.cshtml" />
     <Content Include="Views\mainCategoryPage.cshtml" />
-    <Content Include="Views\Item.cshtml" />
+    <Content Include="Views\itemCategoryPage.cshtml" />
     <Content Include="Views\ItemCategory.cshtml" />
     <Content Include="Views\monsterCategoryPage.cshtml" />
     <Content Include="Views\spellCategoryPage.cshtml" />
+    <Content Include="Views\archivePage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

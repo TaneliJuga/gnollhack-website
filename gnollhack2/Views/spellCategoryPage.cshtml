@@ -2,7 +2,7 @@
 @{
     Layout = "mainCategoryPage.cshtml";
     String caption = "All spells";
-    IHtmlString description = null;
+    IHtmlString description = Model.LongDescription;
     IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>();
     IEnumerable<String> headers = new List<String>(new String[] { "Name", "Spell school", "Level", "Mana cost", "Status" });
     this.ViewData.Add("caption", caption);
@@ -34,7 +34,7 @@
     ViewData.Add("content", content);
 }
 
-@Html.Partial("Table")
+@Html.Partial("Table", new TableSettings(caption, description, content, headers, true))
 
 
 

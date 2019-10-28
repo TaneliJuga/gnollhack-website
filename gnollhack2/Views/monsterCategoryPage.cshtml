@@ -3,12 +3,8 @@
 @{
     Layout = "mainCategoryPage.cshtml";
     String caption = "All monsters";
-    IHtmlString description = null;
     IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>();
     IEnumerable<String> headers = new List<String>(new String[] { "Name", "Monster class", "Symbol", "Difficulty", "Base level"});
-    this.ViewData.Add("caption", caption);
-    this.ViewData.Add("headers", headers);
-    this.ViewData.Add("description", description);
     var children = this.Model.Children();
 }
 
@@ -34,6 +30,6 @@
     ViewData.Add("content", content);
 }
 
-@Html.Partial("Table")
+@Html.Partial("Table", new TableSettings(caption, content, headers, true))
 
 

@@ -11,11 +11,7 @@
         "<span class=\"label label-" + (Model.NewOrChanged == true ? "success\"> New!" : "default\"> Changed!") + "</span>"
     })});
     IEnumerable<String> headers = new List<String>(new String[] { "Level", "Mana cost", "Status" });
-    this.ViewData.Add("caption", caption);
-    this.ViewData.Add("headers", headers);
-    this.ViewData.Add("description", description);
-    this.ViewData.Add("content", content);
 }
 
 
-@Html.Partial("Table")
+@Html.Partial("Table", new TableSettings(caption, description, content, headers, false))
