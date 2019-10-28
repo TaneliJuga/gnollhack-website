@@ -3,12 +3,9 @@
 @{
     Layout = "archivePage.cshtml";
     String caption = Model.Name.ToString() + "s";
-    IHtmlString description = null;
+    IHtmlString description = Model.LongDescription;
     IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>();
     IEnumerable<String> headers = new List<String>(new String[] { "Name", "Symbol", "Base price", "Appearance" });
-    this.ViewData.Add("caption", caption);
-    this.ViewData.Add("headers", headers);
-    this.ViewData.Add("description", description);
     var children = this.Model.Children();
 }
 
@@ -27,8 +24,5 @@
         }));
 }
 
-@{
-    ViewData.Add("content", content);
-}
 
-@Html.Partial("Table")
+@Html.Partial("Table", new TableSettings(caption, description, content, headers, true))

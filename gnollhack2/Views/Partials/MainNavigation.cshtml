@@ -1,5 +1,5 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
-@{ 
+@{
     var ancestors = Model.Ancestors();
     //var home = ancestors.GetEnumerator.Current();
     var home = Model.Root();
@@ -7,9 +7,14 @@
 
 @if (home.Descendants().Any())
 {
-    IEnumerable<dynamic> allChildren = home.Children;
-    IEnumerable<dynamic> children2 = allChildren.Where(c => !(c.hideFromNavigation is bool) || c.hideFromNavigation == false);
-    IEnumerable<dynamic> children = allChildren.Where(c => Model.Value<bool>("hideFromNavigation") == false);
+    IEnumerable<IPublishedContent> allChildren = home.Children;
+    //IEnumerable<dynamic> children2 = allChildren.Where(c => !(c.hideFromNavigation is bool) || c.hideFromNavigation == false);
+    IEnumerable<IPublishedContent> children = allChildren.Where(c => Model.Value<bool>("hideFromNavigation") == false);
+    @*foreach (var child in children)
+    {
+        <p>@child.GetTemplateAlias().ToLower().Contains("categorypage")</p>
+        <p>@child.GetTemplateAlias()</p>
+    }*@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -32,14 +37,14 @@
                         {
                             if (childPage.IsDocumentType("LandingPage"))
                             {
-                                
                                 <li class="dropdown@(childPage.IsAncestorOrSelf(Model) ? " selected" : "")">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@childPage.Name <span class="caret"></span></a>
-                                    @childPages(childPage.Children, childPage == children.Last())
+                                    @childPages(childPage.Children, childPage == children.Last(), (childPage.GetTemplateAlias().ToLower().Contains("categorypage")) ? childPage : null)
                                 </li>
 
                             }
-                            else {
+                            else
+                            {
                                 <li class="@(childPage.IsAncestorOrSelf(Model) ? "selected" : null)">
                                     <a href="@childPage.Url">@childPage.Name</a>
                                 </li>
@@ -59,13 +64,21 @@
     </nav>
 }
 
-@helper childPages(IEnumerable<dynamic> pages, bool isLast)
+@helper childPages(IEnumerable<dynamic> pages, bool isLast, IPublishedContent mainCategoryPage)
 {
-
     @* Ensure that we have a collection of pages *@
     if (pages.Any())
     {
         <ul class="dropdown-menu centered-menu @(isLast ? "dropdown-right" : "")">
+
+            @if (mainCategoryPage != null)
+            {
+                String pageHeader = "All " + mainCategoryPage.Name;
+
+                <li>
+                    <a href="@mainCategoryPage.Url">@pageHeader</a>
+                </li>
+            }
             @foreach (var page in pages)
             {
                 <li>
@@ -76,3 +89,4 @@
 
     }
 }
+

@@ -1,36 +1,35 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<IPublishedContent>
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<TableSettings>
 @using Umbraco.Core.Models.PublishedContent
 @using Umbraco.Web
 
 @{
-    String caption = (String)ViewData["caption"];
-    IHtmlString description = (IHtmlString)ViewData["description"];
-    IEnumerable<String> headers = (IEnumerable<String>)ViewData["headers"];
-    IEnumerable<IEnumerable<String>> content = (IEnumerable<IEnumerable<String>>)ViewData["content"];
-    String style = "";
     int i = 0;
+    String style;
 }
 
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#content">Simple collapsible</button>
+<button type="button" id="collapseButton" class="btn btn-info" data-toggle="collapse" data-target="#content">Simple collapsible</button>
 
 <div class="scrollContainer">
     <div id="borderimg">
         <div id="content" class="collapse">
-            @if (content.Count() > 1)
+            @if (@Model.Content != null && Model.AlignLeft)
             {
-                <input type="text" id="myInput" content="\e003" onkeyup="myFunction()" placeholder="Search by @headers.First().ToLower()" title="Type in a @headers.First().ToLower() to search">
+                <input type="text" id="myInput" content="\e003" onkeyup="myFunction()" placeholder="Search by @Model.Headers.First().ToLower()" title="Type in a @Model.Headers.First().ToLower() to search">
                 style = "";
             }
             else
             {
                 style = "style=\"text-align:center;\"";
             }
-            <h1>@caption</h1>
+            <h1>@Model.Caption</h1>
             <table class="table table-hover" id="myTable">
-                <caption id="caption">@description</caption>
+                @if (@Model.Description != null)
+                {
+                    <caption id="caption">@Model.Description</caption>
+                }
                 <thead>
                     <tr>
-                        @foreach (var header in headers)
+                        @foreach (var header in Model.Headers)
                         {
                             @*<th scope="col" onclick="sortTable(@i)">@header</th>*@
                             @Html.Raw("<th " + style + " scope=\"col\" onclick=\"sortTable(" + @i + ")\">" + @header + "</th>")
@@ -39,7 +38,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in content)
+                    @foreach (var item in Model.Content)
                     {
                         <tr>
                             @Html.Raw("<th " + style + " scope=\"row\">" + @item.First() + "</th>")
