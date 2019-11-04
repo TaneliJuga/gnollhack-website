@@ -16,14 +16,12 @@ body {
 }
 .download-container {
     /*padding: 30px 10px;*/
-    background-color: #ffe;
     border-bottom: 2px solid #222;
 }
 
 @media screen and (min-width: 768px) {
     .download-container {
         padding: 30px 10px;
-        background-color: #fffff4;
         border-bottom: none;
     }
 
@@ -37,7 +35,12 @@ body {
     background-color: #ffe;
     padding: 20px;
     max-width: 720px;
-    margin: 0 auto;    
+    margin: 0 auto;
+    border: 50px solid transparent;
+    border-image: url(/media/clhdyisu/scroll_paper.png) 236 326 236 301 round;
+    background-color: #efe4b3;
+    background-clip: padding-box;
+    overflow-x: auto;
 }
 
 /*.download-box p, .download-box h3, .download-box h4, .download-box a image{
@@ -160,9 +163,10 @@ ul.breadcrumb li a:hover {
 
 body {
     overflow-x: hidden;
-    background-image: url(/media/efkedekd/cobblestone.jpg);
-    /*background-image: url(/media/tatl21ij/cobblestone2.jpg);*/
-    background-repeat: repeat;
+    /*background-image: url(/media/efkedekd/cobblestone.jpg);*/
+    /*background-image: url(/media/s31lw4bb/cobblestone3.png);*/
+    background-image: url(/media/wxqhj3wx/brick-bg.jpg);
+    /*background-image: url(/media/aveph3qm/cobblestone7.png);*/
 }
 
 /*#borderimg{
@@ -201,6 +205,12 @@ body {
     position: absolute;
     left: 0;
     top: 120px;
+}
+
+.wrapper {
+    background-image: url(/media/b5edze2t/gradient-wide-left.png), url(/media/tbogfdxi/gradient-wide-right.png);
+    background-repeat: repeat-y;
+    background-position: left top, right top;
 }
 
 /*.collapse {

@@ -1,0 +1,43 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+    Table table = null;
+
+    Layout = "archivePage.cshtml";
+    foreach (IPublishedProperty property in Model.Properties)
+    {
+        Attempt<Table> attempt = property.TryConvertTo<Table>();
+        if (attempt.Success)
+        {
+            table = attempt.Result;
+        }
+    }
+    String caption;
+    IHtmlString description;
+    IEnumerable<String> headers = new List<String>();
+
+
+    IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>();
+    var children = this.Model.Children();
+}
+
+@if (table == null)
+{
+    return;
+}
+
+@foreach (IPublishedContent item in table.Content.Children)
+{
+    IEnumerable<String> tableRow = new List<String>();
+    foreach (TableCell tableColumn in table.TableRow)
+    {
+        tableRow.Append(item.Value(tableColumn.PropertyAlias));
+    }
+    content.Append(tableRow);
+}
+
+
+
+@Html.Partial("Table", new TableSettings(table.Title, table.SummaryText, content, headers, false))
+
+@* the fun starts here *@
+

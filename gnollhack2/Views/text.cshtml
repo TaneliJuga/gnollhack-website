@@ -1,10 +1,29 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.LandingPage>
+@using ContentModels = Umbraco.Web.PublishedModels;
 @{
-    Layout = "master.cshtml";
+    	Layout = "LandingPage.cshtml";
 }
 
 @* the fun starts here *@
 
 @Html.GetGridHtml(Model, "content")
+@foreach (IPublishedElement element in Model.DownloadBox)
+{
+    @RenderContent(element.);
+}
 
-@RenderBody()
+@helper RenderContent(DownloadBox downloadBox)
+{
+    <div class="download-container">
+        <div class="download-box">
+            <h3 style="font-weight: bold;">@downloadBox.Heading</h3>
+            <p>@downloadBox.Description </p>
+            <a href="https://github.com/hyvanmielenpelit/GnollHack">
+                <img src="/Media/myflkvuz/gnollhack-icon-v2-512.png" class="img-responsive download" style="display:inline" alt="gnollhack logo" width="350" height="350">
+            </a>
+            <h4>Version</h4>
+            <p>@downloadBox.Version Released on: @downloadBox.ReleaseDate</p>
+            <p style="padding: 10px 0px 0px 0px;"><a href="https://www.facebook.com/gnollcampaign/"><img src="/img/FindUs-FB-RGB-BRC-Site-500.png" style="max-height: 33px;" /></a></p>
+        </div>
+    </div>
+}

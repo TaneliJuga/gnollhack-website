@@ -1,0 +1,450 @@
+<!doctype html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Games &raquo; Legend of Grimrock</title><link href="http://www.grimrock.net/wp-content/themes/grimrock/assets/css/style.css" rel="stylesheet" type="text/css"><script src='http://www.grimrock.net/wp-content/themes/grimrock/assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js'></script><script type="text/javascript" src="//use.typekit.net/dvp3ufs.js"></script><script type="text/javascript">try{Typekit.load();}catch(e){}</script><link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Legend of Grimrock &raquo; Games Comments Feed" href="http://www.grimrock.net/games/feed/" />
+<!-- This site uses the Google Analytics by MonsterInsights plugin v7.0.6 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+<script type="text/javascript" data-cfasync="false">
+	var mi_track_user      = true;
+	var mi_no_track_reason = '';
+	
+	var disableStr = 'ga-disable-UA-29919135-1';
+
+	/* Function to detect opted out users */
+	function __gaTrackerIsOptedOut() {
+		return document.cookie.indexOf(disableStr + '=true') > -1;
+	}
+
+	/* Disable tracking if the opt-out cookie exists. */
+	if ( __gaTrackerIsOptedOut() ) {
+		window[disableStr] = true;
+	}
+
+	/* Opt-out function */
+	function __gaTrackerOptout() {
+	  document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+	  window[disableStr] = true;
+	}
+	
+	if ( mi_track_user ) {
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','__gaTracker');
+
+		__gaTracker('create', 'UA-29919135-1', 'auto');
+		__gaTracker('set', 'forceSSL', true);
+		__gaTracker('require', 'displayfeatures');
+		__gaTracker('require', 'linkid', 'linkid.js');
+		__gaTracker('send','pageview');
+	} else {
+		console.log( "" );
+		(function() {
+			/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+			var noopfn = function() {
+				return null;
+			};
+			var noopnullfn = function() {
+				return null;
+			};
+			var Tracker = function() {
+				return null;
+			};
+			var p = Tracker.prototype;
+			p.get = noopfn;
+			p.set = noopfn;
+			p.send = noopfn;
+			var __gaTracker = function() {
+				var len = arguments.length;
+				if ( len === 0 ) {
+					return;
+				}
+				var f = arguments[len-1];
+				if ( typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function' ) {
+					console.log( 'Not running function __gaTracker(' + arguments[0] + " ....) because you are not being tracked. " + mi_no_track_reason );
+					return;
+				}
+				try {
+					f.hitCallback();
+				} catch (ex) {
+
+				}
+			};
+			__gaTracker.create = function() {
+				return new Tracker();
+			};
+			__gaTracker.getByName = noopnullfn;
+			__gaTracker.getAll = function() {
+				return [];
+			};
+			__gaTracker.remove = noopfn;
+			window['__gaTracker'] = __gaTracker;
+					})();
+		}
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/www.grimrock.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.6"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='cookie-consent-style-css'  href='http://www.grimrock.net/wp-content/plugins/uk-cookie-consent/assets/css/style.css?ver=4.9.6' type='text/css' media='all' />
+<script type='text/javascript' src='http://www.grimrock.net/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://www.grimrock.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","is_debug_mode":"false","download_extensions":"doc,exe,js,pdf,ppt,tgz,zip,xls","inbound_paths":"","home_url":"http:\/\/www.grimrock.net","track_download_as":"event","internal_label":"int","hash_tracking":"false"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.grimrock.net/wp-content/plugins/google-analytics-for-wordpress/assets/js/frontend.min.js?ver=7.0.6'></script>
+<link rel='https://api.w.org/' href='http://www.grimrock.net/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.grimrock.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.grimrock.net/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.9.6" />
+<link rel="canonical" href="http://www.grimrock.net/games/" />
+<link rel='shortlink' href='http://www.grimrock.net/?p=4840' />
+<link rel="alternate" type="application/json+oembed" href="http://www.grimrock.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.grimrock.net%2Fgames%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://www.grimrock.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.grimrock.net%2Fgames%2F&#038;format=xml" />
+<style id="ctcc-css" type="text/css" media="screen">
+				#catapult-cookie-bar {
+					box-sizing: border-box;
+					max-height: 0;
+					opacity: 0;
+					z-index: 99999;
+					overflow: hidden;
+					color: #ddd;
+					position: fixed;
+					left: 0;
+					bottom: 0;
+					width: 100%;
+					background-color: #464646;
+				}
+				#catapult-cookie-bar a {
+					color: #fff;
+				}
+				#catapult-cookie-bar .x_close span {
+					background-color: #303030;
+				}
+				button#catapultCookie {
+					background:;
+					color: #303030;
+					border: 0; padding: 6px 9px; border-radius: 3px;
+				}
+				#catapult-cookie-bar h3 {
+					color: #ddd;
+				}
+				.has-cookie-bar #catapult-cookie-bar {
+					opacity: 1;
+					max-height: 999px;
+					min-height: 30px;
+				}</style><script>  $ = jQuery;</script><script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script><script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script><script src='http://www.grimrock.net/wp-content/themes/grimrock/assets/bootstrap-sass-3.2.0/assets/javascripts/bootstrap.js'></script><script>var heroImages = [ "http://www.grimrock.net/wp-content/themes/grimrock/assets/img/hero__sky.png",                     "http://www.grimrock.net/wp-content/themes/grimrock/assets/img/hero__sea.png",                    "http://www.grimrock.net/wp-content/themes/grimrock/assets/img/hero__background.png",                    "http://www.grimrock.net/wp-content/themes/grimrock/assets/img/hero__foreground.png" ];</script></head><body class="page-template page-template-template-games page-template-template-games-php page page-id-4840"><div class="grimrock-wrapper"><!--Hero--><header class="page-header page-header--blog"><!--Shadows for edges--><div class="hero__shadow--left"></div><div class="hero__shadow--right"></div><div class="container"><div class="row"><div class="col-md-4 col-xs-6"><a href="http://www.grimrock.net"><img src="http://www.grimrock.net/wp-content/themes/grimrock/assets/img/grimrock-site-logo.png" class="page-header__logo" /></a></div><div class="col-md-8 col-xs-6"><!--Navigation--><!--Sidr offcanvas navigation--><a id="simple-menu" href="#sidr" class="offcanvas-menu__toggle"></a><div id="sidr" class="offcanvas-menu" style="display:none;"><div class="menu-navigate-container"><ul id="menu-navigate" class="menu"><li id="menu-item-1325" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1325"><a href="http://www.grimrock.net/">Home</a></li>
+<li id="menu-item-4813" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4813"><a href="http://www.grimrock.net/buy/">Buy</a></li>
+<li id="menu-item-4842" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4840 current_page_item menu-item-4842"><a href="http://www.grimrock.net/games/">Games</a></li>
+<li id="menu-item-4845" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4845"><a href="http://www.grimrock.net/blog/">Blog</a></li>
+<li id="menu-item-5015" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5015"><a href="http://www.grimrock.net/modding/">Modding</a></li>
+<li id="menu-item-4847" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4847"><a href="/forum">Forums</a></li>
+</ul></div><div class="text-center"><a href="https://www.facebook.com/grimrockgame" target="_blank"><span class="social-media-icon social-media-icon--fb"></span></a><a href="https://twitter.com/AlmostHumanLtd" target="_blank"><span class="social-media-icon social-media-icon--tw"></span></a><a href="https://www.youtube.com/channel/UCRJ6zcImADyZhwJBzhGRm_Q" target="_blank"><span class="social-media-icon social-media-icon--yt"></span></a></div></div><script>$(document).ready(function() {$('#simple-menu').sidr({side: 'right'});});</script><!--Navigation--><nav class="navbar navbar--grimrock hidden-sm hidden-xs" role="navigation"><!-- Brand and toggle get grouped for better mobile display --><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span> <span class="icon-bar"></span></button><!-- Site title here <a class="navbar-brand" href="#">SITE TITLE</a> --></div><!-- Collect the nav links, forms, and other content for toggling --><div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-navigate-1" class="nav navbar-nav navbar-right"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1325"><a title="Home" href="http://www.grimrock.net/">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4813"><a title="Buy" href="http://www.grimrock.net/buy/">Buy</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4840 current_page_item menu-item-4842 active"><a title="Games" href="http://www.grimrock.net/games/">Games</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4845"><a title="Blog" href="http://www.grimrock.net/blog/">Blog</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5015"><a title="Modding" href="http://www.grimrock.net/modding/">Modding</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4847"><a title="Forums" href="/forum">Forums</a></li>
+</ul></div><!-- /.navbar-collapse --></nav></div></div></div></header><section class="page-content"><div class="game-intro" style="background-image: url('http://www.grimrock.net/wp-content/uploads/2014/09/games-bg-grimrock2-brighter.jpg'); background-color:#111514;"><div class="hero__shadow--left"></div><div class="hero__shadow--right"></div><!--Main content area--><div class="container"><div class="row"><div class="col-md-6 col-sm-0">&nbsp;</div><div class="col-md-6 col-sm-12"><div class="text-center"><!--Game logo--><img src="http://www.grimrock.net/wp-content/uploads/2014/09/log2logo-games1.png" alt="" class="mw100" /></div><div class="game-intro__intro-text"><!--The excerpt aka. the intro text--><p>&nbsp;</p>
+</div><div class="game-intro__quote"><div class="quote"><!--Game quote and quote source--><p>"Bigger, deeper and more wonderful than I could ever have expected."</p><span>Rock, Paper, Shotgun</span></div></div><div class="game-intro__call-to-action"><a href="http://www.grimrock.net/buy/#log2"><button class="btn btn--grimrock">Buy Now!</button></a><a class="js-toggle"><button id="readmore_log2" class="btn btn--grimrock">Read More</button></a></div></div></div><div class="row"><div class="col-xs-12"><div class="text-center"><div class="screenshot-container"><!--/ Video / trailer--><a data-toggle="modal" href="#modal0" data-youtube="Ex8kDMKnLaE" class="video-link-element"><div class="video-play-button--small"><img src="http://www.grimrock.net/wp-content/themes/grimrock/assets/img/video__play-button--only.png" /></div><video autoplay="autoplay" loop="loop" height="115" width="215" poster="http://www.grimrock.net/wp-content/themes/grimrock/assets/img/poster.jpg" class="screenshot video--small"><source src="http://www.grimrock.net/wp-content/uploads/2014/09/trailer.webm" type="video/webm"></source><source src="http://www.grimrock.net/wp-content/uploads/2014/09/trailer1.mp4" type="video/mp4"></source><source src="http://www.grimrock.net/wp-content/uploads/2014/09/trailer.ogv" type="video/ogv"></source><img class="img-responsive" src="http://www.grimrock.net/wp-content/uploads/2014/09/video-1.png" alt="" /></video></a><div tabindex="-1" role="dialog" aria-labelledby="modal0" aria-hidden="true" id="modal0" class="modal js-video-modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div><div class="modal-body"><div class="embed-responsive embed-responsive-16by9"><iframe width="100%" height="500" src="//www.youtube.com/embed/Ex8kDMKnLaE" frameborder="0" allowfullscreen></iframe></div></div></div></div></div><a data-toggle="modal" href="#modal10"><img class="screenshot" src="http://www.grimrock.net/wp-content/uploads/2014/09/1.jpg" alt="" /></a><div tabindex="-1" role="dialog" aria-labelledby="modal10" aria-hidden="true" id="modal10" class="modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><a class="js-fullsize-screenshot">Toggle full width</a><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div><div class="modal-body"><img src="http://www.grimrock.net/wp-content/uploads/2014/09/1.jpg" alt="" /></div></div></div></div><a data-toggle="modal" href="#modal20"><img class="screenshot" src="http://www.grimrock.net/wp-content/uploads/2014/09/3.jpg" alt="" /></a><div tabindex="-1" role="dialog" aria-labelledby="modal20" aria-hidden="true" id="modal20" class="modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><a class="js-fullsize-screenshot">Toggle full width</a><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div><div class="modal-body"><img src="http://www.grimrock.net/wp-content/uploads/2014/09/3.jpg" alt="" /></div></div></div></div><a data-toggle="modal" href="#modal30"><img class="screenshot" src="http://www.grimrock.net/wp-content/uploads/2014/09/4.jpg" alt="" /></a><div tabindex="-1" role="dialog" aria-labelledby="modal30" aria-hidden="true" id="modal30" class="modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><a class="js-fullsize-screenshot">Toggle full width</a><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div><div class="modal-body"><img src="http://www.grimrock.net/wp-content/uploads/2014/09/4.jpg" alt="" /></div></div></div></div><a data-toggle="modal" href="#modal40"><img class="screenshot" src="http://www.grimrock.net/wp-content/uploads/2014/09/2.jpg" alt="" /></a><div tabindex="-1" role="dialog" aria-labelledby="modal40" aria-hidden="true" id="modal40" class="modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><a class="js-fullsize-screenshot">Toggle full width</a><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div><div class="modal-body"><img src="http://www.grimrock.net/wp-content/uploads/2014/09/2.jpg" alt="" /></div></div></div></div></div></div></div></div><!--Read more anchor.--><div class="games__anchor"><a id="log2">&nbsp;</a></div><!--Content shown only after it has been toggled with the read more button--><div class="extra-content"><div class="row"><div class="col-xs-12"><hr class="extra-content__hr" /><div class="extra-content__content-area"><div class="row"><div class="col-md-12"><!--/ Hidden Read more -content--><p>Legend of Grimrock 2 is a dungeon crawling role playing game with a modern execution but an oldschool heart. A group of four prisoners have shipwrecked on the secluded Isle of Nex. The island is filled with ancient crumbled ruins, mysterious shrines and a vast underground network of dungeons and mines. If the prisoners wish to make it out alive, they have to overcome the challenges devised by the ominous mastermind of the island.</p>
+<p>Powers of perception and logic are more important than sheer force is, since Legend of Grimrock 2 puts a heavy emphasis on exploration, survival and challenging puzzles. Discover powerful ancient artifacts from hidden secret chambers and buried treasures. Arm your champions, cast spells and craft enchanted potions and bombs to aid you in fighting the dreadful monsters in highly tactical real-time combat.</p>
+<p>Design, share and play custom scenarios with the included Dungeon Editor! Create your own adventures and fill them with puzzles, traps, or even totally new items, monsters and environments with custom graphics and audio!</p>
+<p>Get ready to venture forth and uncover the secrets of Nex!</p>
+<h3>Purchasing:</h3>
+<p>If you <a href="http://www.grimrock.net/buy/">buy now</a>, you get both a Steam key and a standalone installer. Buying directly from us is the best way to support the developers! You can also buy both Legend of Grimrock 1 and 2 for a special bundle price.</p>
+<h3>Key Features:</h3>
+<ul>
+<li>Explore the wilderness and the dungeons of Isle of Nex: walk in ancient forests riddled with mysterious magical statues, fight the denizens of poison fuming swamps, dive in the Forgotten River in search of treasure, uncover secrets hidden deep below&#8230;</li>
+<li>More than 20 hours of pure blooded dungeon crawling gameplay with grid-based movement and thousands of squares filled with hidden switches, pressure plates, secret doors, riddles, deadly traps and more.</li>
+<li>Cast spells with runes, craft potions and bombs, fight murderous monsters with a large variety of melee-, ranged and thrown weapons, as well as firearms.</li>
+<li>Create a party of four characters and customize them with 7 character classes, 5 races, and numerous skills and traits. Collect experience to hone their skills and discover improved equipment and magical artefacts.</li>
+<li>42 different kind of monsters including 30 new foes unique to Isle of Nex.</li>
+<li>Play custom adventures created by others or make your own with Dungeon Editor.</li>
+<li>More depth, variety and open ended exploration than in Legend of Grimrock 1. Enhanced AI, spell casting, puzzle mechanics and skill systems. </li>
+</ul>
+<h3>Windows System Requirements</h3>
+<p><strong>Minimum:</strong><br />
+OS: Windows XP<br />
+CPU: Dual Core 2.33 GHz Intel or 3.0 GHz AMD<br />
+Memory: 2 GB RAM<br />
+Graphics: Geforce GTX 8800, AMD Radeon 4850 or Intel HD Graphics 5200 or better (1GB graphics memory or more. Shader Model 3.0 needs to be supported). Minimum supported resolutions 1280&#215;720 and 1024&#215;768.<br />
+DirectX: 9.0c<br />
+Disk Space: 2 GB</p>
+<p><strong>Recommended:</strong><br />
+OS: Windows 7<br />
+CPU: Quad Core 2.66 Ghz Intel or 3.2 GHz AMD<br />
+Memory: 4 GB RAM<br />
+Graphics: Geforce GTX 660 Ti or AMD Radeon 6850 or better (1GB graphics memory or more. Shader Model 3.0 needs to be supported). Minimum supported resolutions 1280&#215;720 and 1024&#215;768.<br />
+DirectX: 9.0c<br />
+Disk Space: 2 GB</p>
+<h3>Mac System Requirements</h3>
+<p><strong>Minimum:</strong><br />
+OS: Mac OS X 10.7.5 or later<br />
+CPU: 1.4 GHz dual-core Intel Core i5 processor<br />
+Memory: 2 GB RAM (may require lowering texture resolution)<br />
+Graphics: OpenGL 3.2 capable graphics card, Intel HD Graphics 5000 minimum<br />
+Disk Space: 2 GB</p>
+<p><strong>Recommended:</strong><br />
+OS: Mac OS X 10.8.5 or later<br />
+CPU: 2.5 GHz dual-core Intel Core i5 processor<br />
+Memory: 4 GB<br />
+Graphics: OpenGL 3.2 capable graphics card, Geforce GT 650M or better recommended.<br />
+Disk Space: 2 GB</p>
+<p>Low Rendering Quality setting is recommended on Mac models without dedicated graphics cards such as the Macbook Air.</p>
+<p><a href="http://grimrock.net/press/legend_of_grimrock_2_press_kit.zip">Download the press kit here</a></p>
+</div></div></div></div></div></div></div></div><div class="game-intro" style="background-image: url('http://www.grimrock.net/wp-content/uploads/2014/09/games-bg-grimrock1.jpg'); background-color:#0c1013;"><div class="hero__shadow--left"></div><div class="hero__shadow--right"></div><!--Main content area--><div class="container"><div class="row"><div class="col-md-6 col-sm-0">&nbsp;</div><div class="col-md-6 col-sm-12"><div class="text-center"><!--Game logo--><img src="http://www.grimrock.net/wp-content/uploads/2014/09/logo-grimrock-1-big.png" alt="" class="mw100" /></div><div class="game-intro__intro-text"><!--The excerpt aka. the intro text--><p>Legend of Grimrock is a dungeon crawling role playing game with an oldschool heart but a modern execution.</p>
+</div><div class="game-intro__quote"><div class="quote"><!--Game quote and quote source--><p>"It’s bloody brilliant."</p><span>Rock, Paper, Shotgun</span></div></div><div class="game-intro__call-to-action"><a href="http://www.grimrock.net/buy/#log1"><button class="btn btn--grimrock">Buy Now!</button></a><a class="js-toggle"><button id="readmore_log1" class="btn btn--grimrock">Read More</button></a></div></div></div><div class="row"><div class="col-xs-12"><div class="text-center"><div class="screenshot-container"><!--/ Video / trailer--><a data-toggle="modal" href="#modal51" data-youtube="Ae-SmQnTtUU" class="video-link-element"><div class="video-play-button--small"><img src="http://www.grimrock.net/wp-content/themes/grimrock/assets/img/video__play-button--only.png" /></div><video autoplay="autoplay" loop="loop" height="115" width="215" poster="http://www.grimrock.net/wp-content/themes/grimrock/assets/img/poster.jpg" class="screenshot video--small"><source src="http://www.grimrock.net/wp-content/uploads/2014/09/log_trailer.webm" type="video/webm"></source><source src="http://www.grimrock.net/wp-content/uploads/2014/09/log_trailer.mp4" type="video/mp4"></source><source src="" type="video/ogv"></source><img class="img-responsive" src="http://www.grimrock.net/wp-content/uploads/2014/09/video.png" alt="" /></video></a><div tabindex="-1" role="dialog" aria-labelledby="modal51" aria-hidden="true" id="modal51" class="modal js-video-modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div><div class="modal-body"><div class="embed-responsive embed-responsive-16by9"><iframe width="100%" height="500" src="//www.youtube.com/embed/Ae-SmQnTtUU" frameborder="0" allowfullscreen></iframe></div></div></div></div></div><a data-toggle="modal" href="#modal01"><img class="screenshot" src="http://www.grimrock.net/wp-content/uploads/2014/09/Legend_of_Grimrock_screenshot_011.jpg" alt="" /></a><div tabindex="-1" role="dialog" aria-labelledby="modal01" aria-hidden="true" id="modal01" class="modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><a class="js-fullsize-screenshot">Toggle full width</a><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div><div class="modal-body"><img src="http://www.grimrock.net/wp-content/uploads/2014/09/Legend_of_Grimrock_screenshot_011.jpg" alt="" /></div></div></div></div><a data-toggle="modal" href="#modal11"><img class="screenshot" src="http://www.grimrock.net/wp-content/uploads/2014/09/Legend_of_Grimrock_screenshot_03.jpg" alt="" /></a><div tabindex="-1" role="dialog" aria-labelledby="modal11" aria-hidden="true" id="modal11" class="modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><a class="js-fullsize-screenshot">Toggle full width</a><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div><div class="modal-body"><img src="http://www.grimrock.net/wp-content/uploads/2014/09/Legend_of_Grimrock_screenshot_03.jpg" alt="" /></div></div></div></div><a data-toggle="modal" href="#modal21"><img class="screenshot" src="http://www.grimrock.net/wp-content/uploads/2014/09/Legend_of_Grimrock_screenshot_02.jpg" alt="" /></a><div tabindex="-1" role="dialog" aria-labelledby="modal21" aria-hidden="true" id="modal21" class="modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><a class="js-fullsize-screenshot">Toggle full width</a><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div><div class="modal-body"><img src="http://www.grimrock.net/wp-content/uploads/2014/09/Legend_of_Grimrock_screenshot_02.jpg" alt="" /></div></div></div></div><a data-toggle="modal" href="#modal31"><img class="screenshot" src="http://www.grimrock.net/wp-content/uploads/2014/09/Legend_of_Grimrock_screenshot_06.jpg" alt="" /></a><div tabindex="-1" role="dialog" aria-labelledby="modal31" aria-hidden="true" id="modal31" class="modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><a class="js-fullsize-screenshot">Toggle full width</a><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div><div class="modal-body"><img src="http://www.grimrock.net/wp-content/uploads/2014/09/Legend_of_Grimrock_screenshot_06.jpg" alt="" /></div></div></div></div></div></div></div></div><!--Read more anchor.--><div class="games__anchor"><a id="log1">&nbsp;</a></div><!--Content shown only after it has been toggled with the read more button--><div class="extra-content"><div class="row"><div class="col-xs-12"><hr class="extra-content__hr" /><div class="extra-content__content-area"><div class="row"><div class="col-md-12"><!--/ Hidden Read more -content--><h3>Reviews</h3>
+<p><em>“Captures everything that’s fun about old-school RPGs.”</em><br />
+4.5/5 – GameSpy</p>
+<p><em>“The balance between exciting combat, thought-provoking puzzle work, and open-ended exploration is stellar.”</em><br />
+8.5/10 – IGN</p>
+<p><em>“I lost count as to how many times I threw my fist in the air and shouted, “YES!” after successfully completing a puzzle.”</em><br />
+9.5/10 – Destructoid</p>
+<p><em>“Undoubtedly the best Indie Game I have played so far and at a very very reasonable Price.”</em><br />
+9/10 – Game Debate</p>
+<p><em>“It’s bloody brilliant.”</em><br />
+– Rock, Paper, Shotgun</p>
+<h3>What is Legend of Grimrock?</h3>
+<ul>
+<li>Old-school dungeon crawling game inspired by Dungeon Master, Eye of the Beholder and Ultima Underworld.</li>
+<li>Explore a vast dungeon riddled with hidden switches, pressure plates, sliding walls, trapdoors and more.</li>
+<li>Discover secrets, cast spells with runes and craft potions with herbs.</li>
+<li>Fight murderous monsters and seek lost artifacts in ancient tombs.</li>
+<li>Create a party of four characters and customize them with different races, classes, skills and traits.</li>
+</ul>
+<p>Legend of Grimrock is a dungeon crawling role playing game with an oldschool heart but a modern execution. A group of prisoners are sentenced to certain death by exiling them to the secluded Mount Grimrock for vile crimes they may or may not have committed. Unbeknownst to their captors, the mountain is riddled with ancient tunnels, dungeons and tombs built by crumbled civilizations long perished now. If they ever wish to see daylight again and reclaim their freedom the ragtag group of prisoners must form a team and descend through the mountain, level by level.</p>
+<p>The game brings back the oldschool challenge with highly tactical real-time combat and grid-based movement, devious hidden switches and secrets as well as deadly traps and horrible monsters. Legend of Grimrock puts an emphasis on puzzles and exploration and the wits and perception of the player are more important tools than even the sharpest of swords could be. And if you are a hardened dungeon crawling veteran and you crave an extra challenge, you can arm yourself with a stack of grid paper and turn on the Oldschool Mode which disables the luxury of the automap! Are you ready to venture forth and unravel the mysteries of Mount Grimrock?</p>
+<h3>PC System Requirements</h3>
+<p><strong>Minimum:</strong></p>
+<p>OS: Windows XP Service Pack 3<br />
+CPU: Dual Core 2GHz Intel or 2.8GHz AMD<br />
+Memory: 2GB<br />
+Graphics: ATI Radeon X1600 or NVIDIA GeForce 7600 or better (512MB graphics memory or more. Shader Model 3.0 needs to be supported). Minimum supported resolutions 1280×720 and 1024×768.<br />
+DirectX: 9.0c<br />
+Disk Space: 1GB </p>
+<p><strong>Recommended:</strong></p>
+<p>OS: Windows Vista or Windows 7<br />
+CPU: Quad Core 2.66GHz Intel or 3.2GHz AMD<br />
+Memory: 4GB<br />
+Graphics: ATI Radeon HD 2900 or NVIDIA GeForce 8800 or better (512MB graphics memory or more. Shader Model 3.0 needs to be supported)<br />
+DirectX: 9.0c<br />
+Disk Space: 1GB</p>
+<h3>Mac System Requirements</h3>
+<p><strong>Minimum</strong></p>
+<p>OS: Mac OS X 10.6 (Snow Leopard) or newer<br />
+Processor: Intel Core 2 Duo<br />
+Memory: 2 GB RAM<br />
+Graphics: Graphics card supporting OpenGL 2.1 or later. Minimum supported resolutions 1280×720 and 1024×768<br />
+Disk Space: 1 GB HD space </p>
+<p><strong>Recommended</strong></p>
+<p>OS: Mac OS X 10.6 (Snow Leopard) or newer<br />
+Processor: Intel Core i5<br />
+Memory: 4 GB RAM<br />
+Graphics: ATI Radeon HD 2900 or NVIDIA GeForce 8800 or better (512MB graphics memory or more)<br />
+Disk Space: 1 GB HD space</p>
+<h3>Frequently Asked Questions</h3>
+<p><strong>How much does Legend of Grimrock cost?</strong><br />
+Retail price of the game is $14.99. Price on Steam may vary.</p>
+<p><strong>What do I get if I buy directly from this site?</strong><br />
+You get a Steam activation code so that you can play Legend of Grimrock with Steam achievements and community features AND you get a standalone installer. By directly buying from us, you support the development of Legend of Grimrock and our future titles!</p>
+<p><strong>I have an old version of the game. How can I update it?</strong><br />
+The standalone version can always be updated by revisiting your download page via the link given to you by email if you bought it directly from this site or if you purchased from GOG.com, via their site. We also provide patches for the latest updates for the Windows version of the game. Do note that you need to have the correct version of the game to use the patches. You can see the game’s version number from the game’s main menu.</p>
+<p><a href="http://grimrock.net/patch/grimrock_1_1_4_to_1_3_1_patch.exe" target="_blank"> Legend of Grimrock 1.1.4 to 1.3.1 patch</a><br />
+<a href="http://grimrock.net/patch/grimrock_1_3_1_to_1_3_6_patch.exe" target="_blank"">Legend of Grimrock 1.3.1 to 1.3.6 patch</a><br />
+<a href="http://grimrock.net/patch/grimrock_1_3_6_to_1_3_7_patch.exe" target="_blank">Legend of Grimrock 1.3.6 to 1.3.7 patch</a></p>
+<p><strong>Are there any extras?</strong></p>
+<p>The game comes with the following extras:</p>
+<ul>
+<li>A beautifully crafted game manual</li>
+<li>Legend of Grimrock world map</li>
+<li>Custom made grid paper to print out for all your mapping needs</li>
+<li>Grimrock theme music</li>
+<li>Wallpapers</li>
+<li>Art sheets illustrating foul creatures of Mount Grimrock</li>
+<li>Team photo</li>
+</ul>
+<p><strong>I have a problem, who do I contact?</strong></p>
+<p>If you have a technical problem please take a look at our forums and see if your problem has been already solved. You should try using the search function. If you are having problems with a 3rd party (Steam, GOG.com etc.) purchase or access keys please contact their customer support for assistance. If you bought from our store or from the Humble Bundle, and you’ve lost the link to your download page, please try the <a href="https://www.humblebundle.com/?s=resender">key resender</a>. If you need further assistance, you can also always send us an email to us at: <img src="http://grimrock.net/images/contact.png"></p>
+</div></div></div></div></div></div></div></div><div class="game-intro" style="background-image: url('http://www.grimrock.net/wp-content/uploads/2014/09/games-bg-grimrock1.jpg'); background-color:#0c1013;"><div class="hero__shadow--left"></div><div class="hero__shadow--right"></div><!--Main content area--><div class="container"><div class="row"><div class="col-md-6 col-sm-0">&nbsp;</div><div class="col-md-6 col-sm-12"><div class="text-center"><!--Game logo--><img src="http://www.grimrock.net/wp-content/uploads/2015/05/grimrock-ios-logo-games.png" alt="" class="mw100" /></div><div class="game-intro__intro-text"><!--The excerpt aka. the intro text--></div><div class="game-intro__quote"><div class="quote"><!--Game quote and quote source--><p>A spectacular big screen experience, now on your iPad!</p><span></span></div></div><div class="game-intro__call-to-action"><a href="http://www.grimrock.net/buy/#logios"><button class="btn btn--grimrock">Buy Now!</button></a><a class="js-toggle"><button id="readmore_logios" class="btn btn--grimrock">Read More</button></a></div></div></div><div class="row"><div class="col-xs-12"><div class="text-center"><div class="screenshot-container"><!--/ Video / trailer--><a data-toggle="modal" href="#modal42" data-youtube="9b9t3cofdd8" class="video-link-element"><div class="video-play-button--small"><img src="http://www.grimrock.net/wp-content/themes/grimrock/assets/img/video__play-button--only.png" /></div><video autoplay="autoplay" loop="loop" height="115" width="215" poster="http://www.grimrock.net/wp-content/themes/grimrock/assets/img/poster.jpg" class="screenshot video--small"><source src="http://www.grimrock.net/wp-content/uploads/2015/05/ios_trailer_clip.webm" type="video/webm"></source><source src="http://www.grimrock.net/wp-content/uploads/2015/05/ios_trailer_clip.mp4" type="video/mp4"></source><source src="http://www.grimrock.net/wp-content/uploads/2015/05/ios_trailer_clip.ogv" type="video/ogv"></source><img class="img-responsive" src="http://www.grimrock.net/wp-content/uploads/2014/09/video.png" alt="" /></video></a><div tabindex="-1" role="dialog" aria-labelledby="modal42" aria-hidden="true" id="modal42" class="modal js-video-modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div><div class="modal-body"><div class="embed-responsive embed-responsive-16by9"><iframe width="100%" height="500" src="//www.youtube.com/embed/9b9t3cofdd8" frameborder="0" allowfullscreen></iframe></div></div></div></div></div><a data-toggle="modal" href="#modal02"><img class="screenshot" src="http://www.grimrock.net/wp-content/uploads/2015/05/legend_of_grimrock_screenshot_1.jpg" alt="" /></a><div tabindex="-1" role="dialog" aria-labelledby="modal02" aria-hidden="true" id="modal02" class="modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><a class="js-fullsize-screenshot">Toggle full width</a><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div><div class="modal-body"><img src="http://www.grimrock.net/wp-content/uploads/2015/05/legend_of_grimrock_screenshot_1.jpg" alt="" /></div></div></div></div><a data-toggle="modal" href="#modal12"><img class="screenshot" src="http://www.grimrock.net/wp-content/uploads/2015/05/legend_of_grimrock_screenshot_2.jpg" alt="" /></a><div tabindex="-1" role="dialog" aria-labelledby="modal12" aria-hidden="true" id="modal12" class="modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><a class="js-fullsize-screenshot">Toggle full width</a><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div><div class="modal-body"><img src="http://www.grimrock.net/wp-content/uploads/2015/05/legend_of_grimrock_screenshot_2.jpg" alt="" /></div></div></div></div><a data-toggle="modal" href="#modal22"><img class="screenshot" src="http://www.grimrock.net/wp-content/uploads/2015/05/legend_of_grimrock_screenshot_4.jpg" alt="" /></a><div tabindex="-1" role="dialog" aria-labelledby="modal22" aria-hidden="true" id="modal22" class="modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><a class="js-fullsize-screenshot">Toggle full width</a><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div><div class="modal-body"><img src="http://www.grimrock.net/wp-content/uploads/2015/05/legend_of_grimrock_screenshot_4.jpg" alt="" /></div></div></div></div><a data-toggle="modal" href="#modal32"><img class="screenshot" src="http://www.grimrock.net/wp-content/uploads/2015/05/legend_of_grimrock_screenshot_5.jpg" alt="" /></a><div tabindex="-1" role="dialog" aria-labelledby="modal32" aria-hidden="true" id="modal32" class="modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><a class="js-fullsize-screenshot">Toggle full width</a><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div><div class="modal-body"><img src="http://www.grimrock.net/wp-content/uploads/2015/05/legend_of_grimrock_screenshot_5.jpg" alt="" /></div></div></div></div></div></div></div></div><!--Read more anchor.--><div class="games__anchor"><a id="logios">&nbsp;</a></div><!--Content shown only after it has been toggled with the read more button--><div class="extra-content"><div class="row"><div class="col-xs-12"><hr class="extra-content__hr" /><div class="extra-content__content-area"><div class="row"><div class="col-md-12"><!--/ Hidden Read more -content--><h3>The ultimate dungeon crawling RPG is now available on iOS!</h3>
+<p>Legend of Grimrock is a dungeon crawling role playing game with an oldschool heart but a modern execution. A group of prisoners are sentenced to certain death by exiling them to the secluded Mount Grimrock for vile crimes they may or may not have committed. Unbeknownst to their captors, the mountain is riddled with ancient tunnels, dungeons and tombs built by crumbled civilizations long perished now. If they ever wish to see daylight again and reclaim their freedom the ragtag group of prisoners must form a team and descend through the mountain, level by level.</p>
+<p>The game brings back the oldschool challenge with highly tactical real-time combat and grid-based movement, devious hidden switches and secrets as well as deadly traps and horrible monsters. Legend of Grimrock puts an emphasis on puzzles and exploration and the wits and perception of the player are more important tools than even the sharpest of swords could be. And if you are a hardened dungeon crawling veteran and you crave an extra challenge, you can arm yourself with a stack of grid paper and turn on the Oldschool Mode which disables the luxury of the automap! Are you ready to venture forth and unravel the mysteries of Mount Grimrock?</p>
+<ul>
+<li>Explore a vast network of ancient tunnels, discover secrets and find a way to survive in the perilous dungeons of Mount Grimrock.</li>
+<li>Cast spells with runes, craft potions with herbs and fight murderous monsters with a wide variety of weaponry.</li>
+<li>Create a party of four characters and customize them with different races, classes, skills and traits.</li>
+<li>Pure blooded dungeon crawling game with grid-based movement and thousands of squares riddled with hidden switches, pressure plates, sliding walls, floating crystals, forgotten altars, trapdoors and more.</li>
+<li>Experience a real labour of love, created by passionate game industry veterans. A spectacular big screen experience, now on your iPad!</li>
+</ul>
+</div></div></div></div></div></div></div></div></section>
+<script type="text/javascript">
+//<![CDATA[
+$.fn.findNext = function(selector, steps, scope)
+{
+if (steps)
+{
+steps = Math.floor(steps);
+}
+else if (steps === 0)
+{
+return this;
+}
+else
+{
+var next = this.next(selector);
+if (next.length)
+return next;
+steps = 1;
+}
+scope = (scope) ? $(scope) : $(document);
+var kids = this.find(selector);
+hay = $(this);
+while(hay[0] != scope[0])
+{
+hay = hay.parent();     
+var rs = hay.find(selector).not(kids).add($(this));
+var id = rs.index(this) + steps;
+if (id > -1 && id < rs.length)
+return $(rs[id]);
+}
+return $([]);
+}
+
+
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+$( ".extra-content" ).hide();
+$('.js-toggle').click(function () {
+
+  open_read_more(this, true);
+
+});
+
+function open_read_more(el, scroll)
+{
+
+  $(el).findNext('.extra-content').toggleClass('extra-active');
+
+  $(el).findNext('.extra-content').slideToggle( "slow", function() {
+
+    if($(el).findNext('.extra-content').hasClass('extra-active')){
+
+      if (scroll)
+      {
+        $('html, body').animate({
+        scrollTop: $(window).scrollTop() + 400
+        });
+      }
+
+    }
+
+  });
+
+
+}
+
+
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+function checkWidth() {
+
+if (document.documentElement.clientWidth < 800) {
+
+$(".video-link-element").each(function() {
+
+var ytdata = "http://www.youtube.com/watch?v=" + $(this).attr('data-youtube');
+
+$(this).attr({"href": ytdata, "target": "_blank"});
+});
+
+}
+}
+
+$(document).ready(checkWidth);
+$(document).resize(checkWidth);
+
+
+
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+if (navigator.userAgent.match(/(iPod|iPhone)/)) {
+$("video").hide();
+}
+
+
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function() {
+var id = window.location.toString().replace(/.*#/, "");
+if (window.location.toString().indexOf("#") != -1 && $("#readmore_" + id).length > 0) {
+  open_read_more($("#readmore_" + id)[0], false);
+}
+});
+
+
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+$('.js-fullsize-screenshot').click(function () {
+$(this).parent().parent().parent().toggleClass("modal-fullsize");
+});
+
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+
+$(".js-video-modal").on('hidden.bs.modal', function (e) {
+  $(this).find("iframe").attr("src", $(e.target).find("iframe").attr("src"));
+});
+
+//]]>
+</script>
+<footer class="page-footer"><div class="container"><div class="row"><div class="col-xs-12"><div class="page-footer__content"><div class="row"><div class="col-md-6"><div class="page-footer__left"><p>2018 Almost Human Ltd. All Rights Reserved. <a href="http://www.grimrock.net/privacy-policy/">Privacy policy.</a></p><a href="https://www.facebook.com/grimrockgame" target="_blank"><span class="social-media-icon social-media-icon--fb"></span></a><a href="https://twitter.com/AlmostHumanLtd" target="_blank"><span class="social-media-icon social-media-icon--tw"></span></a><a href="https://www.youtube.com/channel/UCRJ6zcImADyZhwJBzhGRm_Q" target="_blank"><span class="social-media-icon social-media-icon--yt"></span></a></div></div><div class="col-md-6"><div class="page-footer__right"><p>Site developed by:</p><a href="http://www.evermade.fi" alt="Evermade" target="_blank"><img src="http://www.grimrock.net/wp-content/themes/grimrock/assets/img/logo--evermade.png" alt="Evermade" /></a></div></div></div><script type='text/javascript'>
+/* <![CDATA[ */
+var ctcc_vars = {"expiry":"365","method":"","version":"5"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.grimrock.net/wp-content/plugins/uk-cookie-consent/assets/js/uk-cookie-consent-js.js?ver=2.3.0'></script>
+<script type='text/javascript' src='http://www.grimrock.net/wp-includes/js/wp-embed.min.js?ver=4.9.6'></script>
+<script type='text/javascript' src='http://www.grimrock.net/wp-content/themes/grimrock/assets/js/main.js?ver=4.9.6'></script>
+			
+				<script type="text/javascript">
+					jQuery(document).ready(function($){
+												if(!catapultReadCookie("catAccCookies")){ // If the cookie has not been set then show the bar
+							$("html").addClass("has-cookie-bar");
+							$("html").addClass("cookie-bar-bottom-bar");
+							$("html").addClass("cookie-bar-bar");
+													}
+																	});
+				</script>
+			
+			<div id="catapult-cookie-bar" class=""><div class="ctcc-inner "><span class="ctcc-left-side">Learn what data we collect and how we protect your privacy: <a class="ctcc-more-info-link" tabindex=0 target="_blank" href="http://www.grimrock.net/privacy-policy/">view the Privacy Policy.</a></span><span class="ctcc-right-side"><button id="catapultCookie" tabindex=0 onclick="catapultAcceptCookies();">Understood</button></span></div><!-- custom wrapper class --></div><!-- #catapult-cookie-bar --></div></div></div></div></footer><!--/ Sidr offcanvas navigation--><script src='http://www.grimrock.net/wp-content/themes/grimrock/assets/js/vendor/jquery.sidr.min.js'></script></div></body></html>
