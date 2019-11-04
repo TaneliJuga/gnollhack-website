@@ -1,13 +1,10 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ContentModels = Umbraco.Web.PublishedModels;
 @{
     Layout = "mainCategoryPage.cshtml";
     String caption = "All spells";
-    IHtmlString description = Model.LongDescription;
     IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>();
     IEnumerable<String> headers = new List<String>(new String[] { "Name", "Spell school", "Level", "Mana cost", "Status" });
-    this.ViewData.Add("caption", caption);
-    this.ViewData.Add("headers", headers);
-    this.ViewData.Add("description", description);
     var children = this.Model.Children();
 
 }
@@ -26,7 +23,7 @@
                 spell.Value<String>("spellLevel"),
                 spell.Value<String>("manaCost"),
                 "<span class=\"label label-" + (spell.Value<bool>("newOrChanged") == true ? "success\"> New!" : "default\"> Changed!") + "</span>"
-            }));
+                        }));
     }
 }
 
@@ -34,7 +31,7 @@
     ViewData.Add("content", content);
 }
 
-@Html.Partial("Table", new TableSettings(caption, description, content, headers, true))
+@Html.Partial("Table", new TableSettings(caption, content, headers, true))
 
 
 

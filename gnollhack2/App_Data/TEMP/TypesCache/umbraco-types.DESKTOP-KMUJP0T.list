@@ -572,6 +572,38 @@ Umbraco.Web.HealthCheck.NotificationMethods.IHealthCheckNotificationMethod
 
 Umbraco.Web.HealthCheck.NotificationMethods.EmailNotificationMethod, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 
+Umbraco.Core.Models.PublishedContent.PublishedElementModel
+
+Umbraco.Web.PublishedModels.DownloadBox, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.MonsterAttack, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Table, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+
+Umbraco.Core.Models.PublishedContent.PublishedContentModel
+
+Umbraco.Web.PublishedModels.Amulet, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Armor, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Category, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Category1, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.CategoryItem, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.CategoryPage, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Coin, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Comestible, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.DownloadPage, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.File, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Folder, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Home, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Image, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Item, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.ItemCategory, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.LandingPage, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Member, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Monster, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Monster2, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.MonsterClass, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.MonsterClass2, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Spell, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.SpellSchool, gnollhack2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+
 Umbraco.Core.Deploy.IServiceConnector
 
 
