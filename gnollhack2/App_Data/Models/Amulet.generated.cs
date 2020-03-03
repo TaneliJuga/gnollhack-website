@@ -44,5 +44,12 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Test Editor Test
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("testEditorTest")]
+		public object TestEditorTest => this.Value("testEditorTest");
 	}
 }

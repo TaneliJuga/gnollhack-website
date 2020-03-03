@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.SpellSchool>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "archivePage.cshtml";
+    String caption = Model.Name.ToString() + " spells";
+    IHtmlString description = new HtmlString(Model.LongDescription);
+    IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>();
+    IEnumerable<String> headers = new List<String>(new String[] { "Name", "Level", "Mana cost", "Status"});
+    var children = this.Model.Children();
+}
+
+@foreach (IPublishedContent spell in children)
+{
+    content = content.Append(
+        new List<String>(new String[] {
+        "<a href=\"" + spell.Url + "\">" + spell.Name + "</a>",
+        spell.Value<String>("spellLevel"),
+        spell.Value<String>("manaCost"),
+        "<span class=\"label label-" + (spell.Value<bool>("newOrChanged") == true ? "success\"> New!" : "default\"> Changed!") + "</span>"
+        }));
+}
+
+@{
+    ViewData.Add("content", content);
+}
+
+@Html.Partial("Table", new TableSettings(caption, description, content, headers, true))

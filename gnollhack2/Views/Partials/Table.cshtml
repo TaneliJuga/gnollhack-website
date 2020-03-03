@@ -1,6 +1,13 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<TableSettings>
 @using Umbraco.Core.Models.PublishedContent
 @using Umbraco.Web
+@using Umbraco.Core
+@using ClientDependency.Core
+@using ClientDependency.Core.Mvc
+@using Umbraco.Core.Composing
+@using Umbraco.Core.IO
+@using Umbraco.Web
+@using Umbraco.Core.Configuration
 
 @{
     int i = 0;
@@ -75,7 +82,7 @@
 
         //$('#content').collapse();
 
-        window.setTimeout(function () {$('#content').collapse()}, 200);
+        window.setTimeout(function () { $('#content').collapse() }, 200);
 
         var table = document.getElementById("myTable");
         var i, headers = table.rows[0].children;
@@ -172,5 +179,62 @@
                 }
             }
         }
+    }
+</script>
+
+<script>
+    var table = document.getElementById("myTable");
+    var rows = table.rows;
+    var slideIndex = 1;
+    var slidesPerPage = 10;
+    var prevSlidesPerPage = slidesPerPage;
+    var prevIndex = -1;
+    showSlides(slideIndex);
+
+    function setSlidesPerPage(n) {
+        prevSlidesPerPage = slidesPerPage
+        slidesPerPage = n;
+
+        var dots = document.getElementsByClassName("dot");
+        var dotAmount = Math.ceil(rows.length / slidesPerPage);
+        makeDots(dotAmount);
+    }
+
+    function makeDots(n) {
+        var dotContainer = document.getElementById("dotContainer");
+
+        for (i = 1; i <= n; i++) {
+            var node = document.createElement("span");
+            node.className = "dot";
+            node.onclick = "currentSlide(" + i + ")";
+            dotContainer.appendChild(node);
+        }
+    }
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var dots = document.getElementsByClassName("dot");
+        if (n > rows.length) { slideIndex = 0 }
+        if (n < 1) { slideIndex = slides.length - 1 }
+        previousIndex = slideIndex;
+        slideIndex *= slidesPerPage;
+        for (i = previousIndex; i < (prevIndex + prevSlidesPerPage); i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = slideIndex; i < (slideIndex + slidesPerPage); i++) {
+            rows[i].style.display = "block";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        dots[slideIndex - 1].className += " active";
     }
 </script>

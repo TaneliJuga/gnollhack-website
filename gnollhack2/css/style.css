@@ -196,6 +196,14 @@ body {
     transition: width 0.4s ease-in-out;
 }
 
+.debug {
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 120px;
+    background: white;
+}
+
 #myInput:focus {
     width: 100%;
 }
@@ -211,6 +219,10 @@ body {
     background-image: url(/media/b5edze2t/gradient-wide-left.png), url(/media/tbogfdxi/gradient-wide-right.png);
     background-repeat: repeat-y;
     background-position: left top, right top;
+}
+
+tbody > tr :not(:last-child){
+    border-right: 1px solid #000;
 }
 
 /*.collapse {

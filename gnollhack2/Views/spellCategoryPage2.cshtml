@@ -1,0 +1,94 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "mainCategoryPage.cshtml";
+    String caption = "Spell Schools";
+    IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>();
+    IEnumerable<String> headers = new List<String>(new String[] { "Name", "Starting Skill", "Maximum Skill" });
+    var children = this.Model.Children();
+    //Model.Siblings().Where(s => s.IsDocumentType("roleCollection", true));
+    IEnumerable<IPublishedContent> roles1 = Model.Siblings().First(s => s.IsDocumentType(RoleCollection.ModelTypeAlias, true)).Children;
+    //IEnumerable<Role> roles = roles1 as IEnumerable<Role>;
+    IEnumerable<Role> roles = roles1.Cast<Role>();
+}
+    @*<div class="debug">
+        <div>Model.Siblings() @Model.Siblings()</div>
+        @foreach (IPublishedContent sibling in Model.Siblings())
+        {
+            <div>sibling.ContentType @sibling.ContentType.Alias IsDocumentType: @sibling.IsDocumentType(RoleCollection.ModelTypeAlias, true)</div>
+        }
+        <div>roles: @roles</div>
+        <div>roles1: @roles1</div>
+        @foreach (IPublishedContent r in roles1)
+        {
+            <div>role.name: @r.Name</div>
+        }
+    </div>*@
+
+@foreach (IPublishedContent spellSchool in children)
+{
+    String startingSkillString = "";
+    String maxSkillString = "";
+
+    if (roles != null)
+    {
+        IEnumerable<Role> isStartingSkillInRoles = roles.Where(role => role.StartingSkill != null && role.StartingSkill.Contains(spellSchool));
+        IEnumerable<Role> isMaxSkillInRoles = roles.Where(role => role.MaximumSkill != null && role.MaximumSkill.Contains(spellSchool));
+        foreach (Role role in isStartingSkillInRoles)
+        {
+            startingSkillString += "<a href=\"" + role.Url + "\">" + role.Name + "</a>, ";
+            
+        }
+        if(startingSkillString.Length > 2)
+        {
+            startingSkillString = startingSkillString.Remove(startingSkillString.Length - 3, 2);
+        }
+
+        foreach (Role role in isMaxSkillInRoles)
+        {
+            maxSkillString += "<a href=\"" + role.Url + "\">" + role.Name + "</a>, ";
+        }
+        if(maxSkillString.Length > 2)
+        {
+            maxSkillString = maxSkillString.Remove(maxSkillString.Length - 3, 2);
+        }
+    }
+
+    content = content.Append(
+new List<String>(new String[] {
+            "<a href=\"" + spellSchool.Url + "\">" + spellSchool.Name + "</a>",
+            startingSkillString,
+            maxSkillString
+        }));
+}
+
+@Html.Partial("Table", new TableSettings(caption, content, headers, true))
+
+
+
+@*@helper childPages(IEnumerable<dynamic> pages, bool isLast)
+    {
+         Ensure that we have a collection of pages
+        if (pages.Any())
+        {
+            <ul class="dropdown-menu centered-menu @(isLast ? "dropdown-right" : "")">
+
+                @if (mainCategoryPage != null)
+                {
+                    String pageHeader = "All " + mainCategoryPage.Name;
+
+                    <li>
+                        <a href="@mainCategoryPage.Url">@pageHeader</a>
+                    </li>
+                }
+                @foreach (var page in pages)
+                {
+                    <li>
+                        <a href="@page.Url">@page.Name</a>
+                    </li>
+                }
+            </ul>
+
+        }
+    }*@
+

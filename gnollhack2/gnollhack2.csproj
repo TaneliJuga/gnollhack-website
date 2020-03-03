@@ -419,6 +419,8 @@
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.html" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
+    <Content Include="App_Plugins\TestEditor\testEditor.controller.js" />
+    <Content Include="App_Plugins\TestEditor\testEditor.html" />
     <Content Include="bin\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
     <Content Include="bin\amd64\sqlceca40.dll" />
     <Content Include="bin\amd64\sqlcecompact40.dll" />
@@ -5915,6 +5917,8 @@
   <ItemGroup>
     <Content Include="App_code\TableSettings.cs" />
     <Content Include="App_code\Class1.cs" />
+    <Content Include="App_code\Table.cs" />
+    <Content Include="App_code\ParameterEditor.cs" />
     <Compile Include="App_Data\Models\Amulet.generated.cs" />
     <Compile Include="App_Data\Models\Armor.generated.cs" />
     <Compile Include="App_Data\Models\Category.generated.cs" />
@@ -5938,8 +5942,12 @@
     <Compile Include="App_Data\Models\MonsterAttack.generated.cs" />
     <Compile Include="App_Data\Models\MonsterClass.generated.cs" />
     <Compile Include="App_Data\Models\MonsterClass2.generated.cs" />
+    <Compile Include="App_Data\Models\Role.generated.cs" />
+    <Compile Include="App_Data\Models\RoleCollection.generated.cs" />
     <Compile Include="App_Data\Models\Spell.generated.cs" />
     <Compile Include="App_Data\Models\SpellSchool.generated.cs" />
+    <Compile Include="App_Data\Models\SpellSchoolCollection.generated.cs" />
+    <Compile Include="App_Data\Models\Table.cs" />
     <Compile Include="App_Data\Models\Table.generated.cs" />
     <Compile Include="App_Data\Models\TableCell.generated.cs" />
     <Compile Include="Composers\MyCollection.cs" />
@@ -6020,6 +6028,7 @@
     <Content Include="App_Plugins\ImagePosition\package.manifest" />
     <Content Include="App_Data\Models\all.dll.path" />
     <Content Include="App_Data\Models\models.hash" />
+    <Content Include="App_Plugins\TestEditor\package.manifest" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
@@ -7287,6 +7296,9 @@
     <Content Include="Views\Table.cshtml" />
     <Content Include="Views\Test.cshtml" />
     <Content Include="Views\tablePage.cshtml" />
+    <Content Include="Views\backup\SpellSchool.cshtml" />
+    <Content Include="Views\backup\spellCategoryPage.cshtml" />
+    <Content Include="Views\spellCategoryPage2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
