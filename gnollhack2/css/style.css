@@ -75,7 +75,7 @@ h3{
     font-size: 62px;
     font-family: 'Rye', cursive;
     color: black;
-    margin: 0;
+    margin-bottom: 10px;
 }
 
 caption {
@@ -221,7 +221,7 @@ body {
     background-position: left top, right top;
 }
 
-tbody > tr :not(:last-child){
+th:not(:last-child), tr td:not(:last-child) {
     border-right: 1px solid #000;
 }
 

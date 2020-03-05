@@ -5,9 +5,9 @@
     String caption = "Spell Schools";
     IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>();
     IEnumerable<String> headers = new List<String>(new String[] { "Name", "Starting Skill", "Maximum Skill" });
-    var children = this.Model.Children();
+    var children = this.Model.Children().OrderBy<IPublishedContent, String>(c => c.Name);
     //Model.Siblings().Where(s => s.IsDocumentType("roleCollection", true));
-    IEnumerable<IPublishedContent> roles1 = Model.Siblings().First(s => s.IsDocumentType(RoleCollection.ModelTypeAlias, true)).Children;
+    IEnumerable<IPublishedContent> roles1 = Model.Siblings().First(s => s.IsDocumentType(RoleCollection.ModelTypeAlias, true)).Children.OrderBy<IPublishedContent, String>(r => r.Name);
     //IEnumerable<Role> roles = roles1 as IEnumerable<Role>;
     IEnumerable<Role> roles = roles1.Cast<Role>();
 }
