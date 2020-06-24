@@ -1,0 +1,575 @@
+/* Go crazy with your own styles here */
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
+
+/* Fixes the issue of Google Fonts not displaying on Windows 7 using IE 10 or IE 11. */
+body {
+    -ms-font-feature-settings: normal;
+}
+
+.download {
+    /*border: 10px solid transparent;*/
+}
+
+    .download:hover {
+        /*
+    box-shadow: 0px 0px 40px rgba(0,0,0, .2);*/
+        filter: drop-shadow(0px 0px 70px rgba(255, 234, 43, .9));
+        /*border-color: #f1f1f1;*/
+    }
+
+.download-container {
+    /*padding: 30px 10px;*/
+    border-bottom: 2px solid #222;
+}
+
+@media screen and (min-width: 768px) {
+    .download-container {
+        padding: 30px 10px;
+        border-bottom: none;
+    }
+
+    .download-box {
+        border: 2px solid #222;
+        border-radius: 15px;
+    }
+}
+
+.download-box {
+    background-color: #ffe;
+    padding: 20px;
+    max-width: 720px;
+    margin: 0 auto;
+    border: 50px solid transparent;
+    border-image: url(/media/clhdyisu/scroll_paper.png) 236 326 236 301 round;
+    background-color: #efe4b3;
+    background-clip: padding-box;
+    overflow-x: auto;
+}
+
+/*.download-box p, .download-box h3, .download-box h4, .download-box a image{
+    text-align: center;
+}*/
+
+.download-box {
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Rye', cursive;
+}
+
+#borderimg {
+    border: 50px solid transparent;
+    border-image: url(/media/clhdyisu/scroll_paper.png) 236 326 236 301 round;
+    margin: auto;
+    padding: 0;
+    overflow-x: auto;
+}
+
+#content {
+    background-color: #efe4b3;
+    overflow-x: auto;
+    padding: 10px;
+    display: block !important;
+    transition: width 2s !important;
+    transition: height 2s !important;
+}
+
+    #content h1 {
+        text-align: center;
+        font-size: 62px;
+        font-family: 'Rye', cursive;
+        color: black;
+        margin-bottom: 10px;
+    }
+
+caption {
+    font-size: 18px;
+    font-family: 'Courgette', cursive;
+    text-align: center;
+    color: black;
+}
+
+thead th {
+    cursor: pointer;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #d9cfa1;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    border-top-color: black;
+}
+
+.table > thead > tr > th {
+    border-bottom-color: black;
+}
+
+td {
+    text-align: center;
+}
+
+thead tr th:not(:first-child) {
+    text-align: center;
+}
+
+.table {
+    margin: 0;
+}
+
+table {
+    font-family: 'Berkshire Swash', cursive;
+    /*font-family: 'Rye', cursive;*/
+    font-size: 18px;
+}
+
+    table a {
+        color: #3e3f3a;
+    }
+
+/* Style the list */
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: hsla(0, 0%, 0%, 0.5);
+    text-align: center;
+}
+
+    /* Display list items side by side */
+    ul.breadcrumb li {
+        display: inline;
+        font-size: 18px;
+    }
+
+        /* Add a slash symbol (/) before/behind each list item */
+        ul.breadcrumb li + li:before {
+            padding: 8px;
+            content: "/\00a0";
+        }
+
+        /* Add a color to all links inside the list */
+        ul.breadcrumb li a {
+            color: white;
+            text-decoration: none;
+        }
+
+            /* Add a color on mouse-over */
+            ul.breadcrumb li a:hover {
+                color: #01447e;
+                text-decoration: underline;
+            }
+
+.scrollContainer {
+    display: flex;
+    margin-left: -50px;
+    width: calc(100% + 100px);
+    height: 100%;
+}
+
+
+/*#borderimg{
+    min-width: 270px;
+}*/
+
+.letter {
+    font-family: "Courier New","Menlo","DejaVu Sans Mono","Courier",monospace;
+    font-weight: bold;
+    font-size: large;
+    background-color: black;
+    padding: 1px;
+}
+
+#myInput {
+    width: 0px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url(/media/zabiw3kh/searchicon.png);
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 12px 5px 35px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.debug {
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 120px;
+    background: white;
+}
+
+#myInput:focus {
+    width: 100%;
+}
+
+#collapseButton {
+    float: left;
+    position: absolute;
+    left: 0;
+    top: 120px;
+}
+
+
+th:not(:last-child), tr td:not(:last-child) {
+    border-right: 1px solid #000;
+}
+
+/*.collapse {
+    display: block !important;
+    width: 100% !important;
+    background-color: #efe4b3 !important;
+    overflow-x: auto !important;
+    padding: 10px !important;
+}*/
+
+/* The hero image */
+.hero-image {
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+    /*background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/media/myflkvuz/gnollhack-icon-v2-512.png);*/
+    background-image: url(/media/myflkvuz/gnollhack-icon-v2-512.png);
+    /* Set a specific height */
+    height: 400px;
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    /*filter: drop-shadow(0px 0px 70px rgba(255, 234, 43, .9));*/
+    animation-name: pulsate;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulsate {
+    0% {
+        filter: drop-shadow(0px 0px 70px rgba(255, 234, 43, .1));
+    }
+
+    50% {
+        filter: drop-shadow(0px 0px 70px rgba(255, 234, 43, .9));
+    }
+
+    100% {
+        filter: drop-shadow(0px 0px 70px rgba(255, 234, 43, .1));
+    }
+}
+
+body {
+    /*height: 100%;*/
+    /* background-image: url(/media/efkedekd/cobblestone.jpg); */
+    /* background-image: url(/media/s31lw4bb/cobblestone3.png); */
+    background-image: url(/media/b5edze2t/gradient-wide-left.png), url(/media/tbogfdxi/gradient-wide-right.png), url(/media/wxqhj3wx/brick-bg.jpg);
+    /* background-image: url(/media/aveph3qm/cobblestone7.png); */
+    background-position: left top, right top, center;
+    background-repeat: repeat-y, repeat-y, repeat;
+    display: flex;
+    flex-flow: column;
+    /*background-image: linear-gradient(rgba(0, 0, 0, 0.70), rgba(7, 63, 66, 0.7)),url(/media/b5edze2t/gradient-wide-left.png), url(/media/tbogfdxi/gradient-wide-right.png), url(/media/h31dvsqh/terrainrocks.png);
+    background-image: url(/media/b5edze2t/gradient-wide-left.png), url(/media/tbogfdxi/gradient-wide-right.png), http://localhost:58600/media/h31dvsqh/terrainrocks.png);
+    background-position: center, left top, right top, center;
+    background-repeat: no-repeat,repeat-y, repeat-y, repeat;*/
+}
+
+
+/*.wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url(/media/b5edze2t/gradient-wide-left.png), url(/media/tbogfdxi/gradient-wide-right.png);
+    background-repeat: repeat-y;
+    background-position: left top, right top;
+}*/
+
+.bottom-navigation {
+    /*background-image: linear-gradient(rgba(37, 21, 2, 0.87), rgba(37, 21, 2, 0.87)), url(/media/5i4h5lrf/woodtiled.png);*/
+    background-image: linear-gradient(rgba(37, 21, 2, 0.87), rgba(37, 21, 2, 0.87)), url(/media/oz4duhr3/woodtiled03.png);
+    border: 50px solid transparent;
+    border-image: url(/media/hmgog4p2/gnollhack-icon-v4.png) 118 94 116 97 stretch;
+    background-clip: padding-box;
+    border-width: 50px 50px 0px 50px;
+    border-radius: 15px;
+    margin-bottom: 0 !important;
+    align-self: flex-end;
+    /*position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);*/
+}
+
+footer {
+    display: flex;
+}
+
+body, html, footer {
+    height: 100%;
+}
+
+#mainContent {
+    min-height: 60%;
+}
+
+    #mainContent h1 {
+        text-align: center;
+    }
+
+/*.scroll {
+    border: 50px solid transparent;
+    border-image: url(/media/clhdyisu/scroll_paper.png) 236 326 236 301 round;
+    background-color: #efe4b3;
+    background-clip: padding-box;
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 18px;
+    color: black;
+}*/
+
+.scrollContent {
+    padding: 10px;
+    transition: width 2s !important;
+    transition: height 2s !important;
+    border: 50px solid transparent;
+    border-image: url(/media/clhdyisu/scroll_paper.png) 236 326 236 301 round;
+    background-color: #efe4b3;
+    background-clip: padding-box;
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 18px;
+    border-radius: 15px;
+}
+
+    .scrollContent h1 {
+        text-align: center;
+        font-size: 62px;
+        font-family: 'Rye', cursive;
+        color: black;
+        margin-bottom: 10px;
+    }
+
+
+.umb-grid {
+    /* margin: auto; */
+}
+
+/*.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+
+.dropdown-menu {
+    padding: 5px;
+    border: 30px solid transparent;
+    border-image: url(/media/clhdyisu/scroll_paper.png) 236 326 236 301 round;
+    background-color: #efe4b3;
+    background-clip: padding-box;
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 12px;
+    border-radius: 8px;
+}*/
+
+
+
+/*.closed{
+    display: none;
+}
+
+.open {
+    display: block;
+}*/
+
+.menu {
+    display: none;
+}
+
+.navbar-inverse {
+    background-image: linear-gradient(rgba(37, 21, 2, 0.87), rgba(37, 21, 2, 0.87)), url(/media/oz4duhr3/woodtiled03.png);
+    border: solid transparent;
+    border-width: 0px 50px 50px 50px;
+    border-image: url(/media/hmgog4p2/gnollhack-icon-v4.png) 118 94 116 97 stretch;
+    background-clip: padding-box;
+    border-radius: 15px;
+}
+
+.navbar-fixed-bottom, .navbar-fixed-top {
+    position: fixed;
+    left: 50%;
+    right: auto;
+    z-index: 1030;
+    transform: translateX(-50%);
+    height: 130px;
+    /* width: 100%; */
+}
+
+.navbar-container {
+    /*display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 50px;
+    margin-bottom: -50px;*/
+}
+
+
+.navbar-nav {
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    float: none;
+    /* margin: 0; */
+}
+
+.dropdown-border a {
+    color: black;
+    font-size: 18px;
+}
+
+
+.menu .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+/*.dropdown-border > .menu > .divider:last-child {
+    display: none;
+}*/
+
+.dropdown-border {
+    padding: 5px;
+    border: 30px solid transparent;
+    border-image: url(/media/clhdyisu/scroll_paper.png) 236 326 236 301 round;
+    background-color: #efe4b3;
+    background-clip: padding-box;
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 12px;
+    border-radius: 8px;
+    overflow-y: hidden;
+    /* float: left; */
+    text-align: center;
+    /* color: black; */
+    margin: 0px 5px;
+    /*height: fit-content;*/
+    display: table;
+    max-width: 250px;
+    /* flex-grow: 1; */
+}
+
+    .dropdown-border.open {
+        filter: drop-shadow(0px 0px 40px rgba(0, 251, 255, .9));
+    }
+
+    .dropdown-border a:hover {
+        text-shadow: 0 0 10px #00ffad;
+    }
+
+    .dropdown-border div:not(:first-child) {
+        text-align: left;
+        margin: inherit;
+    }
+
+.dropdown-header {
+    display: block;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.42857143;
+    color: #000000;
+    white-space: nowrap;
+    font-family: 'Rye', cursive;
+    font-weight: bold;
+    text-align: center !important;
+    text-decoration: underline;
+}
+
+.caret.caret-up {
+    border-top-width: 0;
+    border-bottom: 4px solid #717171;
+}
+
+.dropdown-button a {
+    display: inline-flex;
+    align-items: center;
+}
+
+/*.scrollContent p::first-letter {
+    font-size: 250%;
+    font-family: 'Rye', cursive;
+    color: #ff0000;
+    vertical-align: bottom;
+    margin-bottom: -20px;
+}
+*/
+
+a.navbar-brand:hover {
+    filter: drop-shadow(0px 0px 20px rgba(255, 234, 43, .9));
+    text-shadow: 0 0 10px rgb(220, 197, 3);
+    color: rgb(239, 214, 2) !important;
+}
+
+a.navbar-brand {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 16px;
+    font-weight: unset;
+    text-align: center;
+    color: rgb(205, 184, 4) !important;
+    max-width: none !important;
+    height: unset !important;
+    display: inline;
+}
+
+.navbar-header img {
+    margin-top: 3px;
+    height: 70px;
+    width: 70px;
+    max-width: none !important;
+}
+
+/*span.medieval{
+    font-size: 200%;
+    color: #ff0000;
+    font-family: 'Rye', cursive;
+}*/
+
+nav div.selected {
+    text-shadow: 0 0 10px #00ffad;
+}
+
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar {
+        width: 100%;
+        height: auto;
+    }
+
+    .dropdown-border {
+        width: 100% !important;
+    }
+}
+
+.navbar {
+    /* width: auto; */
+}
+
+.dropdown-border {
+    width: 33%;
+}
+
+.navbar-collapse.collapse.in {
+    overflow-y: visible;
+}

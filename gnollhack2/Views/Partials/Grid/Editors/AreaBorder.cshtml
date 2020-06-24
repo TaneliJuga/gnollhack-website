@@ -1,0 +1,20 @@
+﻿@model dynamic
+@using Umbraco.Web.Templates
+@{
+    Layout = "~/Views/Partials/Scroll.cshtml";
+    var area = Model;
+}
+@try
+{
+    foreach (var control in area.controls)
+    {
+        if (control != null && control.editor != null && control.editor.view != null)
+        {
+            <text>@Html.Partial("grid/editors/base", (object)control)</text>
+        }
+    }
+}
+catch (Exception ex)
+{
+<pre>@ex.ToString()</pre>
+}

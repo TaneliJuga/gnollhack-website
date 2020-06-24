@@ -1,0 +1,10 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@using Umbraco.Web.Models
+@{
+var imagePosition = Model.MacroParameters["imagePosition"];
+//or if for convenience if you are using Umbraco.Web.Models namespace there is a GetParameterValue extension method, which allows a default value to be specified if the parameter is not provided:
+//var imagePosition = Model.GetParameterValue<string>("imagePosition","full-width");
+
+}
+
+<div>@imagePosition</div>

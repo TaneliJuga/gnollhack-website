@@ -1,0 +1,48 @@
+﻿@use "sass:math";
+@use "sass:selector";
+@use "sass:string";
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+@use "../variables";
+$border-size-m: 40px;
+$border-size-s: 30px;
+$item-max-width: 250px;
+$navabr-left-offset: 70px;
+
+.bem-navbar {
+    $block: &;
+
+    &__container {
+        &_outer {
+            padding: 10px;
+        }
+
+        &_size {
+            &_fill {
+                height: 100%;
+            }
+        }
+    }
+
+    &__link-container {
+        display: flex;
+        float: none;
+        justify-content: center;
+        align-items: center;
+        //Will center the items in the container once the items are full height
+        &::after {
+            margin-right: -$item-max-width;
+            min-width: $item-max-width;
+            max-width: ($item-max-width + $navabr-left-offset);
+            flex: 1;
+        }
+    }
+
+    &__link-container-item {
+        max-width: $item-max-width;
+        margin: 5px;
+        flex: 1;
+    }
+}
+

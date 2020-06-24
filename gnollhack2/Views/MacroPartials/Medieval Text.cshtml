@@ -1,0 +1,54 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@using Umbraco.Web.Models
+@{
+    //var text = Model.MacroParameters["text"];
+    string text = Model.GetParameterValue<string>("text", "");
+    string[] sentences = text.Split(new char[] { '.' });
+
+    for (int i = 0; i < sentences.Length - 1; i++)
+    {
+        sentences[i] = sentences[i] + '.';
+    }
+
+    //int findFirstLetter(string str){
+    //    char[] chars = str.ToCharArray();
+    //    for (int i = 0; i < str.Length; i++)
+    //    {
+    //        if (Char.IsLetter(chars[i]))
+    //        {
+    //            return i;
+    //        }
+    //    }
+    //    return -1;
+    //}
+
+    string findFirstLetter(string str){
+        char[] chars = str.ToCharArray();
+        string newString = "";
+        for (int i = 0; i < str.Length; i++)
+        {
+            if (Char.IsLetter(chars[i]))
+            {
+                newString += "<span class=\"medieval\">" + chars[i] + "</span>";
+                return newString + str.Remove(0, i+1);
+            }
+            else
+            {
+                newString += chars[i];
+            }
+        }
+        return newString;
+    }
+}
+    <p>
+        @foreach (string sentence in sentences)
+        {
+            if (sentence.Length > 0)
+            {
+                @Html.Raw(findFirstLetter(sentence))
+            }
+            @*<span class="medieval">Html.Raw(sentence.First())</span>@Html.Raw(sentence.Remove(0, 1))*@
+            @*<div>@sentence</div>
+            <br />*@
+        }
+    </p>

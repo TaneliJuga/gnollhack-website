@@ -1,0 +1,199 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using Umbraco.Core;
+@using Umbraco.Core.Models;
+@using Umbraco.Core.Services;
+@{
+    var ancestors = Model.Ancestors();
+    //var home = ancestors.GetEnumerator.Current();
+    var home = Model.Root();
+    IContentTypeService contentTypeService = Services.ContentTypeService;
+    var objectCollectionChildTypes = contentTypeService.GetChildren(1469);
+    ViewBag.objectCollectionChildTypes = (from type in objectCollectionChildTypes select type.Id);
+    if (!home.IsDocumentType("LandingPage"))
+    {
+        home = home.Children.First();
+    }
+    IEnumerable<IPublishedContent> allChildren2 = home.Children;
+    IEnumerable<IPublishedContent> children2 = allChildren2.Where(c => Model.Value<bool>("hideFromNavigation") == false);
+    IPublishedContent[] children3 = children2.ToArray();
+    //IEnumerable<NavigationData> navigationData = children2.Select(c => new NavigationData(c.Name, c.Url));
+
+    //IEnumerable<IEnumerable<IPublishedContent>> allChildren3 = new ArrayList
+    IEnumerable<IEnumerable<IPublishedContent>> allChildren3 = home.Children.Select(c => {
+
+
+        return c.Children;
+    });
+
+
+    //var navigationData = children2.Where(c => c.IsDocumentType("LandingPage")).Select(c => RecurseChildren(c.Children));
+
+    //dynamic RecurseChildren(IEnumerable<IPublishedContent> children)
+    //{
+    //    return children.Select(c => RecurseChildren(c.Children)).Select(c => new NavigationData(c.Name, c.Url));
+    //}
+
+    var navigationData = children2.Where(c => c.IsDocumentType("LandingPage")).Select(c => RecurseChildren(c.Children));
+
+    dynamic RecurseChildren(IEnumerable<IPublishedContent> children)
+    {
+        return children.Select<IPublishedContent, System.Object>(c => {
+            if (c.Children.Any())
+            {
+                return RecurseChildren(c.Children);
+            }
+            else
+            {
+                return new NavigationData(c.Name, c.Url);
+            }
+        });
+        //return children.Select(c => RecurseChildren(c.Children)).Select(c => new NavigationData(c.Name, c.Url));
+    }
+    }
+
+    @if (home.Descendants().Any())
+    {
+        IEnumerable<IPublishedContent> allChildren = home.Children;
+    IEnumerable<IPublishedContent> children = allChildren.Where(c => Model.Value<bool>("hideFromNavigation") == false);
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="@home.Url">
+                    <img alt="Hyv&auml;n mielen pelit" src="~/svg/logo2_white.svg" style="margin-top:9px;height:40px;" />
+                </a>
+
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse navbar-centered">
+                <ul class="nav navbar-nav">
+                    @foreach (IPublishedContent childPage in children)
+                    {
+                        if (childPage.Children.Any())
+                        {
+                            if (childPage.IsDocumentType("LandingPage"))
+                            {
+                                <li class="dropdown-submenu@(childPage.IsAncestorOrSelf(Model) ? " selected" : "")">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@childPage.Name<span class="caret"></span></a>
+                                    @ChildPages(childPage.Children.ToArray())
+                                </li>
+
+                            }
+                            else
+                            {
+                                <li class="@(childPage.IsAncestorOrSelf(Model) ? "selected" : null)">
+                                    <a href="@childPage.Url">@childPage.Name</a>
+                                </li>
+                            }
+
+                        }
+                        else
+                        {
+                            <li class="@(childPage.IsAncestorOrSelf(Model) ? "selected" : null)">
+                                <a href="@childPage.Url">@childPage.Name</a>
+                            </li>
+                        }
+                    }
+                </ul>
+
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <script>
+        var elements = [];
+        $(document).ready(function () {
+            //var data = JSON.parse(@Html.Raw(Json.Encode(navigationData)));
+            var data = @Html.Raw(Json.Encode(navigationData));
+            iterate(data);
+            console.log("data[0].Name " + data[0].Name);
+            $('.dropdown-submenu a').on("click", function (e) {
+            $(this).parent().siblings().children('ul').collapse("hide");
+            elements.push($(this).next('ul'));
+            $(this).next('ul').collapse("toggle");
+            e.stopPropagation();
+            e.preventDefault();
+            });
+        });
+        var depth = 0;
+        function iterate(object) {
+            depth++;
+            for (let [key, value] of Object.entries(object)) {
+                console.log(`${depth} ${key}: ${value}`);
+                if (value instanceof Object) {
+                    iterate(value);
+                }
+            }
+        }
+        //$(document).ready(function(){
+        //    $('.dropdown-submenu a').on("click", function (e) {
+        //        $(this).parent().siblings().children('ul').hide();
+        //        var selection = $(this).next('ul');
+        //        elements.push(selection);
+        //        selection.toggle();
+        //        e.stopPropagation();
+        //        e.preventDefault();
+        //        $('this').siblings().all
+        //        var counter = 0;
+        //        var element = $(this).parent().parent('ul');
+        //        while (element) {
+        //            counter++;
+        //            element = $(this).parent().parent('ul');
+        //        }
+        //        while (elements.length > 0) {
+        //            var popped = elements.pop;
+                   
+        //            if (element.equals(popped)) {
+        //                break;
+        //            }
+        //            popped.hide();
+        //        }
+        //    });
+        //});
+    </script>
+}
+
+@helper ChildPages(IPublishedContent[] selection)
+{
+    @* Ensure that we have a collection of pages *@
+    if (selection.Length > 0)
+    {
+        @* Get the first page in pages and get the level *@
+        var naviLevel = selection[0].Level;
+
+        @* Add in level for a CSS hook *@
+        @*<ul class="dropdown-menu centered-menu">*@
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+            @foreach (var item in selection)
+            {
+                var children = item.Children.Where(x => x.IsVisible()).ToArray();
+                IEnumerable<int> objectCollectionChildTypes = ViewBag.objectCollectionChildTypes;
+                if (children.Length > 0)
+                {
+                    if (objectCollectionChildTypes.Contains(item.ContentType.Id))
+                    {
+                        <li><a href="@item.Url">@item.Name</a></li>
+
+                    }
+                    else
+                    {
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@item.Name <span class="caret"></span></a>
+                            @ChildPages(children)
+                        </li>
+
+                    }
+                }
+                else
+                {
+                    <li><a href="@item.Url">@item.Name</a></li>
+                }
+            }
+        </ul>
+    }
+}

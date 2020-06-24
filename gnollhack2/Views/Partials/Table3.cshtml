@@ -1,0 +1,200 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<TableSettings>
+@using Umbraco.Core.Models.PublishedContent
+@using Umbraco.Web
+@using Umbraco.Core
+@using ClientDependency.Core
+@using ClientDependency.Core.Mvc
+@using Umbraco.Core.Composing
+@using Umbraco.Core.IO
+@using Umbraco.Web
+@using Umbraco.Core.Configuration
+
+@{
+    int i = 0;
+    String style;
+    Layout = "Scroll.cshtml";
+}
+
+<button type="button" id="collapseButton" class="btn btn-info" data-toggle="collapse" data-target="#content">Simple collapsible</button>
+<div id="content" class="collapse">
+    <div id="tableContainer">
+        @if (@Model.Content != null && Model.AlignLeft)
+        {
+            <input type="text" id="myInput" content="\e003" onkeyup="myFunction()" placeholder="Search by @Model.Headers.First().ToLower()" title="Type in a @Model.Headers.First().ToLower() to search">
+            style = "";
+        }
+        else
+        {
+            style = "style=\"text-align:center;\"";
+        }
+        <h1>@Model.Caption</h1>
+        <table class="table table-hover" id="myTable">
+            @if (@Model.Description != null)
+            {
+                <caption id="caption">@Model.Description</caption>
+            }
+            <thead>
+                <tr>
+                    @foreach (var header in Model.Headers)
+                    {
+                        @*<th scope="col" onclick="sortTable(@i)">@header</th>*@
+                        @Html.Raw("<th " + style + " scope=\"col\" onclick=\"sortTable(" + @i + ")\">" + @header + "<span class=\"caret\"></span>" + "</th>")
+                        i++;
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Content)
+                {
+                    <tr>
+                        @Html.Raw("<th " + style + " scope=\"row\">" + @item.First() + "</th>")
+
+                        @foreach (var value in item.Skip(1))
+                        {
+                            @Html.Raw("<td>" + @value + "</td>")
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        // Open the scroll
+        var content = document.getElementById("content");
+        var borderImg = document.getElementById("borderimg");
+        content.style.height = "0px";
+
+        //borderImg.style.width = (content.clientWidth + 101) + "px";
+
+        //$('#content').on('show.bs.collapse', function () {
+        //    borderImg.style.width = "initial";
+        //});
+
+        //$("#content").on('hide.bs.collapse', function(){
+        //    borderImg.style.width = (content.clientWidth + 101) + "px";
+        //});
+
+        //$('#content').collapse();
+
+        window.setTimeout(function () { $('#content').collapse() }, 200);
+
+        var table = document.getElementById("myTable");
+        var i, headers = table.rows[0].children;
+
+        for (i = 0; i < headers.length; i++) {
+            headers[i].setAttribute("title", "sort ascending");
+        }
+
+    })
+
+</script>
+
+<script>
+    $("span.caret").parent().on("click", function () {
+        $(this).children("span").toggleClass("caret-up");
+        $("span.caret").not($(this).children("span")).removeClass("caret-up");
+    });
+    //$("span.caret").parent().css("background-color", "blue");
+    //$("span.caret").css("background-color", "red");
+    function sortTable(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("myTable");
+        switching = true;
+        // Set the sorting direction to ascending:
+        dir = "asc";
+        /* Make a loop that will continue until
+        no switching has been done: */
+        while (switching) {
+            // Start by saying: no switching is done:
+            switching = false;
+            rows = table.rows;
+            /* Loop through all table rows (except the
+            first, which contains table headers): */
+            for (i = 1; i < (rows.length - 1); i++) {
+                // Start by saying there should be no switching:
+                shouldSwitch = false;
+                /* Get the two elements you want to compare,
+                one from current row and one from the next: */
+                //console.log("rows[i].children[n].innerHTML " + rows[i].children[n].innerHTML);
+                x = rows[i].children[n];
+                y = rows[i + 1].children[n];
+
+                /* Check if the two rows should switch place,
+                based on the direction, asc or desc: */
+                if (dir == "asc") {
+                    if (x.textContent.toLowerCase() > y.textContent.toLowerCase()) {
+                        // If so, mark as a switch and break the loop:
+                        //console.log("x.textContent " + x.textContent + " y.textContent " + y.textContent);
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else if (dir == "desc") {
+                    if (x.textContent.toLowerCase() < y.textContent.toLowerCase()) {
+                        // If so, mark as a switch and break the loop:
+                        //console.log("x.textContent " + x.textContent + " y.textContent " + y.textContent);
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch) {
+                /* If a switch has been marked, make the switch
+                and mark that a switch has been done: */
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                // Each time a switch is done, increase this count by 1:
+                switchcount++;
+            } else {
+                /* If no switching has been done AND the direction is "asc",
+                set the direction to "desc" and run the while loop again. */
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+            }
+        }
+        var headers = rows[0].children;
+        for (i = 0; i < headers.length; i++) {
+            headers[i].setAttribute("title", "sort ascending");
+        }
+        headers[n].setAttribute("title", "sort " + (dir === "asc" ? "descending" : "ascending"));
+    }
+</script>
+
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue, content, tableContainer;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        content = document.getElementById("content");
+        tableContainer = document.getElementById("tableContainer");
+        //alert("tableContainer.scrollHeight " + tableContainer.scrollHeight);
+        content.style.height = "" + content.scrollHeight + "px";
+        console.log("content.style.height " + content.style.height);
+        for (i = 1; i < tr.length; i++) {
+            td = tr[i].children[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+
+        $("#content").animate({
+            height: "" + (tableContainer.scrollHeight + 20) + "px"
+        });
+        //content.style.height = "" + (tableContainer.scrollHeight + 20) + "px";
+        content.style.height = "calc(100% + 1px);";
+        //alert("tableContainer.scrollHeight " + tableContainer.scrollHeight);
+        console.log("content.style.height " + content.style.height);
+    }
+</script>

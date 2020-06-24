@@ -1,0 +1,205 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using Umbraco.Core;
+@using Umbraco.Core.Models;
+@using Umbraco.Core.Services;
+@{
+    var ancestors = Model.Ancestors();
+    //var home = ancestors.GetEnumerator.Current();
+    var home = Model.Root();
+    IContentTypeService contentTypeService = Services.ContentTypeService;
+    var objectCollectionChildTypes = contentTypeService.GetChildren(1469);
+    ViewBag.objectCollectionChildTypes = (from type in objectCollectionChildTypes select type.Id);
+    if (!home.IsDocumentType("LandingPage"))
+    {
+        home = home.Children.First();
+    }
+}
+
+@if (home.Descendants().Any())
+{
+    IEnumerable<IPublishedContent> allChildren = home.Children;
+    IEnumerable<IPublishedContent> children = allChildren.Where(c => Model.Value<bool>("hideFromNavigation") == false);
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="@home.Url">
+                <img alt="Hyv&auml;n mielen pelit" src="~/svg/logo2_white.svg" style="margin-top:9px;height:40px;" />
+            </a>
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="container navbar-container">
+            <div id="navbar" class="collapse navbar-collapse navbar-centered">
+                <div class="nav navbar-nav">
+                    @foreach (IPublishedContent childPage in children)
+                    {
+                        <div class="dropdown-border">
+                            @if (childPage.Children.Any() && childPage.IsDocumentType("LandingPage"))
+                            {
+                                <div>
+                                    <a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">@childPage.Name<span class="caret"></span></a>
+                                </div>
+                                <div class="menu closed@(childPage.IsAncestorOrSelf(Model) ? " selected" : "")">
+                                    @ChildPages(childPage.Children.ToArray())
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="@(childPage.IsAncestorOrSelf(Model) ? "selected" : null)">
+                                    <a href="@childPage.Url">@childPage.Name</a>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <script>
+        var borders = document.getElementsByClassName("dropdown-border");
+        var bord = $(".dropdown-border").first();
+        var margin = bord.outerHeight() - bord.innerHeight();
+        $(".dropdown-border").each(function () {
+            var height = $(this).outerHeight().toString();
+            $(this).css("height", height);
+        });
+        function getBorder(element) {
+            //console.log("scrollheight " + element.parentsUntil(".dropdown-border").last().parent().get().scrollHeight);
+            return element.parentsUntil(".dropdown-border").last().parent();
+        }
+
+        function findNextSection(element) {
+            //console.log("next: " + element.parent().next('.menu').length);
+            //console.log("next: " + element.parent().next('.menu').html());
+            console.log("next.outerHeight: " + element.parent().next('.menu').outerHeight());
+            return element.parent().next('.menu');
+        }
+
+        function toggleOpen(element) {
+            var nextSection = findNextSection(element);
+            var border = getBorder(element);
+            //console.log("nextSection.get().nextSection " + nextSection.get(0).className);
+            console.log("nextSection.get().scrollHeight " + nextSection.get().scrollHeight);
+            //console.log("border.className " + border.get(0).className);
+            //console.log("border.hasClass " + border.hasClass("dropdown-border"));
+            //console.log("border.getOwnPropertyNames " + Object.getOwnPropertyNames(border.get()));
+            //console.log("border.get(0).length " + border.get().length);
+            //console.log("border " + (border.outerHeight() - nextSection.outerHeight()));
+            border.children().first().children().first().each(function () {
+                console.log("child.text " + $(this).text());
+            });
+            if (nextSection.hasClass("open")) {
+                console.log("border.outerHeight() " + border.outerHeight());
+                console.log("nextSection.outerHeight() " + nextSection.outerHeight());
+                //border.css("background-color", "red");
+                var height = (border.outerHeight() - nextSection.outerHeight());
+                var nextSectionHeight = nextSection.outerHeight();
+                var setSectionHeight = function () {
+                    //console.log("setSectionHeight " + $(this).attr("class") + " height" + nextSectionHeight);
+                    nextSection.css("height", nextSectionHeight)
+                };
+                console.log("height " + height);
+                border.animate({ height: height }, "slow", function () {
+                    nextSection.removeClass("open");
+                    nextSection.addClass("closed");
+                    setNextSectionHeight(nextSection, setSectionHeight);
+                });
+                nextSection.animate({ height: 0 }, "slow", function () {
+                    setNextSectionHeight(border, setSectionHeight);
+                });
+                element.css("color", "#000000");
+            } else {
+                var nextSectionHeight = nextSection.outerHeight();
+                nextSection.css("height", 0);
+                nextSection.addClass("open");
+                nextSection.removeClass("closed");
+                nextSection.animate({ height: nextSectionHeight }, "slow");
+                console.log("OUTERHEIGHT " + nextSectionHeight);
+                //for (var i = 0; i < borders.length; i++) {
+                //    console.log("borders[" + i + "].scrollHeight " + borders[i].scrollHeight);
+                //}
+                //console.log("border.get(0).scrollHeight " + border.get(0).scrollHeight);
+                var height = border.outerHeight() + nextSectionHeight;
+                console.log("scrollHeight + margin " + height);
+                console.log("__________________________________________________");
+                border.animate({ height: height }, "slow");
+                element.css("color", "#7b7d8a");
+                nextSection.css("background-color", randomColor());
+            }
+        }
+        var toggle = true;
+        $(document).ready(function () {
+            $('.toggle').on("click", function (e) {
+                toggleOpen($(this));
+                //var height = toggle ? 700 : 10;
+                //getBorder($(this)).animate({height: height}, "slow");
+                e.stopPropagation();
+                e.preventDefault();
+                toggle = !toggle;
+            });
+        });
+
+        function randomColor() {
+            var colorStr = "rgb(" + randomRgbValue() + ", " + randomRgbValue() + ", " + randomRgbValue() + ")";
+            function randomRgbValue() {
+                return Math.round(Math.random() * 255).toString();
+            }
+            return colorStr;
+        }
+
+        function setNextSectionHeight(other, fn) {
+            console.log("setNextSectionHeight " + other.attr("class"));
+            if (other.queue("fx").length > 0) {
+                return;    
+            }
+            fn();
+        }
+
+    </script>
+}
+
+@helper ChildPages(IPublishedContent[] selection)
+{
+    @* Ensure that we have a collection of pages *@
+    if (selection.Length > 0)
+    {
+        @* Get the first page in pages and get the level *@
+        var naviLevel = selection[0].Level;
+
+        <div class="divider"></div>
+        <div class="dropdown-header"></div>
+        @* Add in level for a CSS hook *@
+        @*<ul class="dropdown-menu centered-menu">*@
+        foreach (var item in selection)
+        {
+            var children = item.Children.Where(x => x.IsVisible()).ToArray();
+            IEnumerable<int> objectCollectionChildTypes = ViewBag.objectCollectionChildTypes;
+            if (children.Length > 0)
+            {
+                if (objectCollectionChildTypes.Contains(item.ContentType.Id))
+                {
+                    <div><a href="@item.Url">@item.Name</a></div>
+                }
+                else
+                {
+                    <div><a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">@item.Name <span class="caret"></span></a></div>
+                    <div class="menu closed">
+                        @ChildPages(children)
+                    </div>
+
+                }
+            }
+            else
+            {
+                <div><a href="@item.Url">@item.Name</a></div>
+            }
+        }
+    }
+    <div class="divider"></div>
+}

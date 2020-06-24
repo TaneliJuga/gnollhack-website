@@ -1,0 +1,12 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<object>
+
+@{
+    Layout = null;
+    string scrollSize = ViewData["scrollSize"] as string ?? "";
+}
+
+<div class="scroll-border@(" " + scrollSize)">
+    <div class="scroll-container">
+        @RenderBody()
+    </div>
+</div>

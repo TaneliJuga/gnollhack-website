@@ -53,20 +53,6 @@ namespace Umbraco.Web.PublishedModels
 		public Newtonsoft.Json.Linq.JToken Content => this.Value<Newtonsoft.Json.Linq.JToken>("content");
 
 		///<summary>
-		/// Content Picker Test
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
-		[ImplementPropertyType("contentPickerTest")]
-		public IPublishedContent ContentPickerTest => this.Value<IPublishedContent>("contentPickerTest");
-
-		///<summary>
-		/// Nested Content Test
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
-		[ImplementPropertyType("nestedContentTest")]
-		public IEnumerable<IPublishedElement> NestedContentTest => this.Value<IEnumerable<IPublishedElement>>("nestedContentTest");
-
-		///<summary>
 		/// Site Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]

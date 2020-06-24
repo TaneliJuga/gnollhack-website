@@ -1,0 +1,222 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using Umbraco.Core;
+@using Umbraco.Core.Models;
+@using Umbraco.Core.Services;
+@{
+    var ancestors = Model.Ancestors();
+    //var home = ancestors.GetEnumerator.Current();
+    var home = Model.Root();
+    IContentTypeService contentTypeService = Services.ContentTypeService;
+    //IEnumerable<IContentType> contentTypes = contentTypeService.GetChildren(1232);
+    IEnumerable<IContentType> contentTypes = contentTypeService.GetAll();
+    var compositionAliases = Model.ContentType.CompositionAliases;
+    var selection = Umbraco.Content(1260).Ancestors().ToArray();
+    var test = contentTypeService.Get(1467);
+}
+
+@if (home.Descendants().Any())
+{
+    IEnumerable<IPublishedContent> allChildren = home.Children;
+    IEnumerable<IPublishedContent> children = allChildren.Where(c => Model.Value<bool>("hideFromNavigation") == false);
+
+    <div class="debug">
+        <div>Test: @test.Alias</div>
+        @foreach (IContentType contentType in contentTypes)
+        {
+        <div>
+            contentType: @contentType
+            , Alias: @contentType.Alias
+            , CompositionPropertyGroups: @contentType.CompositionPropertyGroups
+            , CompositionPropertyTypes: @contentType.CompositionPropertyTypes
+            , Id: @contentType.Id
+            , ParentId: @contentType.ParentId
+            , IsContainer: @contentType.IsContainer
+            , IsElement: @contentType.IsElement
+            , Key: @contentType.Key
+            , Level: @contentType.Level
+            , Children: 
+            @foreach (IContentType child in @contentTypeService.GetChildren(contentType.Id))
+            {
+                <span>, @child.Alias</span>
+            }
+        </div>
+        }
+
+        @foreach (IPublishedContent childPage in children)
+        {
+            <div>
+                childPage: @childPage.Name
+            </div>
+            foreach (String alias in childPage.ContentType.CompositionAliases)
+            {
+                <div>
+                    childPage: @childPage.Name alias: @alias
+                </div>
+            }
+        }
+
+        <ul>
+            @* For each page in the ancestors collection which have been ordered by Level (so we start with the highest top node first) *@
+            @foreach (var item in selection.OrderBy(x => x.Level))
+            {
+                <li><a href="@item.Url">@item.Name</a> &raquo;</li>
+            }
+
+            @* Display the current page as the last item in the list *@
+            <li>@Umbraco.Content(1260).Name</li>
+        </ul>
+        <br />
+        @{
+            selection = Model.Children.Where(x => x.IsVisible()).ToArray();
+        }
+        @* Ensure that the Current Page has children *@
+        @if (selection.Length > 0)
+        {
+            @* Get the first page in the children, where the property umbracoNaviHide is not True *@
+            var naviLevel = selection[0].Level;
+
+            @* Add in level for a CSS hook *@
+            <ul class="level-@(naviLevel)">
+                @* Loop through the selection *@
+                @foreach (var item in selection)
+                {
+                    <li>
+                        <a href="@item.Url">@item.Name</a>
+
+                        @* if this child page has any children, where the property umbracoNaviHide is not True *@
+                        @{
+                            var children2 = item.Children.Where(x => x.IsVisible()).ToArray();
+                            if (children2.Length > 0)
+                            {
+                                @* Call our helper to display the children *@
+                                @ChildPages2(children2)
+                            }
+                        }
+                    </li>
+                }
+            </ul>
+        }
+
+    </div>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="@home.Url">
+                    <img alt="Hyv&auml;n mielen pelit" src="~/svg/logo2_white.svg" style="margin-top:9px;height:40px;" />
+                </a>
+
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse navbar-centered">
+                <ul class="nav navbar-nav">
+                    @foreach (IPublishedContent childPage in children)
+                    {
+                        if (childPage.Children.Any())
+                        {
+                            if (childPage.IsDocumentType("LandingPage"))
+                            {
+                                <li class="dropdown@(childPage.IsAncestorOrSelf(Model) ? " selected" : "")">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@childPage.Name <span class="caret"></span></a>
+                                    @childPages(childPage.Children, childPage == children.Last(), (childPage.GetTemplateAlias().ToLower().Contains("categorypage")) ? childPage : null)
+                                </li>
+
+                            }
+                            else
+                            {
+                                <li class="@(childPage.IsAncestorOrSelf(Model) ? "selected" : null)">
+                                    <a href="@childPage.Url">@childPage.Name</a>
+                                </li>
+                            }
+
+                        }
+                        else
+                        {
+                            <li class="@(childPage.IsAncestorOrSelf(Model) ? "selected" : null)">
+                                <a href="@childPage.Url">@childPage.Name</a>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+}
+
+@helper childPages(IEnumerable<dynamic> pages, bool isLast, IPublishedContent mainCategoryPage)
+{
+    @* Ensure that we have a collection of pages *@
+    if (pages.Any())
+    {
+        <ul class="dropdown-menu centered-menu @(isLast ? "dropdown-right" : "")">
+
+            @if (mainCategoryPage != null)
+            {
+                String pageHeader = "All " + mainCategoryPage.Name;
+
+                <li>
+                    <a href="@mainCategoryPage.Url">@pageHeader</a>
+                </li>
+            }
+            @foreach (var page in pages)
+            {
+                <li>
+                    <a href="@page.Url">@page.Name</a>
+                </li>
+            }
+        </ul>
+
+    }
+}
+
+@helper ChildPages2(IPublishedContent[] selection)
+{
+    @* Ensure that we have a collection of pages *@
+    if (selection.Length > 0)
+    {
+        @* Get the first page in pages and get the level *@
+        var naviLevel = selection[0].Level;
+
+        @* Add in level for a CSS hook *@
+        <ul class="level-@(naviLevel)">
+            @foreach (var item in selection)
+            {
+            <li>
+                <a href="@item.Url">@item.Name</a>
+                @foreach (String alias in item.ContentType.CompositionAliases)
+                {
+                    <span>, @alias</span>
+                }
+                @*<span>, ItemType: @item.ContentType.ItemType</span>*@
+                @{
+                    bool isInstance = item.ContentType.GetType().IsInstanceOfType(Item.GetModelContentType());
+                    IContentTypeService contentTypeService = Services.ContentTypeService;
+                }
+                <span>, IsDocumentType: @item.IsDocumentType("item")</span>
+                <span>, isInstance: @isInstance</span>
+                <span>, GetType: @item.ContentType.GetType()</span>
+                
+                @*<span>, PropertyTypes: </span>
+                @foreach (var propType in item.ContentType.PropertyTypes)
+                {
+                    <span>, @propType</span>
+                }*@
+                @* if the page has any children, where the property umbracoNaviHide is not True *@
+                @{
+                    var children = item.Children.Where(x => x.IsVisible()).ToArray();
+                    if (children.Length > 0)
+                    {
+                        @* Recurse and call our helper to display the children *@
+                        @ChildPages2(children)
+                    }
+                }
+            </li>
+            }
+        </ul>
+    }
+}

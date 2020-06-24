@@ -1,0 +1,54 @@
+﻿@use "sass:math";
+@use "sass:selector";
+@use "sass:string";
+@use "/variables";
+@use "../variables";
+@use "../main";
+$border-size-m: 40px;
+$border-size-s: 30px;
+
+//configures how much the border-image will overlap (be on top of) the border-box.
+//helps remove gaps between the border-image and the edges of the border-box.
+$border-overlap-factor: 0.1;
+//configures the minimum amount of pixels that the border-image will overlap the border-box.
+$min-border-overlap: 3px;
+
+$border-image_bronze: url(/media/b50fbr0r/gnollhack-icon-v10.png) 80 84 82 85 stretch;
+$border-image_scroll: url(/media/clhdyisu/scroll_paper.png) 300 356 323 332 round;
+
+$link-text-height: 20px;
+$link-font-size: 20px;
+
+.image-link {
+    color: $variables.gold;
+    font-family: "Berkshire Swash", cursive;
+
+
+    &__text {
+        cursor: pointer;
+        display: block;
+        font-size: $link-font-size;
+        height: $link-text-height;
+        line-height: $link-text-height;
+        word-wrap: break-word;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    &__image {
+        height: calc(100% - #{$link-text-height});
+    }
+
+    &_anim {
+        &_highlight {
+            @include highlightAnimation($color: variables.$gold, $dropshadow-color: variables.$gold, $textshadow-color: variables.$gold);
+        }
+    }
+
+    &_style {
+        &_navbar {
+            height: 100%;
+            padding: 10px;
+        }
+    }
+}

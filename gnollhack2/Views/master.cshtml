@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="~/css/bootstrap-3.4.1.min.css">
     <link href="~/sass/site.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="~/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/css/font-awesome.min.css">
 
 
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="~/apple-touch-icon-57x57.png" />
@@ -83,16 +84,22 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        @Html.Partial("MainNavigation")
-
-        <div style="padding-top:61px;"></div>
-
+    @Html.Partial("MainNavigation")
+    <section id="main-content">
+        <div style="padding-top:150px;"></div>
         @RenderBody()
-
-        @Html.Partial("BottomNavigation")
-
-    </div>
+        @*<div class="debug">
+                DataTokens["area"]: @ViewContext.RouteData.DataTokens
+                @foreach (var token in ViewContext.RouteData.DataTokens) {
+                <div>token: @token</div>
+                }
+            </div>*@
+    </section>
+    <section id="bottom-content">
+        <footer class="container">
+            @Html.Partial("BottomNavigation")
+        </footer>
+    </section>
     <!-- Javascripts -->
     @*<script src="/js/bootstrap.min.js"></script>*@
     <script src="/js/bugfixes.js"></script>

@@ -1,0 +1,59 @@
+﻿@use "sass:math";
+@use "sass:selector";
+@use "sass:string";
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+@use "../variables";
+$border-size-m: 40px;
+$border-size-s: 30px;
+
+//A block that covers
+.page {
+    $block: &;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: center;
+    font-size: 16px;
+    font-family: variables.$writing-font;
+    color: variables.$gold;
+
+    &__section {
+        &_width {
+            &_full {
+                width: 100%;
+            }
+        }
+
+        &_align {
+            &_bottom {
+                align-self: flex-end;
+            }
+        }
+    }
+
+    &__layout_container {
+        font-size: 16px;
+        font-family: variables.$writing-font;
+        color: variables.$gold;
+        display: contents;
+    }
+
+    &_theme {
+        &_dungeon {
+            background-image: url(/media/b5edze2t/gradient-wide-left.png), url(/media/tbogfdxi/gradient-wide-right.png), url(/media/wxqhj3wx/brick-bg.jpg);
+            background-position: left top, right top, center;
+            background-repeat: repeat-y, repeat-y, repeat;
+            background-attachment: fixed;
+        }
+    }
+
+    &_composition {
+        &_main {
+            @extend #{$block};
+            @extend #{"#{$block}_theme_dungeon"};
+        }
+    }
+}
+

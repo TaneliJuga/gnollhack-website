@@ -1,0 +1,124 @@
+﻿.block {
+    text-align: center;
+    border: solid transparent;
+    font-size: 16px;
+    font-family: $writing-font;
+    color: $gold;
+    // Border block modifier
+    // Adds borders to the block
+    &_border-image_bronze {
+        border-image: url(/media/1x5hpqf4/gnollhack-icon-v9.png) 95 120 126 112 stretch;
+        @include setBackgroundOffset(12px, 6px, 12px, 6px);
+    }
+
+    &_border-image_scroll {
+        border-image: url(/media/clhdyisu/scroll_paper.png) 300 356 323 332 round;
+        @include setBackgroundOffset(3px, 3px, 3px, 3px);
+    }
+
+    // Border size block modifier
+    // Sets the size of the borders of the block
+    &_border_size_s {
+        border-width: 30px;
+    }
+
+    &_border_size_m {
+        border-width: 50px;
+    }
+
+    // Border position block modifier
+    // Removes borders from the edge in the direction of the position
+    &_pos_top {
+        border-top-width: 0;
+    }
+
+    &_pos_bottom {
+        border-bottom-width: 0;
+    }
+
+    // Background modifier
+    // Sets the background of the block
+    &_bg_wood {
+        background-image: url(/media/uv3juqsv/woodalbedo2.png);
+    }
+
+    &_bg_scroll {
+        background-color: #efe4b3;
+    }
+}
+
+//Moves the background of the block__bg -element on top of the block border by the given amount of pixels
+//Helps remove the gap inbetween a border-image and background of an element
+@mixin setBackgroundOffset($top-offset: 0, $right-offset: 0, $bottom-offset: 0, $left-offset: 0) {
+    > block__bg {
+        margin: (-$top-offset) (-$right-offset) (-$bottom-offset) (-$left-offset);
+    }
+}
+
+
+.border-img-bg__block{
+
+}
+
+//Defines an element that is used as the background of a block with a border image.
+//Moves the element on top of the border 
+.border-img-bg__block_img_scroll {
+    margin: -3px;
+}
+
+.border-img-bg__block_img_bronze {
+    margin: -12px -6px;
+}
+
+// Border background element 
+// Determines the background of the block
+@mixin blockBG($top-offset: 0, $right-offset: 0, $bottom-offset: 0, $left-offset: 0, $image-url: null, $bg-color: null) {
+    background-image: $image-url;
+    background-color: $bg-color;
+    margin: -$top-offset -$right-offset -$bottom-offset -$left-offset;
+}
+
+.block__bg_wood {
+    @include blockBG(12px, 6px, 12px, 6px, url(/media/uv3juqsv/woodalbedo2.png));
+}
+
+.block_bg_scroll {
+    @include blockBG(3px, 3x, 3px, 3px, $bg-color: #efe4b3);
+}
+
+
+// Border border background element
+// 
+.block__border-bg {
+    margin: -12px -6px -12px -6px;
+}
+
+.block-border__bg_type_bronze {
+    margin: -12px -6px -12px -6px;
+}
+
+.block-border__bg_type_scroll {
+    margin: -3px !important;
+}
+
+.block-border__bg_pos_top {
+    margin-top: 0px;
+}
+
+.block__border_bg {
+    margin: -12px -6px -12px -6px;
+}
+
+.block__border-bg_pos_top {
+    margin-top: 0px;
+}
+
+.block_full_height {
+    height: 100%;
+}
+
+.block__style_navbar {
+    @extend .block;
+    @extend .block_border_bronze;
+    @extend .block_pos_top;
+}

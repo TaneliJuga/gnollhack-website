@@ -1,0 +1,12 @@
+﻿@use "sass:color";
+$md-breakpoint: 992px;
+$sm-breakpoint: 768px;
+$gold: hsla(54, 100%, 44%, 1);
+$bright-gold: color.scale($gold, $lightness: 60%);
+$aqua: #00d2d2 ;
+$black: #252323;
+$brand-success: $gold;
+$crimson: #bd0000;
+$title-font: 'Rye', cursive;
+$writing-font: 'Berkshire Swash', cursive;
+$header-font: 'Rye', cursive;

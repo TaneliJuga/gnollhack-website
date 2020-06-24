@@ -1,0 +1,12 @@
+﻿{
+    "propertyEditors": [
+      {
+          "alias": "mediaIds",
+          "name": "Select folders and/or images",
+          "isParameterEditor": true,
+          "editor": {
+              "view": "mediapicker",
+              "valueType": "TEXT"
+          }
+      }]
+}

@@ -510,7 +510,6 @@ C:\Users\tanel\source\repos\gnollhack-website\gnollhack2\bin\tr\Microsoft.CodeAn
 C:\Users\tanel\source\repos\gnollhack-website\gnollhack2\bin\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\tanel\source\repos\gnollhack-website\gnollhack2\bin\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\tanel\source\repos\gnollhack-website\gnollhack2\obj\Debug\gnollhack2.csprojAssemblyReference.cache
-C:\Users\tanel\source\repos\gnollhack-website\gnollhack2\obj\Debug\gnollhack2.csproj.CoreCompileInputs.cache
 C:\Users\tanel\source\repos\gnollhack-website\gnollhack2\obj\Debug\gnollhack2.csproj.CopyComplete
 C:\Users\tanel\source\repos\gnollhack-website\gnollhack2\obj\Debug\gnollhack2.dll
 C:\Users\tanel\source\repos\gnollhack-website\gnollhack2\obj\Debug\gnollhack2.pdb

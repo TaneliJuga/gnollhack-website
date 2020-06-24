@@ -19,45 +19,47 @@
 <div class="scrollContainer">
     <div id="borderimg">
         <div id="content" class="collapse">
-            @if (@Model.Content != null && Model.AlignLeft)
-            {
-                <input type="text" id="myInput" content="\e003" onkeyup="myFunction()" placeholder="Search by @Model.Headers.First().ToLower()" title="Type in a @Model.Headers.First().ToLower() to search">
-                style = "";
-            }
-            else
-            {
-                style = "style=\"text-align:center;\"";
-            }
-            <h1>@Model.Caption</h1>
-            <table class="table table-hover" id="myTable">
-                @if (@Model.Description != null)
+            <div id="tableContainer">
+                @if (@Model.Content != null && Model.AlignLeft)
                 {
-                    <caption id="caption">@Model.Description</caption>
+                    <input type="text" id="myInput" content="\e003" onkeyup="myFunction()" placeholder="Search by @Model.Headers.First().ToLower()" title="Type in a @Model.Headers.First().ToLower() to search">
+                    style = "";
                 }
-                <thead>
-                    <tr>
-                        @foreach (var header in Model.Headers)
-                        {
-                            @*<th scope="col" onclick="sortTable(@i)">@header</th>*@
-                            @Html.Raw("<th " + style + " scope=\"col\" onclick=\"sortTable(" + @i + ")\">" + @header + "</th>")
-                            i++;
-                        }
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.Content)
+                else
+                {
+                    style = "style=\"text-align:center;\"";
+                }
+                <h1>@Model.Caption</h1>
+                <table class="table table-hover" id="myTable">
+                    @if (@Model.Description != null)
                     {
+                        <caption id="caption">@Model.Description</caption>
+                    }
+                    <thead>
                         <tr>
-                            @Html.Raw("<th " + style + " scope=\"row\">" + @item.First() + "</th>")
-
-                            @foreach (var value in item.Skip(1))
+                            @foreach (var header in Model.Headers)
                             {
-                                @Html.Raw("<td>" + @value + "</td>")
+                                @*<th scope="col" onclick="sortTable(@i)">@header</th>*@
+                                @Html.Raw("<th " + style + " scope=\"col\" onclick=\"sortTable(" + @i + ")\">" + @header + "</th>")
+                                i++;
                             }
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Content)
+                        {
+                            <tr>
+                                @Html.Raw("<th " + style + " scope=\"row\">" + @item.First() + "</th>")
+
+                                @foreach (var value in item.Skip(1))
+                                {
+                                    @Html.Raw("<td>" + @value + "</td>")
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -163,11 +165,16 @@
 
 <script>
     function myFunction() {
-        var input, filter, table, tr, td, i, txtValue;
+        var input, filter, table, tr, td, i, txtValue, content, tableContainer;
         input = document.getElementById("myInput");
         filter = input.value.toUpperCase();
         table = document.getElementById("myTable");
         tr = table.getElementsByTagName("tr");
+        content = document.getElementById("content");
+        tableContainer = document.getElementById("tableContainer");
+        //alert("tableContainer.scrollHeight " + tableContainer.scrollHeight);
+        content.style.height = "" + content.scrollHeight + "px";
+        console.log("content.style.height " + content.style.height);
         for (i = 1; i < tr.length; i++) {
             td = tr[i].children[0];
             if (td) {
@@ -179,10 +186,18 @@
                 }
             }
         }
+
+        $("#content").animate({
+            height: "" + (tableContainer.scrollHeight + 20) + "px"
+        });
+        //content.style.height = "" + (tableContainer.scrollHeight + 20) + "px";
+        content.style.height = "calc(100% + 1px);";
+        //alert("tableContainer.scrollHeight " + tableContainer.scrollHeight);
+        console.log("content.style.height " + content.style.height);
     }
 </script>
 
-<script>
+@*<script>
     var table = document.getElementById("myTable");
     var rows = table.rows;
     var slideIndex = 1;
@@ -237,4 +252,4 @@
         }
         dots[slideIndex - 1].className += " active";
     }
-</script>
+</script>*@

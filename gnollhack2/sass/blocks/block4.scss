@@ -1,0 +1,113 @@
+﻿@use "sass:math";
+@use "sass:selector";
+@use "sass:string";
+@use "sass:list";
+@use "../variables";
+$border-size-m: 40px;
+$border-size-s: 30px;
+
+//configures how much the border-image will overlap (be on top of) the border-box.
+//helps remove gaps between the border-image and the edges of the border-box.
+$border-overlap-factor: 0.1;
+//configures the minimum amount of pixels that the border-image will overlap the border-box.
+$min-border-overlap: 3px;
+
+$border-image_bronze: url(/media/b50fbr0r/gnollhack-icon-v10.png) 80 84 82 85 stretch;
+$border-image_scroll: url(/media/clhdyisu/scroll_paper.png) 300 356 323 332 round;
+
+$block-name: "block";
+
+@mixin setBorder($border-image, $border-size, $remove-top: false, $remove-right: false, $remove-bottom: false, $remove-left: false) {
+    @if($border-image) {
+        border-image: $border-image;
+        background-clip: border-box;
+
+        $border-image-offset: math.max($min-border-overlap, ($border-overlap-factor * $border-size));
+        $border-image-outset: ($border-size - $border-image-offset);
+        border-image-outset: $border-image-outset;
+
+        $positions: $remove-top, $remove-right, $remove-bottom, $remove-left;
+        $margins: null;
+        $child-margins: null;
+        $borders: null;
+
+        @each $boolean in $positions {
+            @if($boolean) {
+                $margins: list.append($margins, 0);
+                $child-margins: list.append($child-margins, 0);
+                $borders: list.append($borders, 0);
+            }
+            @else {
+                $margins: list.append($margins, $border-image-outset);
+                $child-margins: list.append($child-margins, -$border-image-outset);
+                $borders: list.append($borders, $border-size);
+            }
+        }
+
+        margin: $margins;
+        border-width: $borders;
+
+        > * {
+            margin: $child-margins;
+        }
+    }
+}
+
+@mixin addBemElement($block, $element: null, $modifier: null, $extends-base: false) {
+    $selector: if($element, getSelector($block, $element, $modifier), getSelector($block: $block, $modifier: $modifier));
+    $extendee: if($element, getSelector($block, $element), $block);
+
+    @at-root #{$selector} {
+        @if($extends-base) {
+            @debug "#{$selector} extend #{$extendee}";
+            @extend #{$extendee}
+        }
+
+        @content
+    }
+}
+
+@mixin addElement($block, $element) {
+    $selector: getSelector($block, $element);
+
+    @at-root #{$selector} {
+        @content
+    }
+}
+
+@function getSelector($block: #{$block-name}, $element: null, $modifier: null){
+    $selector: $block;
+    $element: if($element, "__#{$element}", "");
+    $modifier: if($modifier, "_#{$modifier}", "");
+    @return "#{$block}#{$element}#{$modifier}";
+}
+
+.#{$block-name} {
+    text-align: center;
+    border: solid transparent;
+    font-size: 16px;
+    font-family: variables.$writing-font;
+    color: variables.$gold;
+    // Background element
+    // Sets the background of the block
+    @include addElement(&, "bg") {
+        margin: -3px;
+    }
+
+    @include addBemElement(&, "bg", "wood", true) {
+        background-image: url(/media/uv3juqsv/woodalbedo2.png);
+    }
+
+    @include addBemElement(&, "bg", "scroll", true) {
+        background-color: #efe4b3;
+    }
+
+    @include addBemElement(&, "style", "navbar") {
+        @extend #{&};
+        /*@extend .block_pos_top;
+        @extend .block_border_bronze;
+        @extend .block_border_size_m;*/
+        @extend .#{getSelector($element: "bg", $modifier: "wood")};
+        @include setBorder($border-image_bronze, $border-size-m, $remove-top: true);
+    }
+}

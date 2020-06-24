@@ -1,0 +1,12 @@
+﻿@use "sass:math";
+@use "sass:selector";
+@use "sass:string";
+@use "../variables";
+@use "../main";
+
+
+.menu {
+    &_closed {
+        display: none;
+    }
+}

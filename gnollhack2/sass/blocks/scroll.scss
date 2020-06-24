@@ -1,0 +1,27 @@
+﻿@use "sass:math";
+@use "sass:selector";
+@use "sass:string";
+@use "../variables";
+@use "../main";
+$border-size-m: 40px;
+$border-size-s: 30px;
+
+.scroll {
+    $block: &;
+    font-family: "Berkshire Swash", cursive;
+    color: variables.$black;
+
+
+    &__paragraph {
+        &_style {
+            &_medieval {
+                &::first-letter {
+                    font-size: 300%;
+                    line-height: 80%;
+                    color: variables.$crimson;
+                    font-family: variables.$header-font;
+                }
+            }
+        }
+    }
+}

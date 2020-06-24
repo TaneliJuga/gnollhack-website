@@ -1,0 +1,58 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using Umbraco.Core;
+@using Umbraco.Core.Models;
+@using Umbraco.Core.Services;
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = ViewData["layout"] as string;
+    IPublishedContent requestedContent = ViewData["requestedContent"] as IPublishedContent;
+    ViewData["scrollSize"] = "sm";
+    var home = Model.Root();
+    if (!home.IsDocumentType("LandingPage"))
+    {
+        home = home.Children.First();
+    }
+    var children = home.Children.Where(c => c.IsVisible());
+    var count = children.Count();
+    var sCols = (count > 0) ? (int)(12 / count) : 0;
+    var smCols = (count < 4) ? sCols : 3;
+}
+
+<div class="row text-center bottom-nav">
+    @* For each child page under the home node, where the property umbracoNaviHide is not True *@
+    @foreach (var childPage in children)
+    {
+        ViewData["childPage"] = childPage;
+        <div class="col-xs-6 col-sm-@smCols col-md-@sCols">
+            @if (childPage.Children.Where(c => c.IsVisible()).Any())
+            {
+                <strong>@childPage.Name</strong>
+                @childPages(childPage.Children)
+            }
+            else
+            {
+                <strong>@childPage.Name</strong>
+                <ul>
+                    <li><a href="@childPage.Url">@childPage.Name</a></li>
+                </ul>
+            }
+        </div>
+    }
+</div>
+
+
+@helper childPages(IEnumerable<IPublishedContent> pages)
+{
+    @* Ensure that we have a collection of pages *@
+    if (pages.Any())
+    {
+        <ul>
+            @foreach (var page in pages.Where(p => p.IsVisible()))
+            {
+                <li>
+                    <a href="@page.Url">@page.Name</a>
+                </li>
+            }
+        </ul>
+    }
+}

@@ -1,0 +1,59 @@
+﻿@use "../variables";
+$item-max-width: 250px;
+$navabr-left-offset: 70px;
+
+.link-container {
+    $block: &;
+    font-size: 18px;
+
+    &__item {
+        flex: 1;
+        max-width: $item-max-width;
+        margin: 5px;
+
+        &_style {
+            &_navbar {
+            }
+        }
+    }
+
+    &_style {
+        &_navbar {
+            @extend #{$block};
+            height: 100%;
+            display: flex;
+            float: none;
+            justify-content: center;
+            align-items: center;
+            //Will center the items in the container once the items are full height
+            &::after {
+                margin-right: -$item-max-width;
+                min-width: $item-max-width;
+                max-width: ($item-max-width + $navabr-left-offset);
+                flex: 1;
+            }
+        }
+
+        &_footer {
+            @extend #{$block};
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    &_type {
+        &_column {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    &__column_header {
+        font-family: 'Rye', cursive;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+}
+

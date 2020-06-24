@@ -3,11 +3,4 @@
 	Layout = "LandingPage.cshtml";
 }
 
-@* the fun starts here *@
-<div style="background-color:white;">
-@foreach (IPublishedProperty property in Model.Properties)
-{
-    <p>Alias:@property.Alias    ModelClrType:@property.PropertyType.ModelClrType  PropertyType.Alias:@property.PropertyType.Alias  PropertyType.ContentType:@property.PropertyType.ContentType.GetType()  PropertyType.ClrType:@property.PropertyType.ClrType EditorAlias:@property.PropertyType.EditorAlias DataType:@property.PropertyType.DataType.EditorAlias DataType.Configuration:@property.PropertyType.DataType.Configuration DataType.GetType:@property.PropertyType.DataType.GetType()</p> <br />
-}
-</div>
 @Html.Partial("Download")

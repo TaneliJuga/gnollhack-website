@@ -1,7 +1,7 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
 
 @{
-    var ancestors = Model.Ancestors().Reverse();
+    var ancestors = Model.Ancestors().OrderBy(x => x.Level);
 }
 
 <ul class="breadcrumb">

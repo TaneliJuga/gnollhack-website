@@ -6,7 +6,7 @@
 
 @* the fun starts here *@
 
-@Html.GetGridHtml(Model, "content")
+@Html.GetGridHtml(Model, "content", "mycustomrenderer")
 @foreach (IPublishedElement element in Model.DownloadBox)
 {
     //@RenderContent(element);

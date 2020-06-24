@@ -1,0 +1,12 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<object>
+
+@{
+    Layout = null;
+    string size = ViewData["size"] as string ?? "";
+}
+
+<div class="bronze-border@(" " + size)">
+    <div class="bronze-container">
+        @RenderBody()
+    </div>
+</div>

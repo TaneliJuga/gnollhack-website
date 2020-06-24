@@ -1,0 +1,142 @@
+﻿@use "sass:math";
+@use "sass:selector";
+@use "sass:string";
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+@use "../variables";
+$border-size-m: 40px;
+$border-size-s: 30px;
+
+
+//configures the minimum amount of pixels that the border-image will overlap the border-box.
+$border-overlap: 3px;
+$border-image_bronze: ("url":"/media/b50fbr0r/gnollhack-icon-v10.png", "cuts": (80 84 82 85), "repeat": stretch);
+$border-image-scroll: ("url":"/media/clhdyisu/scroll_paper.png", "cuts": (300 356 323 332), "repeat": round);
+
+@function getBorderImage($url, $cuts, $repeat, $overlap) {
+    $new-cuts: null;
+    $overlap: ($overlap / 1px);
+
+    @for $i from 1 through list.length($cuts){
+        $new-cut: (list.nth($cuts, $i) + $overlap);
+        $cuts: list.set-nth($cuts, $i, $new-cut);
+    }
+
+    @return string.unquote("url(#{$url}) #{$cuts} #{$repeat}");
+}
+
+
+@mixin setBorder($border-image, $border-size, $remove-top: false, $remove-right: false, $remove-bottom: false, $remove-left: false) {
+    @if($border-image) {
+        border-image: $border-image;
+
+        $positions: $remove-top, $remove-right, $remove-bottom, $remove-left;
+        $borders: null;
+        @each $remove-position in $positions {
+            $borders: list.append($borders, if($remove-position, 0, $border-size));
+        }
+
+        border-width: $borders;
+    }
+}
+
+
+@function getSelector($block, $element: null, $modifier: null){
+    $selector: $block;
+    $element: if($element, "__#{$element}", "");
+    $modifier: if($modifier, "_#{$modifier}", "");
+    @return "#{$block}#{$element}#{$modifier}";
+}
+
+
+.block {
+    $block: &;
+    text-align: center;
+    border: solid transparent;
+    // Background element
+    // Sets the background of the block
+    &__border-image-bg {
+        margin: -$border-overlap;
+    }
+
+    &_bg {
+        &_wood {
+            background-image: url(/media/uv3juqsv/woodalbedo2.png);
+            color: variables.$gold;
+
+            a:hover {
+                color: variables.$bright-gold;
+                text-shadow: 0 0 10px variables.$bright-gold;
+            }
+        }
+
+        &_scroll {
+            background-color: #efe4b3;
+            color: variables.$black;
+
+            a:hover {
+                color: variables.$aqua;
+                text-shadow: 0 0 10px variables.$aqua;
+            }
+        }
+    }
+
+    &_pos {
+        &_top {
+            border-top: none;
+
+            #{$block}__border-image-bg {
+                margin-top: 0;
+            }
+        }
+
+        &_bottom {
+            border-bottom: none;
+
+            #{$block}__border-image-bg {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &_border-size {
+        &_m {
+            border-width: 40px;
+        }
+
+        &_s {
+            border-width: 30px;
+        }
+    }
+
+    &_border {
+        &_scroll {
+            border-image: getBorderImage(map.get($border-image-scroll, "url"), map.get($border-image-scroll, "cuts"), map.get($border-image-scroll, "repeat"), $border-overlap);
+        }
+
+        &_bronze {
+            border-image: getBorderImage(map.get($border-image-bronze, "url"), map.get($border-image-bronze, "cuts"), map.get($border-image-bronze, "repeat"), $border-overlap);
+        }
+    }
+
+    &_style {
+        &_navbar {
+            @extend #{$block};
+            @extend #{"#{$block}_pos_top"};
+            @extend #{"#{$block}_border_bronze"};
+            @extend #{"#{$block}_border-size_m"};
+            box-sizing: content-box;
+            height: var(--navbar-height);
+            background: transparent;
+        }
+
+        &_footer {
+            @extend #{$block};
+            @extend #{"#{$block}_pos_bottom"};
+            @extend #{"#{$block}_border_bronze"};
+            @extend #{"#{$block}_border-size_m"};
+        }
+    }
+}
+

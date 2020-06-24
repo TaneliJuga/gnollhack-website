@@ -1,0 +1,158 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using Umbraco.Core;
+@using Umbraco.Core.Models;
+@using Umbraco.Core.Services;
+@{
+    var ancestors = Model.Ancestors();
+    //var home = ancestors.GetEnumerator.Current();
+    var home = Model.Root();
+    IContentTypeService contentTypeService = Services.ContentTypeService;
+    var objectCollectionChildTypes = contentTypeService.GetChildren(1469);
+    ViewBag.objectCollectionChildTypes = (from type in objectCollectionChildTypes select type.Id);
+    if (!home.IsDocumentType("LandingPage"))
+    {
+        home = home.Children.First();
+    }
+}
+
+@if (home.Descendants().Any())
+{
+    IEnumerable<IPublishedContent> allChildren = home.Children;
+    IEnumerable<IPublishedContent> children = allChildren.Where(c => Model.Value<bool>("hideFromNavigation") == false);
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="@home.Url">
+                <img alt="Hyv&auml;n mielen pelit" src="~/svg/logo2_white.svg" style="margin-top:9px;height:40px;" />
+            </a>
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="container navbar-container">
+            <div id="navbar" class="collapse navbar-collapse navbar-centered">
+                <div class="nav navbar-nav">
+                    @foreach (IPublishedContent childPage in children)
+                    {
+                        <div class="dropdown-border">
+                            @if (childPage.Children.Any() && childPage.IsDocumentType("LandingPage"))
+                            {
+                                <div>
+                                    <a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">@childPage.Name<span class="caret"></span></a>
+                                </div>
+                                <div class="menu closed@(childPage.IsAncestorOrSelf(Model) ? " selected" : "")">
+                                    @ChildPages(childPage.Children.ToArray(), childPage.Name)
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="@(childPage.IsAncestorOrSelf(Model) ? "selected" : null)">
+                                    <a href="@childPage.Url">@childPage.Name</a>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <script>
+        function findNextSection(element) {
+            //console.log("next: " + element.parent().next('.menu').length);
+            //console.log("next: " + element.parent().next('.menu').html());
+            console.log("next.outerHeight: " + element.parent().next('.menu').outerHeight());
+            return element.parent().next('.menu');
+        }
+        function getMain(element) {
+            return element.parentsUntil('.dropdown-border').last().parent();
+        }
+        var previousSection;
+
+        function toggleOpen(element) {
+            var nextSection = findNextSection(element);
+            //element.parent().siblings('.menu').slideUp();
+            //element.parent().siblings('.menu').each(function(){
+            //    if ($(this).get() !== nextSelection.get()) {
+
+            //    }
+            //});
+            element.parent().siblings('.menu').not(nextSection).slideUp();
+            nextSection.first().slideToggle();
+        }
+
+        function toggleOpen2(element) {
+            var nextSection = findNextSection(element);
+            nextSection.first().slideToggle();
+        }
+
+        var toggle = true;
+        $(document).ready(function () {
+            //$('.dropdown-border').find('.toggle').first().css("color","red");
+            //$('.dropdown-border').find('.toggle').first().on("click", function (e) {
+            //    console.log("toggleOpen2");
+            //    toggleOpen2($(this));
+            //    e.stopPropagation();
+            //    e.preventDefault();
+            //});
+            //$('.dropdown-border').find('.toggle').slice(1).on("click", function (e) {
+            //    console.log("toggleOpen");
+            //    toggleOpen($(this));
+            //    e.stopPropagation();
+            //    e.preventDefault();
+            //});
+
+            $('.toggle').on("click", function (e) {
+                console.log("toggleOpen");
+                toggleOpen($(this));
+                e.stopPropagation();
+                e.preventDefault();
+            });
+        });
+
+    </script>
+}
+
+@helper ChildPages(IPublishedContent[] selection, string headerText)
+{
+    @* Ensure that we have a collection of pages *@
+    if (selection.Length > 0)
+    {
+        @* Get the first page in pages and get the level *@
+        var naviLevel = selection[0].Level;
+
+        <div class="divider"></div>
+        <div class="dropdown-header">@headerText</div>
+        @* Add in level for a CSS hook *@
+        @*<ul class="dropdown-menu centered-menu">*@
+        foreach (var item in selection)
+        {
+            var children = item.Children.Where(x => x.IsVisible()).ToArray();
+            IEnumerable<int> objectCollectionChildTypes = ViewBag.objectCollectionChildTypes;
+            if (children.Length > 0)
+            {
+                if (objectCollectionChildTypes.Contains(item.ContentType.Id))
+                {
+                    <div><a href="@item.Url">@item.Name</a></div>
+                }
+                else
+                {
+                    <div><a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">@item.Name <span class="caret"></span></a></div>
+                    <div class="menu closed">
+                        @ChildPages(children, item.Name)
+                    </div>
+
+                }
+            }
+            else
+            {
+                <div><a href="@item.Url">@item.Name</a></div>
+            }
+        }
+    }
+    <div class="divider"></div>
+}

@@ -1,0 +1,80 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+    var home = Model.Root();
+    if (!home.IsDocumentType("LandingPage"))
+    {
+        home = home.Children.First();
+    }
+    var children = home.Children.Where(c => c.IsVisible());
+    var count = children.Count();
+    var sCols = (count > 0) ? (int)(12 / count) : 0;
+}
+
+<footer>
+    <div class="footer-border">
+        <div class="bottom-navigation jumbotron container">
+            @if (home.Children.Where(c => c.IsVisible()).Any())
+            {
+                <div class="container">
+                    <div class="row">
+                        @* For each child page under the home node, where the property umbracoNaviHide is not True *@
+                        @foreach (var childPage in children)
+                        {
+                            <div class="col-xs-6 col-sm-3 col-md-@sCols">
+                                @if (childPage.Children.Where(c => c.IsVisible()).Any())
+                                {
+                                    <strong>@childPage.Name</strong>
+                                    @childPages(childPage.Children)
+                                }
+                                else
+                                {
+                                    <strong>@childPage.Name</strong>
+                                    <ul>
+                                        <li><a href="@childPage.Url">@childPage.Name</a></li>
+                                    </ul>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+            <div class="container follow-us">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h2 class="follow-us-header">Seuraa meitä</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="follow-us-item">
+                            <a href="https://www.facebook.com/hyvanmielenpelit" class="follow-us-image-link">
+                                <img alt="Facebook" src="~/svg/facebook-icon-blue-whitetext.svg" />
+                            </a>
+                            <h3 class="follow-us-text">
+                                Facebookissa:<br />
+                                <a href="https://www.facebook.com/hyvanmielenpelit">facebook.com/hyvanmielenpelit</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+@helper childPages(IEnumerable<IPublishedContent> pages)
+{
+    @* Ensure that we have a collection of pages *@
+if (pages.Any())
+{
+    <ul>
+        @foreach (var page in pages.Where(p => p.IsVisible()))
+        {
+            <li>
+                <a href="@page.Url">@page.Name</a>
+            </li>
+        }
+    </ul>
+}
+}

@@ -1,0 +1,168 @@
+﻿@use "sass:math";
+@use "sass:selector";
+@use "sass:string";
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+@use "../variables";
+$border-size-m: 40px;
+$border-size-s: 30px;
+
+
+//configures the minimum amount of pixels that the border-image will overlap the border-box.
+$border-overlap: 3px;
+
+$border-image_bronze: url(/media/b50fbr0r/gnollhack-icon-v10.png) 80 84 82 85 stretch;
+$border-image-scroll: ("url":/media/clhdyisu/scroll_paper.png, "cuts": 300 356 323 332 round);
+$block-name: "block";
+$map: null;
+
+
+@mixin setBorder($border-image, $border-size, $remove-top: false, $remove-right: false, $remove-bottom: false, $remove-left: false) {
+    @if($border-image) {
+        border-image: $border-image;
+
+        $positions: $remove-top, $remove-right, $remove-bottom, $remove-left;
+        $borders: null;
+        @each $remove-position in $positions {
+            $borders: list.append($borders, if($remove-position, 0, $border-size));
+        }
+
+        border-width: $borders;
+    }
+}
+
+
+@function getSelector($block: #{$block-name}, $element: null, $modifier: null){
+    $selector: $block;
+    $element: if($element, "__#{$element}", "");
+    $modifier: if($modifier, "_#{$modifier}", "");
+    @return "#{$block}#{$element}#{$modifier}";
+}
+
+@function findElement($count, $type, $i) {
+    @debug "findElement(#{$count}, #{$type}, #{$i})";
+    $element-count: 0;
+
+    @while list.nth(map.values($map), $i) != $type {
+        $i: $i + 1;
+
+        @if $i > list.length($map) {
+            @return null;
+        }
+    }
+
+    @for $j from $i through list.length($map) {
+        @if list.nth(map.values($map), $j) != $type {
+            @return null;
+        }
+
+        $element-count: $element-count + 1;
+
+        @if $element-count == $count {
+            @return $j;
+        }
+    }
+
+    @return null;
+}
+
+@function getBemElement($block, $element: null, $modifier: null) {
+    @debug "getBemElement(#{$block}, #{$element}, #{$modifier})";
+    $type-and-count: ("block": $block, "element": $element, "modifier": $modifier);
+
+    @each $type, $count in $type-and-count {
+        @if $count == null {
+            $type-and-count: map.remove($type-and-count, $type);
+        }
+    }
+
+    $index: 1;
+
+    @each $type, $count in $type-and-count {
+        //$index: meta.call(meta.get-function("findElement"), $count, $type, $index);
+        $index: findElement($count, $type, $index);
+
+        @if $index == null {
+            @return null;
+        }
+    }
+    @debug "return #{list.nth(map.keys($map), $index)}";
+    @return list.nth(map.keys($map), $index);
+}
+
+
+
+.#{$block-name} {
+    $block: &;
+
+    @if(not $map) {
+        $map: ("#{&}":"block") !global;
+    }
+    @else {
+        $map: map.merge($map, ("#{&}":"block")) !global;
+    }
+
+    text-align: center;
+    border: solid transparent;
+    font-size: 16px;
+    font-family: variables.$writing-font;
+    color: variables.$gold;
+    // Background element
+    // Sets the background of the block
+    &__border-image-bg {
+        $element: &;
+        $map: map.merge($map, ("#{&}":"element")) !global;
+        margin: -$border-overlap;
+
+        &_type {
+            &_wood {
+                $map: map.merge($map, ("#{&}":"modifier")) !global;
+                @extend #{$element};
+                background-image: url(/media/uv3juqsv/woodalbedo2.png);
+            }
+
+            &_scroll {
+                $map: map.merge($map, ("#{&}":"modifier")) !global;
+                @extend #{$element};
+                background-color: #efe4b3;
+            }
+        }
+    }
+
+    &_pos {
+        &_top {
+            border-top: none;
+
+            > __border-image-bg {
+                margin-top: 0px;
+            }
+        }
+
+        &_bottom {
+            border-bottom: none;
+
+            > __border-bottom-bg {
+                margin-top: 0px;
+            }
+        }
+    }
+
+    &_border-size {
+        &_m {
+            border-width: 40px;
+        }
+
+        &_s {
+            border-width: 20px;
+        }
+    }
+
+    &_style {
+        &_navbar {
+            @extend #{$block};
+            @include setBorder($border-image_bronze, $border-size-m, true);
+        }
+    }
+}
+

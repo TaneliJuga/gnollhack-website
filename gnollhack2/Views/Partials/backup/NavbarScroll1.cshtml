@@ -1,0 +1,72 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using Umbraco.Core;
+@using Umbraco.Core.Models;
+@using Umbraco.Core.Services;
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "Scroll.cshtml";
+    IPublishedContent requestedContent = ViewData["requestedContent"] as IPublishedContent;
+    ViewData["scrollSize"] = "sm";
+}
+
+
+@if (Model.Children.Any() && Model.IsDocumentType("LandingPage"))
+{
+    <div class="dropdown-button">
+        <a href="#" class="toggle @((requestedContent != null && Model.IsAncestorOrSelf(requestedContent)) ? "selected" : null)" role="button" aria-haspopup="true" aria-expanded="false">@Model.Name<span class="caret"></span></a>
+    </div>
+    <div class="menu">
+        @ChildPages(Model.Children.ToArray(), Model.Name)
+    </div>
+}
+else
+{
+    <div>
+        <a class="@((requestedContent != null && Model.IsAncestorOrSelf(requestedContent)) ? "selected" : null)" href="@Model.Url">@Model.Name</a>
+    </div>
+}
+
+
+@helper ChildPages(IPublishedContent[] selection, string headerText)
+{
+    if (selection.Length < 0)
+    {
+        return;
+    }
+    <div class="divider"></div>
+    <div class="dropdown-header">@headerText</div>
+    @* Add in level for a CSS hook *@
+    @*<ul class="dropdown-menu centered-menu">*@
+    foreach (var item in selection)
+    {
+        var children = item.Children.Where(x => x.IsVisible()).ToArray();
+        if (children.Length > 0)
+        {
+            if (item.ContentType.CompositionAliases.Contains(ContentModels.ObjectCollection.ModelTypeAlias))
+            {
+                        <div><a href="@item.Url">@item.Name</a></div>
+            }
+            else
+            {
+                        <div class="dropdown-button"><a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">@item.Name <span class="caret"></span></a></div>
+            }
+        }
+        else
+        {
+                    <div><a href="@item.Url">@item.Name</a></div>
+        }
+    }
+    foreach (var item in selection)
+    {
+        var children = item.Children.Where(x => x.IsVisible()).ToArray();
+        if (children.Length > 0)
+        {
+            if (!item.ContentType.CompositionAliases.Contains(ContentModels.ObjectCollection.ModelTypeAlias))
+            {
+                <div class="menu">
+                    @ChildPages(children, item.Name)
+                </div>
+            }
+        }
+    }
+}

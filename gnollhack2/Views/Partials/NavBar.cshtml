@@ -1,0 +1,102 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using Umbraco.Core;
+@using Umbraco.Core.Models;
+@using Umbraco.Core.Services;
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "Bronze.cshtml";
+    var home = Model.Root();
+    if (!home.IsDocumentType("LandingPage"))
+    {
+        home = home.Children.First();
+    }
+    ViewData["requestedContent"] = Model;
+    IEnumerable<IPublishedContent> allChildren = home.Children;
+    IEnumerable<IPublishedContent> children = allChildren.Where(c => Model.Value<bool>("hideFromNavigation") == false);
+}
+
+<div class="navbar-header">
+    <a class="navbar-brand" href="@home.Url">
+        Home
+        <img alt="Home" src="/media/myflkvuz/gnollhack-icon-v2-512.png" />
+    </a>
+
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+</div>
+<div id="navbar" class="collapse navbar-collapse navbar-centered">
+    <ul class="nav navbar-nav">
+        @foreach (IPublishedContent childPage in children)
+        {
+            @Html.Partial("NavbarScroll", childPage);
+        }
+    </ul>
+</div><!--/.nav-collapse -->
+
+<script>
+    function findMenu(element) {
+        var index = getMenuIndex(element);
+        return element.parent().siblings(".menu").slice(index, (index + 1));
+    }
+
+    function getMenuIndex(dropdownButton) {
+        return dropdownButton.parent().prevAll(".dropdown-button").length;
+    }
+
+    function toggleOpen(element) {
+        var menu = findMenu(element);
+        closeAllChildMenus(menu);
+        element.parent().siblings('.menu').not(menu).slideUp("fast").removeClass("open");
+        element.parent().siblings('.dropdown-button').children("a").children("span").removeClass("caret-up");
+        menu.slideToggle("fast").toggleClass("open");
+        element.children("span").toggleClass("caret-up");
+    }
+
+    function closeAllChildMenus(menu) {
+        var openMenus = menu.children('.menu.open');
+        if (openMenus.length > 0) {
+            openMenus.each(function () {
+                closeAllChildMenus($(this));
+                $(this).slideUp().removeClass("open");
+            });
+        }
+        menu.children('.dropdown-button').children("a").children("span").removeClass("caret-up").each(function () {
+            console.log("remove caret-up " + $(this).parent().text());
+        });
+    }
+
+    var toggle = true;
+    $(document).ready(function () {
+        var root = $('.scroll-container > .dropdown-button > .toggle');
+
+        $('.toggle').not(root).on("click", function (e) {
+            toggleOpen($(this));
+            e.stopPropagation();
+            e.preventDefault();
+        });
+
+        $(root).on("click", function (e) {
+            console.log("root click");
+            element = $(this);
+            var menu = findMenu(element);
+            closeAllChildMenus(menu);
+            element.parent().siblings('.menu').not(menu).slideUp("fast").removeClass("open");
+            element.parent().siblings('.dropdown-button').children("a").children("span").removeClass("caret-up");
+            var border = $(this).parentsUntil(".scroll-border").last().parent();
+            //console.log("border.attr() " + border.attr());
+            if (border.hasClass("open")) {
+                menu.slideToggle("fast", function () { $(this).add(border).toggleClass("open") });
+            } else {
+                menu.slideToggle("fast").add(border).toggleClass("open");
+            }
+
+            element.children("span").toggleClass("caret-up");
+            e.stopPropagation();
+            e.preventDefault();
+        });
+    });
+</script>
