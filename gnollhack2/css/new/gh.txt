@@ -1,0 +1,635 @@
+<html class="page_style_main container" lang="en-US"><head>
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description">
+    <meta name="google-site-verification" content="hDXmrQJC_XarlWBFyDdCT2_Jx-73K3WV77hGtGxa3QI">
+
+
+    <title>About</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href="/css/iconmoon.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Annie+Use+Your+Telescope" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Rye&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Courgette&amp;display=swap" rel="stylesheet">
+
+
+    <!-- CSS -->
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-3.4.1.min.css">
+    
+    
+    
+
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" href="/favicon-196x196.png" sizes="196x196">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-128.png" sizes="128x128">
+    <meta name="application-name" content="&nbsp;">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+    <meta name="msapplication-square70x70logo" content="/mstile-70x70.png">
+    <meta name="msapplication-square150x150logo" content="/mstile-150x150.png">
+    <meta name="msapplication-wide310x150logo" content="/mstile-310x150.png">
+    <meta name="msapplication-square310x310logo" content="/mstile-310x310.png">
+
+    <!-- Scripts -->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+
+    
+
+</head>
+
+<body class="page__layout-container">
+    
+
+<nav class="navbar navbar-inverse navbar-fixed-top container block_style_navbar" style="
+    /* box-sizing: content-box; */
+    /* box-sizing: border-box; */
+">
+    
+
+<div class="block__border-image-bg block_bg_wood bem-navbar__container_outer bem-navbar__container_size_fill" style="
+    /* height: 100%; */
+    /* padding: 10px; */
+">
+        
+
+<div class="navbar-header bem-navbar__container_size_fill" style="
+    height: 100%;
+">
+    <a class="navbar-brand" href="/home/" style="height: 100%;
+">
+    <div style="">Home</div><img src="/media/myflkvuz/gnollhack-icon-v2-512.png" style="
+    height: var(--navbar-height);
+    height: calc(100% - var(--home-text-height));
+    /* padding-bottom: 10px; */
+">
+        
+    </a>
+
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+</div>
+<div id="navbar" class="navbar-collapse navbar-centered collapse" aria-expanded="false" style="/* height: 1px; */">
+    <ul class="nav navbar-nav bem-navbar__link-container" style="">
+
+
+<div class="block block_border-size_s block_border_scroll bem-navbar__link-container-item" style="">
+    <div class="block__border-image-bg block_bg_scroll" style="">
+        
+
+
+    <li style="
+    /* padding: 5px; */
+">
+        <a class="selected" href="/home/about/" style="
+    /* color: #00d2d2; */
+    text-shadow: 0 10 #00d2d2;
+">About</a>
+    </li>
+
+
+
+    </div>
+</div>
+
+<div class="block block_border-size_s block_border_scroll link-container__item_flex">
+    <div class="block__border-image-bg block_bg_scroll">
+        
+
+
+    <li>
+        <a href="/home/download/">Download</a>
+    </li>
+
+
+
+    </div>
+</div>
+
+<div class="block block_border-size_s block_border_scroll link-container__item_flex">
+    <div class="block__border-image-bg block_bg_scroll">
+        
+
+
+    <li class="dropdown-button">
+        <a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">Information<span class="caret"></span></a>
+    </li>
+    <ul class="menu" style="display: none;">
+            <li class="divider"></li>
+    <li class="dropdown-header">Information</li>
+                        <li class="dropdown-button"><a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">Items <span class="caret"></span></a></li>
+                        <li class="dropdown-button"><a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">Spells <span class="caret"></span></a></li>
+                    <li><a href="/home/information/monsters/">Monsters</a></li>
+                        <li class="dropdown-button"><a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">Roles <span class="caret"></span></a></li>
+                <ul class="menu" style="display: none;">
+                        <li class="divider"></li>
+    <li class="dropdown-header">Items</li>
+                        <li class="dropdown-button"><a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">Amulet <span class="caret"></span></a></li>
+                        <li class="dropdown-button"><a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">Armor <span class="caret"></span></a></li>
+                    <li><a href="/home/information/items/coin/">Coin</a></li>
+                <ul class="menu">
+                        <li class="divider"></li>
+    <li class="dropdown-header">Amulet</li>
+                    <li><a href="/home/information/items/amulet/amulet-of-change/">Amulet of change</a></li>
+
+                </ul>
+                <ul class="menu">
+                        <li class="divider"></li>
+    <li class="dropdown-header">Armor</li>
+                    <li><a href="/home/information/items/armor/hawaiian-shirt/">Hawaiian shirt</a></li>
+                    <li><a href="/home/information/items/armor/t-shirt/">T-shirt</a></li>
+
+                </ul>
+
+                </ul>
+                <ul class="menu" style="display: none;">
+                        <li class="divider"></li>
+    <li class="dropdown-header">Spells</li>
+                        <li class="dropdown-button"><a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">Clerical <span class="caret"></span></a></li>
+                        <li class="dropdown-button"><a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">Transmutation <span class="caret"></span></a></li>
+                        <li class="dropdown-button"><a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">Arcane <span class="caret"></span></a></li>
+                        <li class="dropdown-button"><a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">Conjuration <span class="caret"></span></a></li>
+                        <li class="dropdown-button"><a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">Healing <span class="caret"></span></a></li>
+                        <li class="dropdown-button"><a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">Enchantment <span class="caret"></span></a></li>
+                        <li class="dropdown-button"><a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">Abjuration <span class="caret"></span></a></li>
+                        <li class="dropdown-button"><a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">Divination <span class="caret"></span></a></li>
+                        <li class="dropdown-button"><a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">Movement <span class="caret"></span></a></li>
+                        <li class="dropdown-button"><a href="#" class="toggle" role="button" aria-haspopup="true" aria-expanded="false">Necromancy <span class="caret"></span></a></li>
+                <ul class="menu">
+                        <li class="divider"></li>
+    <li class="dropdown-header">Clerical</li>
+                    <li><a href="/home/information/spells/clerical/stick-to-snake/">Stick to Snake</a></li>
+                    <li><a href="/home/information/spells/clerical/stick-to-cobra/">Stick to Cobra</a></li>
+                    <li><a href="/home/information/spells/clerical/bless/">Bless</a></li>
+                    <li><a href="/home/information/spells/clerical/curse/">Curse</a></li>
+                    <li><a href="/home/information/spells/clerical/turn-undead/">Turn Undead</a></li>
+                    <li><a href="/home/information/spells/clerical/heavenly-warrior/">Heavenly Warrior</a></li>
+                    <li><a href="/home/information/spells/clerical/prayer/">Prayer</a></li>
+                    <li><a href="/home/information/spells/clerical/remove-curse/">Remove Curse</a></li>
+                    <li><a href="/home/information/spells/clerical/guardian-angel/">Guardian Angel</a></li>
+                    <li><a href="/home/information/spells/clerical/resurrection/">Resurrection</a></li>
+                    <li><a href="/home/information/spells/clerical/divine-mount/">Divine Mount</a></li>
+                    <li><a href="/home/information/spells/clerical/negate-undeath/">Negate Undeath</a></li>
+                    <li><a href="/home/information/spells/clerical/holy-word/">Holy Word</a></li>
+                    <li><a href="/home/information/spells/clerical/heavenly-army/">Heavenly Army</a></li>
+                    <li><a href="/home/information/spells/clerical/absolution/">Absolution</a></li>
+                    <li><a href="/home/information/spells/clerical/banish-demon/">Banish Demon</a></li>
+
+                </ul>
+                <ul class="menu">
+                        <li class="divider"></li>
+    <li class="dropdown-header">Transmutation</li>
+                    <li><a href="/home/information/spells/transmutation/create-gold-golem/">Create Gold Golem</a></li>
+                    <li><a href="/home/information/spells/transmutation/create-wood-golem/">Create Wood Golem</a></li>
+                    <li><a href="/home/information/spells/transmutation/create-clay-golem/">Create Clay Golem</a></li>
+                    <li><a href="/home/information/spells/transmutation/create-stone-golem/">Create Stone Golem</a></li>
+                    <li><a href="/home/information/spells/transmutation/dig/">Dig</a></li>
+                    <li><a href="/home/information/spells/transmutation/stone-to-flesh/">Stone to Flesh</a></li>
+                    <li><a href="/home/information/spells/transmutation/water-breathing/">Water Breathing</a></li>
+                    <li><a href="/home/information/spells/transmutation/cancellation/">Cancellation</a></li>
+                    <li><a href="/home/information/spells/transmutation/lower-water/">Lower Water</a></li>
+                    <li><a href="/home/information/spells/transmutation/polymorph/">Polymorph</a></li>
+                    <li><a href="/home/information/spells/transmutation/create-iron-golem/">Create Iron Golem</a></li>
+                    <li><a href="/home/information/spells/transmutation/create-glass-golem/">Create Glass Golem</a></li>
+                    <li><a href="/home/information/spells/transmutation/touch-of-petrification/">Touch of Petrification</a></li>
+                    <li><a href="/home/information/spells/transmutation/create-gemstone-golem/">Create Gemstone Golem</a></li>
+                    <li><a href="/home/information/spells/transmutation/flesh-to-stone/">Flesh to Stone</a></li>
+                    <li><a href="/home/information/spells/transmutation/create-silver-golem/">Create Silver Golem</a></li>
+                    <li><a href="/home/information/spells/transmutation/gaze-of-medusa/">Gaze of Medusa</a></li>
+
+                </ul>
+                <ul class="menu">
+                        <li class="divider"></li>
+    <li class="dropdown-header">Arcane</li>
+                    <li><a href="/home/information/spells/arcane/force-bolt/">Force Bolt</a></li>
+                    <li><a href="/home/information/spells/arcane/burning-hands/">Burning Hands</a></li>
+                    <li><a href="/home/information/spells/arcane/fire-bolt/">Fire Bolt</a></li>
+                    <li><a href="/home/information/spells/arcane/lightning-bolt/">Lightning Bolt</a></li>
+                    <li><a href="/home/information/spells/arcane/magical-implosion/">Magical Implosion</a></li>
+                    <li><a href="/home/information/spells/arcane/shocking-touch/">Shocking Touch</a></li>
+                    <li><a href="/home/information/spells/arcane/circle-of-magic/">Circle of Magic</a></li>
+                    <li><a href="/home/information/spells/arcane/fireball/">Fireball</a></li>
+                    <li><a href="/home/information/spells/arcane/freezing-touch/">Freezing Touch</a></li>
+                    <li><a href="/home/information/spells/arcane/circle-of-fire/">Circle of Fire</a></li>
+                    <li><a href="/home/information/spells/arcane/cone-of-cold/">Cone of Cold</a></li>
+                    <li><a href="/home/information/spells/arcane/drain-life/">Drain Life</a></li>
+                    <li><a href="/home/information/spells/arcane/ice-storm/">Ice Storm</a></li>
+                    <li><a href="/home/information/spells/arcane/circle-of-lightning/">Circle of Lightning</a></li>
+                    <li><a href="/home/information/spells/arcane/fire-storm/">Fire Storm</a></li>
+                    <li><a href="/home/information/spells/arcane/power-word-stun/">Power Word Stun</a></li>
+                    <li><a href="/home/information/spells/arcane/circle-of-frost/">Circle of Frost</a></li>
+                    <li><a href="/home/information/spells/arcane/thunderstorm/">Thunderstorm</a></li>
+                    <li><a href="/home/information/spells/arcane/magic-storm/">Magic Storm</a></li>
+                    <li><a href="/home/information/spells/arcane/power-word-blind/">Power Word Blind</a></li>
+                    <li><a href="/home/information/spells/arcane/meteor-swarm/">Meteor Swarm</a></li>
+                    <li><a href="/home/information/spells/arcane/disintegrate/">Disintegrate</a></li>
+                    <li><a href="/home/information/spells/arcane/power-word-kill/">Power Word Kill</a></li>
+                    <li><a href="/home/information/spells/arcane/sphere-of-annihilation/">Sphere of Annihilation</a></li>
+
+                </ul>
+                <ul class="menu">
+                        <li class="divider"></li>
+    <li class="dropdown-header">Conjuration</li>
+                    <li><a href="/home/information/spells/conjuration/create-familiar/">Create Familiar</a></li>
+                    <li><a href="/home/information/spells/conjuration/stinking-cloud/">Stinking Cloud</a></li>
+                    <li><a href="/home/information/spells/conjuration/animate-water/">Animate Water</a></li>
+                    <li><a href="/home/information/spells/conjuration/create-monster/">Create Monster</a></li>
+                    <li><a href="/home/information/spells/conjuration/animate-earth/">Animate Earth</a></li>
+                    <li><a href="/home/information/spells/conjuration/faithful-hound/">Faithful Hound</a></li>
+                    <li><a href="/home/information/spells/conjuration/animate-fire/">Animate Fire</a></li>
+                    <li><a href="/home/information/spells/conjuration/call-hierarch-modron/">Call Hierarch Modron</a></li>
+                    <li><a href="/home/information/spells/conjuration/animate-air/">Animate Air</a></li>
+                    <li><a href="/home/information/spells/conjuration/summon-demon/">Summon Demon</a></li>
+                    <li><a href="/home/information/spells/conjuration/call-demogorgon/">Call Demogorgon</a></li>
+                    <li><a href="/home/information/spells/conjuration/great-yendorian-summoning/">Great Yendorian Summoning</a></li>
+                    <li><a href="/home/information/spells/conjuration/black-blade-of-disaster/">Black Blade of Disaster</a></li>
+                    <li><a href="/home/information/spells/conjuration/wish/">Wish</a></li>
+
+                </ul>
+                <ul class="menu">
+                        <li class="divider"></li>
+    <li class="dropdown-header">Healing</li>
+                    <li><a href="/home/information/spells/healing/healing/">Healing</a></li>
+                    <li><a href="/home/information/spells/healing/cure-sickness/">Cure Sickness</a></li>
+                    <li><a href="/home/information/spells/healing/extra-healing/">Extra Healing</a></li>
+                    <li><a href="/home/information/spells/healing/cure-petrification/">Cure Petrification</a></li>
+                    <li><a href="/home/information/spells/healing/greater-healing/">Greater Healing</a></li>
+                    <li><a href="/home/information/spells/healing/restore-ability/">Restore Ability</a></li>
+                    <li><a href="/home/information/spells/healing/full-healing/">Full Healing</a></li>
+
+                </ul>
+                <ul class="menu">
+                        <li class="divider"></li>
+    <li class="dropdown-header">Enchantment</li>
+                    <li><a href="/home/information/spells/enchantment/cold-enchant-item1/">Cold-Enchant Item1</a></li>
+                    <li><a href="/home/information/spells/enchantment/confuse-monster/">Confuse Monster</a></li>
+                    <li><a href="/home/information/spells/enchantment/mirror-image/">Mirror Image</a></li>
+                    <li><a href="/home/information/spells/enchantment/protect-armor/">Protect Armor</a></li>
+                    <li><a href="/home/information/spells/enchantment/fire-enchant-item/">Fire-Enchant Item</a></li>
+                    <li><a href="/home/information/spells/enchantment/invisibility/">Invisibility</a></li>
+                    <li><a href="/home/information/spells/enchantment/protect-weapon/">Protect Weapon</a></li>
+                    <li><a href="/home/information/spells/enchantment/charm-monster/">Charm Monster</a></li>
+                    <li><a href="/home/information/spells/enchantment/enchant-armor/">Enchant Armor</a></li>
+                    <li><a href="/home/information/spells/enchantment/lightning-enchant-item/">Lightning-Enchant Item</a></li>
+                    <li><a href="/home/information/spells/enchantment/enchant-weapon/">Enchant Weapon</a></li>
+                    <li><a href="/home/information/spells/enchantment/fear/">Fear</a></li>
+                    <li><a href="/home/information/spells/enchantment/sleep/">Sleep</a></li>
+                    <li><a href="/home/information/spells/enchantment/sphere-of-charming/">Sphere of Charming</a></li>
+                    <li><a href="/home/information/spells/enchantment/dominate-monster/">Dominate Monster</a></li>
+                    <li><a href="/home/information/spells/enchantment/mass-fear/">Mass Fear</a></li>
+                    <li><a href="/home/information/spells/enchantment/mass-charm/">Mass Charm</a></li>
+                    <li><a href="/home/information/spells/enchantment/mass-sleep/">Mass Sleep</a></li>
+                    <li><a href="/home/information/spells/enchantment/death-enchant-item/">Death-Enchant Item</a></li>
+                    <li><a href="/home/information/spells/enchantment/sphere-of-domination/">Sphere of Domination</a></li>
+                    <li><a href="/home/information/spells/enchantment/mass-conflict/">Mass Conflict</a></li>
+                    <li><a href="/home/information/spells/enchantment/mass-domination/">Mass Domination</a></li>
+
+                </ul>
+                <ul class="menu">
+                        <li class="divider"></li>
+    <li class="dropdown-header">Abjuration</li>
+                    <li><a href="/home/information/spells/abjuration/mage-armor/">Mage Armor</a></li>
+                    <li><a href="/home/information/spells/abjuration/protection-from-acid/">Protection from acid</a></li>
+                    <li><a href="/home/information/spells/abjuration/protection-from-poison/">Protection from poison</a></li>
+                    <li><a href="/home/information/spells/abjuration/shield/">Shield</a></li>
+                    <li><a href="/home/information/spells/abjuration/protection/">Protection</a></li>
+                    <li><a href="/home/information/spells/abjuration/protection-from-fire/">Protection from fire</a></li>
+                    <li><a href="/home/information/spells/abjuration/protection-from-lightning/">Protection from Lightning</a></li>
+                    <li><a href="/home/information/spells/abjuration/protectoin-from-cold/">Protectoin from Cold</a></li>
+                    <li><a href="/home/information/spells/abjuration/barkskin/">Barkskin</a></li>
+                    <li><a href="/home/information/spells/abjuration/forbid-summoning/">Forbid Summoning</a></li>
+                    <li><a href="/home/information/spells/abjuration/protection-from-death-magic/">Protection from Death Magic</a></li>
+                    <li><a href="/home/information/spells/abjuration/lower-magic-resistance/">Lower Magic Resistance</a></li>
+                    <li><a href="/home/information/spells/abjuration/protection-from-disintegration/">Protection from Disintegration</a></li>
+                    <li><a href="/home/information/spells/abjuration/protection-from-sickness/">Protection from Sickness</a></li>
+                    <li><a href="/home/information/spells/abjuration/stoneskin/">Stoneskin</a></li>
+                    <li><a href="/home/information/spells/abjuration/protection-from-petrification/">Protection from Petrification</a></li>
+                    <li><a href="/home/information/spells/abjuration/reflection/">Reflection</a></li>
+                    <li><a href="/home/information/spells/abjuration/anti-magic-shell/">Anti-Magic Shell</a></li>
+                    <li><a href="/home/information/spells/abjuration/globe-of-invulnerability/">Globe of Invulnerability</a></li>
+                    <li><a href="/home/information/spells/abjuration/negate-magic-resistance/">Negate Magic Resistance</a></li>
+                    <li><a href="/home/information/spells/abjuration/divine-intervention/">Divine Intervention</a></li>
+
+                </ul>
+                <ul class="menu">
+                        <li class="divider"></li>
+    <li class="dropdown-header">Divination</li>
+                    <li><a href="/home/information/spells/divination/detect-unseen/">Detect Unseen</a></li>
+                    <li><a href="/home/information/spells/divination/identity/">Identity</a></li>
+                    <li><a href="/home/information/spells/divination/clairvoyance/">Clairvoyance</a></li>
+                    <li><a href="/home/information/spells/divination/telepathy/">Telepathy</a></li>
+                    <li><a href="/home/information/spells/divination/magic-mapping/">Magic Mapping</a></li>
+                    <li><a href="/home/information/spells/divination/detect-traps/">Detect Traps</a></li>
+
+                </ul>
+                <ul class="menu">
+                        <li class="divider"></li>
+    <li class="dropdown-header">Movement</li>
+                    <li><a href="/home/information/spells/movement/slow-monster/">Slow Monster</a></li>
+                    <li><a href="/home/information/spells/movement/levitation/">Levitation</a></li>
+                    <li><a href="/home/information/spells/movement/water-walking/">Water Walking</a></li>
+                    <li><a href="/home/information/spells/movement/haste-self/">Haste Self</a></li>
+                    <li><a href="/home/information/spells/movement/haste-other/">Haste Other</a></li>
+                    <li><a href="/home/information/spells/movement/mass-slow/">Mass Slow</a></li>
+                    <li><a href="/home/information/spells/movement/teleport-away/">Teleport Away</a></li>
+                    <li><a href="/home/information/spells/movement/circle-of-teleportation/">Circle of Teleportation</a></li>
+                    <li><a href="/home/information/spells/movement/controlled-teleport/">Controlled Teleport</a></li>
+                    <li><a href="/home/information/spells/movement/level-teleport/">Level Teleport</a></li>
+                    <li><a href="/home/information/spells/movement/portal/">Portal</a></li>
+                    <li><a href="/home/information/spells/movement/controlled-level-teleport/">Controlled Level Teleport</a></li>
+                    <li><a href="/home/information/spells/movement/time-stop/">Time Stop</a></li>
+
+                </ul>
+                <ul class="menu">
+                        <li class="divider"></li>
+    <li class="dropdown-header">Necromancy</li>
+                    <li><a href="/home/information/spells/necromancy/raise-skeleton/">Raise Skeleton</a></li>
+                    <li><a href="/home/information/spells/necromancy/create-minor-mummy/">Create Minor Mummy</a></li>
+                    <li><a href="/home/information/spells/necromancy/replenish-undeath/">Replenish Undeath</a></li>
+                    <li><a href="/home/information/spells/necromancy/call-ghoul/">Call Ghoul</a></li>
+                    <li><a href="/home/information/spells/necromancy/raise-giant-skeleton/">Raise Giant Skeleton</a></li>
+                    <li><a href="/home/information/spells/necromancy/greater-undeath-replenishment/">Greater Undeath Replenishment</a></li>
+                    <li><a href="/home/information/spells/necromancy/raise-giant-zombie/">Raise Giant Zombie</a></li>
+                    <li><a href="/home/information/spells/necromancy/create-giant-mummy/">Create Giant Mummy</a></li>
+                    <li><a href="/home/information/spells/necromancy/raise-skeleton-warrior/">Raise Skeleton Warrior</a></li>
+                    <li><a href="/home/information/spells/necromancy/mass-raise-zombie/">Mass Raise Zombie</a></li>
+                    <li><a href="/home/information/spells/necromancy/mass-create-mummy/">Mass Create Mummy</a></li>
+                    <li><a href="/home/information/spells/necromancy/raise-skeleton-lord/">Raise Skeleton Lord</a></li>
+                    <li><a href="/home/information/spells/necromancy/touch-of-death/">Touch of Death</a></li>
+                    <li><a href="/home/information/spells/necromancy/finger-of-death/">Finger of Death</a></li>
+                    <li><a href="/home/information/spells/necromancy/deathspell/">Deathspell</a></li>
+                    <li><a href="/home/information/spells/necromancy/raise-skeleton-king/">Raise Skeleton King</a></li>
+                    <li><a href="/home/information/spells/necromancy/create-dracolich/">Create Dracolich</a></li>
+                    <li><a href="/home/information/spells/necromancy/armageddon/">Armageddon</a></li>
+                    <li><a href="/home/information/spells/necromancy/mass-create-dracolich/">Mass Create Dracolich</a></li>
+
+                </ul>
+
+                </ul>
+                <ul class="menu" style="display: none;">
+                        <li class="divider"></li>
+    <li class="dropdown-header">Roles</li>
+                    <li><a href="/home/information/roles/archaeologist/">Archaeologist</a></li>
+                    <li><a href="/home/information/roles/healer/">Healer</a></li>
+                    <li><a href="/home/information/roles/knight/">Knight</a></li>
+                    <li><a href="/home/information/roles/monk/">Monk</a></li>
+                    <li><a href="/home/information/roles/priest/">Priest</a></li>
+                    <li><a href="/home/information/roles/ranger/">Ranger</a></li>
+                    <li><a href="/home/information/roles/wizard/">Wizard</a></li>
+                    <li><a href="/home/information/roles/barbarian/">Barbarian</a></li>
+                    <li><a href="/home/information/roles/caveman/">Caveman</a></li>
+                    <li><a href="/home/information/roles/samurai/">Samurai</a></li>
+                    <li><a href="/home/information/roles/valkyrie/">Valkyrie</a></li>
+                    <li><a href="/home/information/roles/rogue/">Rogue</a></li>
+                    <li><a href="/home/information/roles/tourist/">Tourist</a></li>
+
+                </ul>
+
+    </ul>
+
+
+
+    </div>
+</div>    </ul>
+</div><!--/.nav-collapse -->
+
+<script>
+    function findMenu(element) {
+        var index = getMenuIndex(element);
+        return element.parent().siblings(".menu").slice(index, (index + 1));
+    }
+
+    function getMenuIndex(dropdownButton) {
+        return dropdownButton.parent().prevAll(".dropdown-button").length;
+    }
+
+    function toggleOpen(element) {
+        var menu = findMenu(element);
+        closeAllChildMenus(menu);
+        element.parent().siblings('.menu').not(menu).slideUp("fast").removeClass("open");
+        element.parent().siblings('.dropdown-button').children("a").children("span").removeClass("caret-up");
+        menu.slideToggle("fast").toggleClass("open");
+        element.children("span").toggleClass("caret-up");
+    }
+
+    function closeAllChildMenus(menu) {
+        var openMenus = menu.children('.menu.open');
+        if (openMenus.length > 0) {
+            openMenus.each(function () {
+                closeAllChildMenus($(this));
+                $(this).slideUp().removeClass("open");
+            });
+        }
+        menu.children('.dropdown-button').children("a").children("span").removeClass("caret-up").each(function () {
+            console.log("remove caret-up " + $(this).parent().text());
+        });
+    }
+
+    var toggle = true;
+    $(document).ready(function () {
+        var root = $('.scroll-container > .dropdown-button > .toggle');
+
+        $('.toggle').not(root).on("click", function (e) {
+            toggleOpen($(this));
+            e.stopPropagation();
+            e.preventDefault();
+        });
+
+        $(root).on("click", function (e) {
+            console.log("root click");
+            element = $(this);
+            var menu = findMenu(element);
+            closeAllChildMenus(menu);
+            element.parent().siblings('.menu').not(menu).slideUp("fast").removeClass("open");
+            element.parent().siblings('.dropdown-button').children("a").children("span").removeClass("caret-up");
+            var border = $(this).parentsUntil(".scroll-border").last().parent();
+            //console.log("border.attr() " + border.attr());
+            if (border.hasClass("open")) {
+                menu.slideToggle("fast", function () { $(this).add(border).toggleClass("open") });
+            } else {
+                menu.slideToggle("fast").add(border).toggleClass("open");
+            }
+
+            element.children("span").toggleClass("caret-up");
+            e.stopPropagation();
+            e.preventDefault();
+        });
+    });
+</script>
+
+    </div></nav>
+
+    
+    
+    <!-- Javascripts -->
+    
+    <script src="/js/bugfixes.js"></script>
+    <script src="/js/bootstrap-3.4.1.min.js"></script>
+
+
+
+<section style="
+" class="page__section_width_full">
+        <div style="padding-top:150px;"></div>
+        
+
+
+
+
+
+    <div class="umb-grid">
+                <div class="grid-section">
+    <div class="scroll" data-border="scroll">
+        <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="" data-border="scroll" style="
+    max-width: 690px;
+    margin: auto;
+">
+                        
+
+<div class="block block_border-size_m block_border_scroll" style="
+">
+    <div class="block__border-image-bg block_bg_scroll" style="
+    /* height: 100%; */
+    /* height: 150%; */
+">
+        
+            
+    
+    
+        <div class="container-fluid"><h1 style="
+    /* margin: 0; */
+    /* padding-block-start: 0.83em; */
+    /* padding-block-end: 0.83em; */
+">About Sound Mind Games</h1><p class="paragraph_style_medieval">Sound Mind Games&nbsp;is a Finland-based non-profit association that helps people suffering from depression and other mental disorders. </p></div>
+    
+
+
+            
+    
+
+
+
+
+    </div>
+</div>
+                </div>
+            </div>        </div>
+        </div>
+    </div>
+                </div>
+    </div>
+
+
+
+
+
+        
+    </section><section class="page__section_width_full  page__section_align_bottom" style="
+    /* margin-bottom: 59px; */
+">
+        <footer class="">
+            
+
+<div class="block_style_footer">
+    <div class="block block_bg_wood block__border-image-bg">
+        
+
+<div class="bottom-navigation" style="
+    padding-bottom: 10px;
+">
+    
+    <div class="follow-us" style="
+    /* display: flex; */
+    /* align-content: center; */
+">
+        <ul class="icons" style="
+    /* margin: auto; */
+    text-align: center;
+    /* display: inline-block; */
+">
+                    <li><a href="https://www.facebook.com/hyvanmielenpelit" class="icon-facebook" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook"></a></li>
+                    <li style="
+    /* box-shadow: 5px 5px #00ff89; */
+    /* text-shadow: 0px 0px 14px #00ff89; */
+"><a href="https://hyvanmielenpelit.fi/#" class="icon-sound-mind-games" data-toggle="tooltip" data-placement="top" title="" data-original-title="Hyvanmielenpelit.fi"></a></li><li><a href="https://github.com/hyvanmielenpelit/GnollHack/" class="icon-github-square" data-toggle="tooltip" data-placement="top" title="" data-original-title="Github"></a></li>
+                    
+                </ul>
+    </div>
+
+
+<div class="row text-center bottom-nav">
+    
+        <div class="col-xs-6 col-sm-4 col-md-4 link-container_style_footer" style="
+">
+                <strong class="link-container__item_column_header">About</strong>
+                <ul style="
+">
+                    <li><a href="/home/about/">About</a></li>
+                </ul>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-4 link-container_style_footer">
+                <strong class="link-container__item_column_header">Download</strong>
+                <ul>
+                    <li><a href="/home/download/">Download</a></li>
+                </ul>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-4 link-container_style_footer">
+                <strong class="link-container__item_column_header">Information</strong>
+        <ul class="">
+                <li>
+                    <a href="/home/information/items/">Items</a>
+                </li>
+                <li>
+                    <a href="/home/information/spells/">Spells</a>
+                </li>
+                <li>
+                    <a href="/home/information/monsters/">Monsters</a>
+                </li>
+                <li>
+                    <a href="/home/information/roles/">Roles</a>
+                </li>
+        </ul>
+        </div>
+</div>
+
+
+</div>
+
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
+    </div>
+</div>
+        </footer>
+    </section></body></html>

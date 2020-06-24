@@ -700,6 +700,8 @@
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\iconmoon.min.css" />
     <Content Include="css\izeldrughuldfhgbvuile.css" />
+    <Content Include="css\new\gh.txt" />
+    <Content Include="css\new\style sheet.txt" />
     <Content Include="css\rte.css" />
     <Content Include="css\settings.css" />
     <Content Include="css\style.css" />
