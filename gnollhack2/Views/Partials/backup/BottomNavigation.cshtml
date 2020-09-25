@@ -1,0 +1,39 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+    Layout = "Bronze.cshtml";
+    var home = Model.Root();
+    if (!home.IsDocumentType("LandingPage"))
+    {
+        home = home.Children.First();
+    }
+    ViewData["layout"] = "";
+}
+
+<div class="bottom-navigation">
+    @*<div class="row">
+        <div class="col-sm-12 text-center">
+            <h2 class="follow-us-header">Seuraa meitä</h2>
+        </div>
+    </div>*@
+    <div class="follow-us">
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="icons">
+                    <li><a href="https://www.facebook.com/hyvanmielenpelit" class="icon fa-facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="https://github.com/hyvanmielenpelit/GnollHack/" class="icon fa-github" data-toggle="tooltip" data-placement="top" title="Github"><span class="label">Github</span></a></li>
+                    <li><a href="https://hyvanmielenpelit.fi/#" class="icon fa-home" data-toggle="tooltip" data-placement="top" title="Hyvanmielenpelit.fi"><span class="label">Hyvanmielenpelit.fi</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    @if (home.Children.Where(c => c.IsVisible()).Any())
+    {
+        @Html.Partial("FooterScroll")
+    }
+</div>
+
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>

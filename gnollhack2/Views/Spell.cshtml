@@ -11,7 +11,12 @@
         "<span class=\"label label-" + (Model.NewOrChanged == true ? "success\"> New!" : "default\"> Changed!") + "</span>"
     })});
     IEnumerable<String> headers = new List<String>(new String[] { "Level", "Mana cost", "Status" });
+
+    //BemModels.BemContainer bemContainer = new BemModels.BemContainer();
+
 }
 
+
+@Html.Partial("Table", new TableSettings(caption, description, content, headers, false))
 
 @Html.Partial("Table", new TableSettings(caption, description, content, headers, false))

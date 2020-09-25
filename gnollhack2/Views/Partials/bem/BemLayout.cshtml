@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<BemEntity>
+@using System.Configuration
+@using System.Globalization
+@using BemModels;
+@{
+    Layout = null;
+    var lang = "en-US";
+    Layout layout = new Layout();
+    //BemEntity entity = Model;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
+
+@foreach (BemEntity entity in Model.Content)
+{
+    @Html.Partial(entity.Name, entity);
+}

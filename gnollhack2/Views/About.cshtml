@@ -1,0 +1,20 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<LandingPage>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "mainCategoryPage.cshtml";
+    String caption = "All spells";
+    IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>();
+    IEnumerable<String> headers = new List<String>(new String[] { "Name", "Spell school", "Level", "Mana cost", "Status" });
+    var children = this.Model.Children();
+}
+
+<div class="bem-container bem-container_width_fit-content">
+    <div class="bem-container__border bem-container__border_size_m bem-container__border_style_scroll">
+        <div class="bem-container__background bem-container__background_style_scroll">
+            <div class="scroll scroll_content-type_text container-fluid">
+                <h2 class="scroll__headline">About Sound Mind Games</h2>
+                <p class="scroll__text">Sound Mind Games is a Finland-based non-profit association that helps people suffering from depression and other mental disorders. Many of them have amazing skills, and in our association, they can participate in exciting projects, in which they can improve their skills further, recover from their illnesses, and finally get jobs in IT, game, and media industries.</p>
+            </div>
+        </div>
+    </div>
+</div>

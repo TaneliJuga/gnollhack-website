@@ -1,0 +1,219 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using Umbraco.Core;
+@using Umbraco.Core.Models;
+@using Umbraco.Core.Services;
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using BemModels;
+
+@{
+    var home = Model.Root();
+    IEnumerable<IPublishedContent> allChildren = home.Children;
+    IEnumerable<IPublishedContent> children = allChildren.Where(c => Model.Value<bool>("hideFromNavigation") == false);
+
+    bool IsLandingPage(IPublishedContent node)
+    {
+        return !node.ContentType.CompositionAliases.Contains(ContentModels.ObjectCollection.ModelTypeAlias);
+    }
+
+    string Selected(IPublishedContent node)
+    {
+        return (node != null && Model.IsAncestorOrSelf(node)) ? "selected" : "";
+    }
+
+    var uniqCount = 0;
+    var uniqId = ((Int32)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds).ToString();
+    var uniqExpando = "__" + uniqId;
+    var uniqPrefix = "uniq" + uniqId;
+
+    string GetUniq()
+    {
+        return uniqPrefix + (++uniqCount);
+    }
+
+    string Identify(Dictionary<string, string> obj, bool onlyGet)
+    {
+        if (obj != null)
+            return GetUniq();
+        if (onlyGet || obj.ContainsKey(uniqExpando))
+            return obj[uniqExpando];
+
+        var u = GetUniq();
+        obj[uniqExpando] = u;
+        return u;
+    }
+}
+
+<nav class="top-nav navbar navbar-inverse navbar-fixed-top container">
+    <div class="bem-container">
+        <div class="bem-container__border bem-container__border_size_m bem-container__border_style_bronze top-nav__border">
+            <div class="bem-container__background bem-container__background_style_wood">
+                <div class="top-nav__nav">
+                    <div class="top-nav__header navbar-header">
+                        <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="link top-nav__brand link__control navbar-brand i-bem" data-bem='{"link":{}}' role="link" tabindex="0">
+                            Home<img class="image top-nav__brand-image" src="/Media/myflkvuz/gnollhack-icon-v2-512.png">
+                        </a>
+                    </div>
+                    <div class="top-nav__navbar collapse navbar-collapse" id="navbar-collapse">
+                        <ul class="top-nav__nav-container nav navbar-nav">
+                            @foreach (IPublishedContent child in children)
+                            {
+                                <div class="top-nav__item i-bem" data-bem='{"top-nav__item":{}}'>
+                                    <div class="bem-container">
+                                        <div class="bem-container__border bem-container__border_size_s bem-container__border_style_scroll">
+                                            <div class="bem-container__background bem-container__background_style_scroll">
+                                                <ul class="drop-menu">
+                                                    @if (child.Children.Any() && IsLandingPage(child))
+                                                    {
+                                                        string id = GetUniq();
+                                                        @DropmenuButton(child.Name, id, Selected(child));
+                                                        @Dropmenu(child, GetUniq, id);
+                                                    }
+                                                    else
+                                                    {
+                                                        <a class="link link__control i-bem @Selected(child)" href="@child.Url" data-bem='{"link":{}}' role="link" tabindex="0" title="about">@child.Name</a>
+                                                    }
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+@*@helper Dropmenu(IPublishedContent node, Func<string> getUniq, string uniqId)
+    {
+        List<string> ids = new List<string>();
+        IEnumerator<string> enumerator = ids.GetEnumerator();
+        List<Dropmenu> dropmenusDataList = new List<Dropmenu>();
+        <ul class="drop-menu drop-menu__button i-bem" data-bem='{"drop-menu__button":{"uniqId": "@uniqId"}}'>
+            @DropmenuHeader(node.Name)
+            @foreach (IPublishedContent child in node.Children())
+            {
+                string nextUniq = getUniq.Invoke();
+                ids.Add(nextUniq);
+                if (child.Children.Any())
+                {
+                    dropmenusDataList.Add(new Dropmenu(nextUniq, child));
+                    @DropmenuButton(child.Name, nextUniq)
+                }
+                else
+                {
+                    @DropmenuLink(child.Name)
+                }
+            }
+            @foreach (Dropmenu dropmenu in dropmenusDataList)
+            {
+                @Dropmenu(dropmenu.Node, getUniq, dropmenu.Id)
+            }
+        </ul>
+    }*@
+
+@helper Dropmenu(IPublishedContent node, Func<string> getUniq, string uniqId)
+{
+    List<string> ids = new List<string>();
+    List<Dropmenu> dropmenusDataList = new List<Dropmenu>();
+    <ul class="drop-menu drop-menu__button i-bem" data-bem='{"drop-menu__button":{"uniqId": "@uniqId"}}'>
+        @DropmenuHeader(node.Name)
+        @foreach (IPublishedContent child in node.Children())
+        {
+            string nextUniq = getUniq.Invoke();
+            ids.Add(nextUniq);
+            if (child.Children.Any())
+            {
+                dropmenusDataList.Add(new Dropmenu(nextUniq, child));
+                @DropmenuButton(child.Name, nextUniq)
+            }
+            else
+            {
+                @DropmenuLink(child.Name)
+            }
+        }
+        @foreach (Dropmenu dropmenu in dropmenusDataList)
+        {
+            @Dropmenu(dropmenu.Node, getUniq, dropmenu.Id)
+        }
+    </ul>
+
+    Stack<IPublishedContent> nodeStack = new Stack<IPublishedContent>();
+    Stack<List<Dropmenu>> dropmenusDataListStack = new Stack<List<Dropmenu>>();
+    IPublishedContent node2 = node;
+    while (node.Children.Any())
+    {
+        @DropmenuHeader(node.Name)
+        foreach (IPublishedContent child in node.Children())
+        {
+            string nextUniq = getUniq.Invoke();
+            ids.Add(nextUniq);
+            if (child.Children.Any())
+            {
+                dropmenusDataList.Add(new Dropmenu(nextUniq, child));
+                @DropmenuButton(child.Name, nextUniq)
+                }
+            else
+            {
+                @DropmenuLink(child.Name)
+            }
+        }
+        foreach (Dropmenu dropmenu in dropmenusDataList)
+        {
+            continue;
+        }
+    }
+}
+
+
+@helper DropmenuButton(string name, string uniqId, string cls = "")
+{
+    <li class="drop-menu__button drop-menu__button_trigger drop-menu__item i-bem @cls" data-bem='{"drop-menu__button":{"uniqId":"@uniqId"}}'>
+        <span class="drop-menu__text">@name</span>
+        <span class="drop-menu__caret caret i-bem" data-bem='{"drop-menu__caret":{}}'></span>
+    </li>
+}
+
+@helper DropmenuLink(string name)
+{
+    <a class="link drop-menu__item link__control i-bem" data-bem='{"link":{}}' role="link" tabindex="0" title="roles">
+        <span class="drop-menu__text">@name</span>
+    </a>
+}
+@helper DropmenuItem(IPublishedContent node)
+{
+    string name = node.Name;
+    if (node.Children.Any())
+    {
+        <li class="drop-menu__button drop-menu__button_trigger drop-menu__item i-bem" data-bem='{"drop-menu__button":{"uniqId":"uniq16001641851991"}}'>
+            <span class="drop-menu__text">@name</span>
+            <span class="drop-menu__caret caret i-bem" data-bem='{"drop-menu__caret":{}}'></span>
+        </li>
+    }
+    else
+    {
+        <a class="link drop-menu__item link__control i-bem" data-bem='{"link":{}}' role="link" tabindex="0" title="roles">
+            <span class="drop-menu__text">@name</span>
+        </a>
+    }
+}
+
+@helper DropmenuHeader(string name)
+{
+    <a class="link drop-menu__item link__control i-bem" data-bem='{"link":{}}' role="link" tabindex="0">
+        <span class="drop-menu__text">
+            <div class="drop-menu__divider"></div>
+            <div class="drop-menu__header">@name</div>
+        </span>
+    </a>
+}
+

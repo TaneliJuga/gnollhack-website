@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Spell>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "archivePage.cshtml";
+    String caption = Model.Name;
+    IHtmlString description = new HtmlString(Model.LongDescription);
+    IEnumerable<IEnumerable<String>> content = new List<IEnumerable<String>>(
+        new List<String>[] {new List<String>(new String[] {
+        Model.SpellLevel.ToString(),
+        Model.ManaCost.ToString(),
+        "<span class=\"label label-" + (Model.NewOrChanged == true ? "success\"> New!" : "default\"> Changed!") + "</span>"
+    })});
+    IEnumerable<String> headers = new List<String>(new String[] { "Level", "Mana cost", "Status" });
+}
+
+
+@Html.Partial("Table", new TableSettings(caption, description, content, headers, false))

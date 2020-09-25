@@ -1,0 +1,23 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@using Umbraco.Web.Models
+@{
+    var imageHeigth = Model.MacroParameters["imageHeight"] as string ?? "400px";
+    var imageWidth = Model.MacroParameters["imageWidth"]  as string ?? "400px";
+    var alt = Model.MacroParameters["alt"] ?? "hero image";
+    //var image = Model.MacroParameters["image"] as IPublishedContent;
+    //string url = image.Url ?? "~/media/myflkvuz/gnollhack-icon-v2-512.png";
+    IPublishedContent img = this.Umbraco.Media(Model.MacroParameters["image"]);
+    string url = img.Url ?? "~/media/myflkvuz/gnollhack-icon-v2-512.png";
+
+    string[] dimensions = { imageWidth, imageHeigth };
+    for(int i=0; i<dimensions.Length; i++)
+    {
+        string dimension = dimensions[i];
+        if (!dimension.Contains("px"))
+        {
+            dimensions[i] = dimension + "px";
+        }
+    }
+}
+
+<img class="image image_type_hero" src=@url width=@dimensions[0] height=@dimensions[1] alt=@alt>

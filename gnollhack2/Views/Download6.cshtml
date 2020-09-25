@@ -1,0 +1,30 @@
+﻿@using ContentModels = Umbraco.Web.PublishedModels;
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Download6>
+@{
+    Layout = "master5.cshtml";
+    //Layout = null;
+}
+
+<div class="download-box">
+    <div class="bem-container">
+        <div class="bem-container__border bem-container__border_size_m bem-container__border_style_scroll">
+            <div class="bem-container__background bem-container__background_style_scroll">
+                <div class="scroll container-fluid">
+                    <div class="download-box__description">
+                        <h2 class="scroll__headline">@Model.Headline</h2>
+                        <p class="scroll__text scroll__text_centered">@Model.Description</p>
+                    </div>
+                    <a class="link download-box__link link__control i-bem" data-bem='{"link":{}}' role="link" tabindex="0">
+                        <div class="download-box__title-container">
+                            <h2 class="download-box__title">Download</h2>
+                            <div class="download-box__icon icon-download"></div>
+                        </div>
+                        <img class="image" src="../../Media/myflkvuz/gnollhack-icon-v2-512.png" width="300px" height="300px">
+                    </a>
+                    <div class="download-box__info">@Model.Version, released on: @Model.ReleaseDate</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

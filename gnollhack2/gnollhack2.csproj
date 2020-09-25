@@ -696,6 +696,8 @@
     <Content Include="css\backup\style1.css" />
     <Content Include="css\bootstrap-3.4.1.min.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\common.min - Copy.css" />
+    <Content Include="css\common.min.css" />
     <Content Include="css\fanoe.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\iconmoon.min.css" />
@@ -712,6 +714,7 @@
     <Content Include="img\FindUs-FB-RGB-BRC-Site-500.png" />
     <Content Include="js\bootstrap-3.4.1.min.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\common.min.js" />
     <Content Include="js\test.js" />
     <Content Include="js\bugfixes.js" />
     <Content Include="js\extensions\revolution.extension.actions.min.js" />
@@ -4273,6 +4276,43 @@
     <Content Include="sass\blocks\large-letter.scss" />
     <Content Include="sass\blocks\paragraph.scss" />
     <Content Include="sass\blocks\menu.scss" />
+    <Content Include="App_code\Blocks\bottom-nav\BottomNav.cs" />
+    <Content Include="App_code\BemModels\Js.cs" />
+    <Content Include="App_code\BemModels2\BemEntity.cs" />
+    <Content Include="App_code\BemModels2\BemEntityDecorator.cs" />
+    <Content Include="App_code\BemModels2\Block.cs" />
+    <Content Include="App_code\BemModels2\Elem.cs" />
+    <Content Include="App_code\BemModels2\ElemMod.cs" />
+    <Content Include="App_code\BemModels2\Js.cs" />
+    <Content Include="App_code\BemModels2\Mod.cs" />
+    <Content Include="App_code\BemModels2\BemEntityVisitor.cs" />
+    <Content Include="App_code\BemModels2\IBemEntityVisitor.cs" />
+    <Content Include="App_code\BemModels2\ClassWriter.cs" />
+    <Content Include="App_code\BemModels3\BemEntity.cs" />
+    <Content Include="App_code\BemModels3\BemEntityDecorator.cs" />
+    <Content Include="App_code\BemModels3\BemEntityVisitor.cs" />
+    <Content Include="App_code\BemModels3\Block.cs" />
+    <Content Include="App_code\BemModels3\ClassWriter.cs" />
+    <Content Include="App_code\BemModels3\Elem.cs" />
+    <Content Include="App_code\BemModels3\ElemMod.cs" />
+    <Content Include="App_code\BemModels3\IBemEntityVisitor.cs" />
+    <Content Include="App_code\BemModels3\Js.cs" />
+    <Content Include="App_code\BemModels3\Mod.cs" />
+    <Content Include="App_code\BemModels3\BemEntityComposition.cs" />
+    <Content Include="App_code\BemModels4\BemEntity.cs" />
+    <Content Include="App_code\BemModels4\BemEntityComposition.cs" />
+    <Content Include="App_code\BemModels4\BemEntityDecorator.cs" />
+    <Content Include="App_code\BemModels4\BemEntityVisitor.cs" />
+    <Content Include="App_code\BemModels4\Block.cs" />
+    <Content Include="App_code\BemModels4\ClassWriter.cs" />
+    <Content Include="App_code\BemModels4\Elem.cs" />
+    <Content Include="App_code\BemModels4\ElemMod.cs" />
+    <Content Include="App_code\BemModels4\IBemEntityVisitor.cs" />
+    <Content Include="App_code\BemModels4\Js.cs" />
+    <Content Include="App_code\BemModels4\Mod.cs" />
+    <Content Include="App_code\BemModels4\Mix.cs" />
+    <Content Include="App_code\Blocks\dropmenu\dropmenu.cs" />
+    <Compile Include="App_code\Blocks\bem-container\BemContainer.cs" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -6012,14 +6052,33 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_code\TableSettings.cs" />
-    <Content Include="App_code\Class1.cs" />
-    <Content Include="App_code\Table.cs" />
-    <Content Include="App_code\ParameterEditor.cs" />
-    <Content Include="App_code\NavigationData.cs" />
-    <Content Include="App_code\VCTest.cs" />
-    <Content Include="App_code\EmailTagHelper.cs" />
-    <Content Include="App_code\TableSettings - Copy.cs" />
+    <Content Include="App_code\Models\TableSettings.cs" />
+    <Content Include="App_code\Models\Class1.cs" />
+    <Content Include="App_code\Models\Table.cs" />
+    <Content Include="App_code\Models\ParameterEditor.cs" />
+    <Content Include="App_code\Models\NavigationData.cs" />
+    <Content Include="App_code\Models\VCTest.cs" />
+    <Content Include="App_code\Models\EmailTagHelper.cs" />
+    <Content Include="App_code\Models\TableSettings - Copy.cs" />
+    <Content Include="App_code\Models\BottomNavData.cs" />
+    <Content Include="App_code\Models\BemContainerData.cs" />
+    <Content Include="App_code\BemModels\Block.cs" />
+    <Content Include="App_code\BemModels\BemEntity.cs" />
+    <Content Include="App_code\BemModels\BemEntityDecorator.cs" />
+    <Content Include="App_code\Models\BemEntityDecorator - Copy.cs" />
+    <Content Include="App_code\BemModels\Elem.cs" />
+    <Content Include="App_code\BemModels\Mod.cs" />
+    <Content Include="App_code\Models\Mod - Copy.cs" />
+    <Content Include="App_code\BemModels\ElemMod.cs" />
+    <Content Include="App_code\Models\IDomElem.cs" />
+    <Content Include="App_code\Blocks\layout\layout.cs" />
+    <Content Include="App_code\Blocks\bottom-nav\BottomNav - Copy.cs" />
+    <Content Include="App_code\Blocks\bottom-nav\BottomNav - Copy %282%29.cs" />
+    <Content Include="App_code\Blocks\bottom-nav\BottomNav - Copy %283%29.cs" />
+    <Content Include="App_code\Blocks\bottom-nav\BottomNav - Copy %284%29.cs" />
+    <Content Include="App_code\TableDataCoverter.cs" />
+    <Content Include="App_code\TableColumn.cs" />
+    <Compile Include="App_Data\Models\About.generated.cs" />
     <Compile Include="App_Data\Models\Amulet.generated.cs" />
     <Compile Include="App_Data\Models\Armor.generated.cs" />
     <Compile Include="App_Data\Models\Category.generated.cs" />
@@ -6027,7 +6086,11 @@
     <Compile Include="App_Data\Models\CategoryItem.generated.cs" />
     <Compile Include="App_Data\Models\CategoryPage.generated.cs" />
     <Compile Include="App_Data\Models\Coin.generated.cs" />
+    <Compile Include="App_Data\Models\Color.generated.cs" />
     <Compile Include="App_Data\Models\Comestible.generated.cs" />
+    <Compile Include="App_Data\Models\Download5.generated.cs" />
+    <Compile Include="App_Data\Models\Download51.generated.cs" />
+    <Compile Include="App_Data\Models\Download6.generated.cs" />
     <Compile Include="App_Data\Models\DownloadBox.generated.cs" />
     <Compile Include="App_Data\Models\DownloadPage.generated.cs" />
     <Compile Include="App_Data\Models\File.generated.cs" />
@@ -6039,6 +6102,7 @@
     <Compile Include="App_Data\Models\ItemCategory.generated.cs" />
     <Compile Include="App_Data\Models\ItemCollection3.generated.cs" />
     <Compile Include="App_Data\Models\LandingPage.generated.cs" />
+    <Compile Include="App_Data\Models\LandingPage5.generated.cs" />
     <Compile Include="App_Data\Models\Member.generated.cs" />
     <Compile Include="App_Data\Models\Monster.generated.cs" />
     <Compile Include="App_Data\Models\Monster2.generated.cs" />
@@ -6054,13 +6118,18 @@
     <Compile Include="App_Data\Models\RoleCollection.generated.cs" />
     <Compile Include="App_Data\Models\RoleCollection3.generated.cs" />
     <Compile Include="App_Data\Models\Spell.generated.cs" />
+    <Compile Include="App_Data\Models\Spell3.generated.cs" />
     <Compile Include="App_Data\Models\SpellSchool.generated.cs" />
     <Compile Include="App_Data\Models\SpellSchool3.generated.cs" />
     <Compile Include="App_Data\Models\SpellSchoolCollection.generated.cs" />
     <Compile Include="App_Data\Models\SpellSchoolCollection3.generated.cs" />
+    <Compile Include="App_Data\Models\TableData5.cs" />
     <Compile Include="App_Data\Models\Table.cs" />
     <Compile Include="App_Data\Models\Table.generated.cs" />
+    <Compile Include="App_Data\Models\Table5.generated.cs" />
     <Compile Include="App_Data\Models\TableCell.generated.cs" />
+    <Compile Include="App_Data\Models\TableData5.generated.cs" />
+    <Compile Include="App_Data\Models\TableItem5.generated.cs" />
     <Compile Include="Composers\MyCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -6158,7 +6227,6 @@
     <Content Include="Views\downloadPage.cshtml" />
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\LandingPage.cshtml" />
-    <Content Include="Views\master.cshtml" />
     <Content Include="Views\Spell.cshtml" />
     <Content Include="Views\SpellSchool.cshtml" />
     <Content Include="Views\text.cshtml" />
@@ -7455,6 +7523,30 @@
     <Content Include="Views\Partials\backup\NavbarScroll1.cshtml" />
     <Content Include="Views\Partials\backup\BottomNavigation2.cshtml" />
     <Content Include="Views\Partials\FooterScroll.cshtml" />
+    <Content Include="Views\Partials\backup\master.cshtml" />
+    <Content Include="Views\Partials\backup\BottomNavigation.cshtml" />
+    <Content Include="Views\Partials\blocks\bottom-nav\bottom-nav.cshtml" />
+    <Content Include="Views\Partials\blocks\bem-container\bemContainer2.cshtml" />
+    <Content Include="Views\Partials\blocks\bem-container\bemContainer - Copy.cshtml" />
+    <Content Include="Views\backup\Spell.cshtml" />
+    <Content Include="Views\master5.cshtml" />
+    <Content Include="Views\Partials\bem\master5.cshtml" />
+    <Content Include="Views\Partials\bem\BemLayout.cshtml" />
+    <Content Include="Views\Partials\backup\Download.cshtml" />
+    <Content Include="Views\About.cshtml" />
+    <Content Include="Views\about5.cshtml" />
+    <Content Include="Views\Partials\old\BottomNavigation.cshtml" />
+    <Content Include="Views\Partials\old\MainNavigation.cshtml" />
+    <Content Include="Views\Download5.cshtml" />
+    <Content Include="Views\Download6.cshtml" />
+    <Content Include="Views\home5.cshtml" />
+    <Content Include="Views\MacroPartials\heroImage.cshtml" />
+    <Content Include="Views\Partials\MainNavigation - Copy.cshtml" />
+    <Content Include="Views\MainNavigation.cshtml" />
+    <Content Include="Views\Partials\MainNavigation - Copy %282%29.cshtml" />
+    <Content Include="Views\Partials\BottomNavigation - Copy.cshtml" />
+    <Content Include="Views\tablePage - Copy.cshtml" />
+    <Content Include="Views\Partials\Table - Copy.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -7466,7 +7558,15 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.6.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.6.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_code\Blocks\NewFolder1\" />
+    <Folder Include="Views\Partials\blocks\bottom-nav\__column\" />
+    <Folder Include="Views\Partials\blocks\bottom-nav\__item\" />
+    <Folder Include="Views\Partials\blocks\bottom-nav\__row\" />
+    <Folder Include="Views\Partials\blocks\bottom-nav\__socials-container\" />
+    <Folder Include="Views\Partials\blocks\bottom-nav\__social\" />
+    <Folder Include="Views\Partials\blocks\bottom-nav\__title\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

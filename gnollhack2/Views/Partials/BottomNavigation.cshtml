@@ -1,39 +1,85 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using BemModels;
+@using Umbraco.Core.Logging;
+@using Umbraco.Core.Composing;
 @{
-    Layout = "Bronze.cshtml";
+    Layout = null;
     var home = Model.Root();
-    if (!home.IsDocumentType("LandingPage"))
+    var children = home.Children.Where(c => c.IsVisible());
+    var count = children.Count();
+    IEnumerable<BottomNav.Column> columns = BottomNav.GetColumns(count);
+    string[] colClsStrings = new string[count];
+    foreach (BottomNav.Column column in columns)
     {
-        home = home.Children.First();
+        for (int i = 0; i < column.Cols.Length; i++)
+        {
+            int colWidth = column.Cols[i];
+            colClsStrings[i] += " col-" + column.Cls + "-" + colWidth;
+        }
     }
-    ViewData["layout"] = "";
+
+    //Current.Logger.Info<UmbracoViewPage>("column {Columns} ", columns);
+    //Current.Logger.Info<UmbracoViewPage>("1/3: {Offsets} 1/2: {Offsets}", 1/3, 1/2);
+    //Current.Logger.Info<UmbracoViewPage>("=========================");
+
+    //foreach (BottomNav.Column column in columns)
+    //{
+    //    int[] colCounts = column.ColCounts;
+    //    int[] colWidths = column.ColWidths;
+    //    int[] possibleColCounts = column.PossibleColCounts;
+    //    int[] possibleColWidths = column.PossibleColWidths;
+    //    Current.Logger.Info<UmbracoViewPage>("column {Column} ", column);
+    //    Current.Logger.Info<UmbracoViewPage>("ColCounts: {ColCounts} colWidths: {ColWidths} ", colCounts, colWidths);
+    //    Current.Logger.Info<UmbracoViewPage>("possibleColCounts: {possibleColCounts} possibleColWidths: {possibleColWidths} ", possibleColCounts, possibleColWidths);
+    //    Current.Logger.Info<UmbracoViewPage>("column.OffsetMap: {OffsetMap} ", column.OffsetMap);
+    //    Current.Logger.Info<UmbracoViewPage>("Offsets: {Offsets} ", column.Offsets);
+    //    Current.Logger.Info<UmbracoViewPage>("_ _ _ _ _ _ _ _ _ _");
+    //    //foreach (KeyValuePair<float, List<BottomNav.Column.Col>> kvPair in column.OffsetMap)
+    //    //{
+    //    //    float offset = kvPair.Key;
+    //    //    List<BottomNav.Column.Col> cols = kvPair.Value;
+    //    //    Current.Logger.Debug<UmbracoViewPage>("Offset: {Offset} Cols: {Cols} " + cols.Count, offset, cols);
+    //    //}
+    //    Current.Logger.Info<UmbracoViewPage>("_________________________________");
+    //}
 }
 
-<div class="bottom-navigation">
-    @*<div class="row">
-        <div class="col-sm-12 text-center">
-            <h2 class="follow-us-header">Seuraa meitä</h2>
-        </div>
-    </div>*@
-    <div class="follow-us">
-        <div class="row">
-            <div class="col-sm-12">
-                <ul class="icons">
-                    <li><a href="https://www.facebook.com/hyvanmielenpelit" class="icon fa-facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="label">Facebook</span></a></li>
-                    <li><a href="https://github.com/hyvanmielenpelit/GnollHack/" class="icon fa-github" data-toggle="tooltip" data-placement="top" title="Github"><span class="label">Github</span></a></li>
-                    <li><a href="https://hyvanmielenpelit.fi/#" class="icon fa-home" data-toggle="tooltip" data-placement="top" title="Hyvanmielenpelit.fi"><span class="label">Hyvanmielenpelit.fi</span></a></li>
-                </ul>
+<div class="bottom-nav">
+    <div class="bem-container">
+        <div class="bem-container__border bem-container__border_size_m bem-container__border_style_bronze bottom-nav__border">
+            <div class="bem-container__background bem-container__background_style_wood">
+                <div class="bottom-nav__content">
+                    <ul class="bottom-nav__socials-container">
+                        <a class="link bottom-nav__link link__control i-bem" data-bem='{"link":{}}' role="link" tabindex="0">
+                            <li class="bottom-nav__social icon-facebook" title="facebook.com/hyvanmielenpelit" data-toggle="tooltip"></li>
+                        </a>
+                        <a class="link bottom-nav__link link__control i-bem" data-bem='{"link":{}}' role="link" tabindex="1">
+                            <li class="bottom-nav__social icon-sound-mind-games" title="hyvanmielenpelit.fi" data-toggle="tooltip"></li>
+                        </a>
+                        <a class="link bottom-nav__link link__control i-bem" data-bem='{"link":{}}' role="link" tabindex="2">
+                            <li class="bottom-nav__social icon-github-square" title="github.com/hyvanmielenpelit" data-toggle="tooltip"></li>
+                        </a>
+                    </ul>
+                    <div class="bottom-nav__row row">
+                        @for (int i = 0; i < count; i++)
+                        {
+                            IPublishedContent childpage = children.ElementAt(i);
+                            string cls = colClsStrings[i];
+                        <ul class="bottom-nav__column @cls">
+                            <li class="bottom-nav__title">
+                                <a href="@childpage.Url" class="link link__control i-bem" role="link" tabindex="0">@childpage.Name</a>
+                            </li>
+                            @foreach (IPublishedContent page in childpage.Children.Where(p => p.IsVisible()))
+                            {
+                                <li class="bottom-nav__item">
+                                    <a href="@page.Url" class="link link__control i-bem" role="link" tabindex="0">@page.Name</a>
+                                </li>
+                            }
+                        </ul>
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    @if (home.Children.Where(c => c.IsVisible()).Any())
-    {
-        @Html.Partial("FooterScroll")
-    }
 </div>
-
-<script>
-$(document).ready(function(){
-  $('[data-toggle="tooltip"]').tooltip();
-});
-</script>

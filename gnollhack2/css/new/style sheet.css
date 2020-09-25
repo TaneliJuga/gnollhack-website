@@ -1,0 +1,308 @@
+:root{
+  --navbar-height: 110px;
+  --home-text-height: 20px;
+}
+
+.navbar {
+  /* height: 138px; */
+  /* height: var(--navbar-height); */
+  /* height: 21px; */
+  /* height: var(--navbar-height); */
+}
+
+.navbar_fixed_top {
+  position: fixed;
+}
+
+.navbar-brand__image {
+  height: 60px;
+}
+
+.navbar-brand__text {
+  color: #e0ca00 !important;
+  font-family: "Berkshire Swash", cursive;
+  text-align: center;
+}
+
+.heading {
+  text-align: center;
+}
+
+.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding: 0;
+  /* padding: 10%; */
+  /* padding: 9px; */
+  color: #e0ca00 !important;
+  /* height: unset !important; */
+  /* margin-top: 3px; */
+  font-family: "Berkshire Swash", cursive;
+}
+.navbar-brand__img {
+  height: 60px;
+}
+.navbar-brand:hover {
+  animation: highlight 0.5s 1;
+  animation-fill-mode: forwards;
+}
+@keyframes highlight {
+  from {
+    filter: drop-shadow(0px 0 10px rgba(224, 202, 0, 0.3)) contrast(100%);
+  }
+  to {
+    filter: drop-shadow(0px 0 20px #fff48d) contrast(120%);
+    font-weight: 500;
+    color: #fff48d;
+    text-shadow: 0 0 10px #e0ca00;
+  }
+}
+
+.menu {
+  float: none;
+  margin: 0 100px 0 0;
+  justify-content: center;
+}
+
+
+
+
+.link-container, .link-container_style_navbar, .link-container_style_footer {
+  font-size: 18px;
+  text-align: center;
+}
+.link-container__item, .link-container__item_flex, .link-container__item_column_header {
+  max-width: 250px;
+  margin: 5px;
+}
+.link-container__item_column_header {
+  font-family: "Rye", cursive;
+  font-weight: 500;
+  text-decoration: underline;
+  font-size: 120%;
+}
+.link-container__item_flex {
+  flex: 1;
+}
+.link-container_type_column, .link-container_style_footer {
+  margin: 0;
+  padding: 0;
+}
+.link-container_type_flex, .link-container_style_navbar {
+  display: flex;
+  float: none;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.link-container_type_flex::after, .link-container_style_navbar::after {
+  margin-right: -250px;
+  min-width: 250px;
+  max-width: 320px;
+  flex: 1;
+}
+
+.bem-navbar__container_outer {
+  padding: 10px;
+}
+.bem-navbar__container_size_fill {
+  height: 100%;
+}
+.bem-navbar__link-container {
+  display: flex;
+  float: none;
+  justify-content: center;
+  align-items: center;
+}
+.bem-navbar__link-container::after {
+  margin-right: -250px;
+  min-width: 250px;
+  max-width: 320px;
+  flex: 1;
+}
+.bem-navbar__link-container-item {
+  max-width: 250px;
+  margin: 5px;
+  flex: 1;
+}
+
+
+
+.nav-centered {
+  display: flex;
+  justify-content: flex-start;
+}
+.nav-centered ::before {
+  flex: 1;
+  margin-left: -325px;
+  min-width: 325px;
+}
+.nav-centered ::after {
+  flex: 1;
+  margin-right: -250px;
+  min-width: 250px;
+}
+
+
+
+
+
+
+.block, .block_style_footer, .block_style_navbar {
+  text-align: center;
+  border: solid transparent;
+}
+.block__border-image-bg {
+  margin: -3px;
+}
+.block_bg_wood {
+  background-image: url(/media/uv3juqsv/woodalbedo2.png);
+  color: #e0ca00;
+}
+.block_bg_wood a:hover {
+  color: #fff48d;
+  text-shadow: 0 0 10px #fff48d;
+}
+.block_bg_scroll {
+  background-color: #efe4b3;
+  color: #252323;
+}
+.block_bg_scroll a:hover {
+  color: #00d2d2;
+  text-shadow: 0 0 10px #00d2d2;
+}
+.block_pos_top, .block_style_navbar {
+  border-top: none;
+}
+.block_pos_top .block__border-image-bg, .block_style_navbar .block__border-image-bg {
+  margin-top: 0;
+}
+.block_pos_bottom, .block_style_footer {
+  border-bottom: none;
+}
+.block_pos_bottom .block__border-image-bg, .block_style_footer .block__border-image-bg {
+  margin-bottom: 0;
+}
+.block_border-size_m, .block_style_footer, .block_style_navbar {
+  border-width: 40px;
+}
+.block_border-size_s {
+  border-width: 30px;
+}
+.block_border_scroll {
+  border-image: url(/media/clhdyisu/scroll_paper.png) 303 359 326 335 round;
+}
+.block_border_bronze, .block_style_footer, .block_style_navbar {
+  border-image: url(/media/b50fbr0r/gnollhack-icon-v10.png) 83 87 85 88 stretch;
+}
+.block_style_navbar {
+  box-sizing: content-box;
+  height: var(--navbar-height);
+  background: transparent;
+}
+
+
+
+
+.page, .page_style_main {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: flex-start;
+  font-size: 16px;
+  font-family: "Berkshire Swash", cursive;
+  color: #e0ca00;
+  /* width: 100%; */
+
+}
+.page__section_width_full {
+  width: 100%;
+  /* align-self: flex-start; */
+  /* width: max-content; */
+}
+.page__section_align_bottom {
+  align-self: flex-end;
+}
+.page__layout-container {
+  display: contents;
+  font-size: 16px;
+  font-family: "Berkshire Swash", cursive;
+}
+.page_theme_dungeon, .page_style_main {
+  background-image: url(/media/b5edze2t/gradient-wide-left.png), url(/media/tbogfdxi/gradient-wide-right.png), url(/media/wxqhj3wx/brick-bg.jpg);
+  background-position: left top, right top, center;
+  background-repeat: repeat-y, repeat-y, repeat;
+  background-attachment: fixed;
+}
+
+.page .container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.page_style_main .container {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+
+
+.bem-navbar__container_outer {
+  padding: 10px;
+}
+.bem-navbar__container_size_fill {
+  height: 100%;
+}
+
+
+
+.large-letter {
+  /* display: inline; */
+  /* font-size: 300%; */
+  /* line-height: 80%; */
+  /* color: #bd0000; */
+  /* font-family: "Rye", cursive; */
+}
+
+
+
+
+a{
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Rye', cursive;
+}
+
+p{
+  text-align:left
+}
+
+li{
+  list-style: none;
+}
+
+.icons li {
+    display: inline-block;
+    font-size: 40px;
+    padding: 0 10px;
+}
+
+
+
+
+.paragraph_style_medieval {
+  font-family: "Berkshire Swash", cursive;
+  color: #252323;
+}
+.paragraph_style_medieval::first-letter {
+  font-size: 300%;
+  line-height: 80%;
+  color: #bd0000;
+  font-family: "Rye", cursive;
+}
+
+.icons a:hover {
+    text-decoration: none;
+}

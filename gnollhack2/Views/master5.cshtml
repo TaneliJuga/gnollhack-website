@@ -1,0 +1,82 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using System.Configuration
+@using System.Globalization
+@{
+    Layout = null;
+    var lang = "en-US";
+}
+
+<!DOCTYPE html>
+<html lang="@lang">
+<head>
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@Model.Value("siteDescription")">
+
+
+    <title>@Model.Name</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Berkshire+Swash&amp;amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rye&amp;amp;display=swap">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/common.min.css">
+    <link rel="stylesheet" href="~/css/iconmoon.min.css">
+
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="~/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="~/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="~/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="~/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="~/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="~/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="~/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="~/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="~/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="~/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="&nbsp;" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="~/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="~/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="~/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="~/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="~/mstile-310x310.png" />
+
+    <!-- Scripts -->
+    <script>
+        (function (e, c) {
+            e[c] = e[c].replace(/(ua_js_)no/g, "$1yes");
+        }
+        )(document.documentElement, "className");
+    </script>
+</head>
+
+
+
+<body class="page layout container">
+    @Html.Partial("MainNavigation")
+    <div class="fixed-nav-padding"></div>
+
+    <section class="layout__center">
+        @RenderBody()
+    </section>
+    <section class="layout__bottom">
+        @Html.Partial("BottomNavigation")
+    </section>
+
+    <!-- Javascripts -->
+    @*<script src="/js/bootstrap.min.js"></script>*@
+    <script src="~/js/common.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

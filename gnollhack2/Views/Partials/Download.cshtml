@@ -1,16 +1,26 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage <ContentModels.DownloadPage>
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<DownloadPage>
 @using ContentModels = Umbraco.Web.PublishedModels;
-<div class="download-container">
-    <div class="download-box">
-        <h3 style="font-weight: bold;">@Model.Value("heading")</h3>
-        <p>@Model.Value("description")</p>
-        <a class="download-link" href="https://github.com/hyvanmielenpelit/GnollHack">
-            <h1><span class="icon fa-download"></span>DOWNLOAD<span class="icon fa-download"></span></h1>
-            <img src="/Media/myflkvuz/gnollhack-icon-v2-512.png" class="img-responsive download" style="display:inline" alt="gnollhack logo" width="350">
-        </a>
-        <h4>Version</h4>
-        <p>@Model.Value("version") Released on: @Model.ReleaseDate</p>
-        <p style="padding: 10px 0px 0px 0px;"><a href="https://www.facebook.com/gnollcampaign/"><img src="/img/FindUs-FB-RGB-BRC-Site-500.png" style="max-height: 33px;" /></a></p>
+
+<div class="download-box">
+    <div class="bem-container">
+        <div class="bem-container__border bem-container__border_size_m bem-container__border_style_scroll">
+            <div class="bem-container__background bem-container__background_style_scroll">
+                <div class="scroll container-fluid">
+                    <div class="scroll__description">
+                        <h2 class="scroll__headline">@Model.Value("heading")</h2>
+                        <p class="scroll__text scroll__text_centered">@Model.Value("description")</p>
+                    </div>
+                    <a class="link download-box__link link__control i-bem" data-bem='{"link":{}}' role="link" tabindex="0">
+                        <div class="download-box__title-container">
+                            <h2 class="download-box__title">Download</h2>
+                            <div class="download-box__icon icon-download"></div>
+                        </div>
+                        <img class="image" src="../../Media/myflkvuz/gnollhack-icon-v2-512.png" width="300px" height="300px">
+                    </a>
+                    <div class="download-box__info">@Model.Value("version"), released on: @Model.ReleaseDate</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
+ 

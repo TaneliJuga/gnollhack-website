@@ -53,6 +53,13 @@ namespace Umbraco.Web.PublishedModels
 		public Newtonsoft.Json.Linq.JToken Content => this.Value<Newtonsoft.Json.Linq.JToken>("content");
 
 		///<summary>
+		/// Grid2
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("grid2")]
+		public Newtonsoft.Json.Linq.JToken Grid2 => this.Value<Newtonsoft.Json.Linq.JToken>("grid2");
+
+		///<summary>
 		/// Site Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]

@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<About>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+   Layout = "master5.cshtml";
+   //Layout = null;
+}
+
+<div class="bem-container bem-container_width_fit-content">
+    <div class="bem-container__border bem-container__border_size_m bem-container__border_style_scroll">
+        <div class="bem-container__background bem-container__background_style_scroll">
+            <div class="scroll scroll_content-type_text container-fluid">
+                <h2 class="scroll__headline">@Model.Headline</h2>
+                <p class="scroll__text">@Model.Description</p>
+            </div>
+        </div>
+    </div>
+</div>

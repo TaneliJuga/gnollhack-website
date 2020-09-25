@@ -1,0 +1,75 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<BemContainerData>
+@{
+    public class Style
+    {
+        private string Name { get; }
+        private string Bg { get; }
+        private string Border { get; }
+
+        Style(string name, string bg, string border)
+        {
+            this.Name = name;
+            this.Bg = bg;
+            this.Border = border;
+        }
+
+        public static void content(BemContainerData Model)
+        {
+            string borderSize = Model.BorderSize ?? "m";
+            string styleName = Model.Style;
+
+            Style[] styles =
+            {
+                new Style("wood", "wood", "bronze"),
+                new Style("scroll", "scroll", "scroll")
+            };
+
+            Style style = styles.First(e =>
+            {
+                return e.Name == styleName;
+            });
+
+            style = style ?? styles[0];
+        }
+    }
+
+    var cls = "bem-container__border";
+}
+
+<div class=@cls></div>
+
+@helper content(string style, string borderSize, HelperResult content)
+{
+    string cls = "bem-container__border";
+    if (style != null)
+    {
+        cls += "_style_" + style;
+    }
+    <div class="bem-container__background">
+        @content
+    </div>
+}
+
+@helper background(string style, HelperResult content)
+{
+string cls = "bem-container__background";
+if (style != null)
+{
+    cls += "_style_" + style;
+}
+    <div class="bem-container__background">
+        @content
+    </div>
+}
+
+@helper border(string style, string borderSize, HelperResult content)
+{
+string cls = "bem-container__border";
+if (style != null)
+{
+    cls += "_style_" + style;
+}
+    <div class="bem-container__background">
+        @content
+    </div>
+}
